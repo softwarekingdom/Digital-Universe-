@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Digital Universe — அறிவியல் உலகத்தை ஆராயும் உங்கள் Main Dashboard."
+    >
+
+    <meta name="theme-color" content="#030712">
+
+    <title>
+        Digital Universe | Main Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="main-dashboard.css"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         BACKGROUND
+         ========================================= -->
+
+    <div class="dashboard-background">
+
+        <div class="dashboard-stars stars-layer-one"></div>
+
+        <div class="dashboard-stars stars-layer-two"></div>
+
+        <div class="dashboard-nebula"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         MOBILE HEADER
+         ========================================= -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="index.html"
+            class="dashboard-brand"
+        >
+
+            <div class="brand-orbit">
+
+                <span></span>
+
+                <strong>DU</strong>
+
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    DIGITAL UNIVERSE
+                </strong>
+
+                <span>
+                    SCIENCE EXPLORATION
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+
+    <!-- =========================================
+         NAVIGATION
+         ========================================= -->
+
+    <nav
+        class="dashboard-navigation"
+        id="dashboard-navigation"
+    >
+
+        <a
+            href="index.html"
+            class="nav-home"
+        >
+            ← Home
+        </a>
+
+        <a
+            href="#dashboard-home"
+            class="active"
+        >
+            Dashboard
+        </a>
+
+        <a href="#quick-actions">
+            Explore
+        </a>
+
+        <a href="#universe-map">
+            Universe Map
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+    </nav>
+
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
+    <main>
+
+
+        <!-- =====================================
+             HERO / WELCOME
+             ===================================== -->
+
+        <section
+            class="dashboard-hero"
+            id="dashboard-home"
+        >
+
+            <div class="hero-content">
+
+                <span class="dashboard-eyebrow">
+                    ✦ YOUR SCIENCE UNIVERSE
+                </span>
+
+                <h1>
+
+                    DIGITAL
+                    <span>UNIVERSE</span>
+
+                </h1>
+
+                <p class="hero-tamil-title">
+
+                    அறிவைத் தேடு.
+                    பிரபஞ்சத்தை ஆராய்.
+                    எதிர்காலத்தை உருவாக்கு.
+
+                </p>
+
+                <p class="hero-description">
+
+                    விண்வெளி முதல் கடலின் ஆழம் வரை,
+                    பூமி முதல் மனித பரிணாமம் வரை,
+                    அறிவியல் கண்டுபிடிப்புகள் முதல்
+                    எதிர்கால தொழில்நுட்பம் வரை —
+                    அனைத்தையும் ஒரே இடத்தில் ஆராயுங்கள்.
+
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="#quick-actions"
+                        class="primary-hero-button"
+                    >
+
+                        <span>
+                            🚀
+                        </span>
+
+                        Explore Universe
+
+                    </a>
+
+                    <a
+                        href="index.html"
+                        class="secondary-hero-button"
+                    >
+
+                        ← Back to Introduction
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- HERO PLANET -->
+
+            <div class="hero-visual">
+
+                <div class="hero-orbit orbit-a"></div>
+
+                <div class="hero-orbit orbit-b"></div>
+
+                <div class="hero-orbit orbit-c"></div>
+
+                <div class="hero-planet">
+
+                    <div class="planet-glow"></div>
+
+                    <div class="planet-surface">
+
+                        <span>
+                            DU
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-scroll-indicator">
+
+                <span>
+                    SCROLL TO EXPLORE
+                </span>
+
+                <i></i>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             DASHBOARD INTRO
+             ===================================== -->
+
+        <section class="dashboard-intro">
+
+            <div class="section-heading">
+
+                <span class="section-number">
+                    01
+                </span>
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        EXPLORE THE UNKNOWN
+                    </span>
+
+                    <h2>
+                        உங்கள் அறிவியல் பயணம்
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="section-description">
+
+                கீழே உள்ள உலகங்களில் ஒன்றைத் தேர்ந்தெடுத்து
+                உங்கள் ஆராய்ச்சியைத் தொடங்குங்கள்.
+                ஒவ்வொரு பகுதியும் தனித்துவமான அறிவியல்
+                தகவல்கள், விளக்கங்கள் மற்றும் கண்டுபிடிப்புகளுடன்
+                உங்களை ஒரு புதிய உலகத்திற்கு அழைத்துச் செல்லும்.
+
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+             QUICK ACTIONS START
+             ===================================== -->
+
+        <section
+            class="quick-actions-section"
+            id="quick-actions"
+        >
+
+            <div class="quick-actions-heading">
+
+                <span class="section-eyebrow">
+                    QUICK ACTIONS
+                </span>
+
+                <h2>
+                    எந்த உலகத்தை
+                    <span>ஆராயப் போகிறீர்கள்?</span>
+                </h2>
+
+                <p>
+                    ஒரு card-ஐ தேர்வு செய்து
+                    அந்த அறிவியல் உலகிற்குள் செல்லுங்கள்.
+                </p>
+
+            </div>
+
+
+            <div class="quick-actions-grid">
+
+
+                <!-- 01 SPACE -->
+
+                <a
+                    href="space.html"
+                    class="quick-action-card space-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            01
+                        </span>
+
+                        <span class="card-icon">
+                            🌌
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            SPACE SCIENCE
+                        </span>
+
+                        <h3>
+                            விண்வெளியை ஆராய
+                        </h3>
+
+                        <p>
+                            நட்சத்திரங்கள்,
+                            விண்மீன் திரள்கள்,
+                            கருந்துளைகள் மற்றும்
+                            பிரபஞ்சத்தின் மர்மங்களை அறியுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE SPACE
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- 02 OCEAN -->
+
+                <a
+                    href="sea-mysteries.html"
+                    class="quick-action-card ocean-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            02
+                        </span>
+
+                        <span class="card-icon">
+                            🌊
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            OCEAN SCIENCE
+                        </span>
+
+                        <h3>
+                            கடலின் மர்மங்கள்
+                        </h3>
+
+                        <p>
+                            கடலின் ஆழம்,
+                            மர்மமான உயிரினங்கள்
+                            மற்றும் இன்னும் அறியப்படாத
+                            உலகத்தை ஆராயுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE OCEAN
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- 03 EARTH -->
+
+                <a
+                    href="earth-science.html"
+                    class="quick-action-card earth-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            03
+                        </span>
+
+                        <span class="card-icon">
+                            🌍
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            EARTH SCIENCE
+                        </span>
+
+                        <h3>
+                            புவியை ஆழமாக அறிய
+                        </h3>
+
+                        <p>
+                            வளிமண்டலம்,
+                            நிலத்தட்டு இயக்கம்,
+                            நீர் சுழற்சி மற்றும்
+                            பூமியின் இயற்கை அமைப்புகளை அறியுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE EARTH
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- 04 EVOLUTION -->
+
+                <a
+                    href="human-evolution.html"
+                    class="quick-action-card evolution-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            04
+                        </span>
+
+                        <span class="card-icon">
+                            🧬
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            HUMAN EVOLUTION
+                        </span>
+
+                        <h3>
+                            மனித பரிணாம வளர்ச்சி
+                        </h3>
+
+                        <p>
+                            நமது முன்னோர்கள் முதல்
+                            இன்றைய மனிதர்கள் வரை
+                            மனித பரிணாமத்தின்
+                            நீண்ட பயணத்தை அறியுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE EVOLUTION
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+                                <!-- 05 HUMAN INVENTION -->
+
+                <a
+                    href="human-invention.html"
+                    class="quick-action-card invention-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            05
+                        </span>
+
+                        <span class="card-icon">
+                            💡
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            SCIENTIFIC DISCOVERIES
+                        </span>
+
+                        <h3>
+                            விஞ்ஞான கண்டுபிடிப்புகள்
+                        </h3>
+
+                        <p>
+                            மின்சாரம் முதல் கணினி,
+                            இணையம் முதல் செயற்கை நுண்ணறிவு வரை
+                            மனித அறிவை மாற்றிய கண்டுபிடிப்புகளை அறியுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE DISCOVERIES
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- 06 FUTURE SCIENCE -->
+
+                <a
+                    href="future-science.html"
+                    class="quick-action-card future-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            06
+                        </span>
+
+                        <span class="card-icon">
+                            🚀
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            FUTURE SCIENCE
+                        </span>
+
+                        <h3>
+                            எதிர்கால விஞ்ஞானம்
+                        </h3>
+
+                        <p>
+                            செயற்கை நுண்ணறிவு,
+                            விண்வெளி பயணம்,
+                            புதிய ஆற்றல் மற்றும்
+                            நாளைய தொழில்நுட்பங்களை ஆராயுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE FUTURE
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- 07 OUR EARTH -->
+
+                <a
+                    href="our-earth.html"
+                    class="quick-action-card home-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            07
+                        </span>
+
+                        <span class="card-icon">
+                            🌎
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            OUR HOME
+                        </span>
+
+                        <h3>
+                            நமது வீடு பூமி
+                        </h3>
+
+                        <p>
+                            விண்வெளியில் இருந்து பார்க்கும்
+                            நமது நீலக் கோள்,
+                            அதன் அழகு, வளங்கள் மற்றும்
+                            நமது பொறுப்பை அறியுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            EXPLORE OUR EARTH
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+                <!-- 08 ABOUT -->
+
+                <a
+                    href="about.html"
+                    class="quick-action-card about-card"
+                >
+
+                    <div class="card-top">
+
+                        <span class="card-number">
+                            08
+                        </span>
+
+                        <span class="card-icon">
+                            👨‍💻
+                        </span>
+
+                    </div>
+
+                    <div class="card-content">
+
+                        <span class="card-category">
+                            CREATOR
+                        </span>
+
+                        <h3>
+                            உருவாக்கியவரை அறிய
+                        </h3>
+
+                        <p>
+                            Digital Universe-ஐ உருவாக்கியவர்,
+                            இந்த திட்டத்தின் நோக்கம் மற்றும்
+                            அறிவியலை அனைவருக்கும் கொண்டு செல்லும்
+                            பயணத்தைப் பற்றி அறியுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <span>
+                            MEET THE CREATOR
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             UNIVERSE MAP
+             ===================================== -->
+
+        <section
+            class="universe-map-section"
+            id="universe-map"
+        >
+
+            <div class="map-heading">
+
+                <span class="section-eyebrow">
+                    DIGITAL UNIVERSE MAP
+                </span>
+
+                <h2>
+                    எட்டு உலகங்கள்.
+                    <span>ஒரே பயணம்.</span>
+                </h2>
+
+                <p>
+                    உங்கள் ஆராய்ச்சி பயணத்தை
+                    எந்த இடத்திலிருந்தும் தொடங்கலாம்.
+                </p>
+
+            </div>
+
+
+            <div class="universe-map-visual">
+
+                <div class="map-orbit map-orbit-one"></div>
+
+                <div class="map-orbit map-orbit-two"></div>
+
+                <div class="map-center">
+
+                    <span>
+                        DU
+                    </span>
+
+                    <small>
+                        DIGITAL
+                        UNIVERSE
+                    </small>
+
+                </div>
+
+
+                <a
+                    href="space.html"
+                    class="map-node map-node-one"
+                >
+                    🌌
+                    <span>SPACE</span>
+                </a>
+
+
+                <a
+                    href="sea-mysteries.html"
+                    class="map-node map-node-two"
+                >
+                    🌊
+                    <span>OCEAN</span>
+                </a>
+
+
+                <a
+                    href="earth-science.html"
+                    class="map-node map-node-three"
+                >
+                    🌍
+                    <span>EARTH</span>
+                </a>
+
+
+                <a
+                    href="human-evolution.html"
+                    class="map-node map-node-four"
+                >
+                    🧬
+                    <span>EVOLUTION</span>
+                </a>
+
+
+                <a
+                    href="future-science.html"
+                    class="map-node map-node-five"
+                >
+                    🚀
+                    <span>FUTURE</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FINAL DASHBOARD CTA
+             ===================================== -->
+
+        <section class="dashboard-final-cta">
+
+            <div class="final-cta-content">
+
+                <span class="section-eyebrow">
+                    THE UNIVERSE IS WAITING
+                </span>
+
+                <h2>
+                    உங்கள் அடுத்த
+                    <span>கண்டுபிடிப்பு என்ன?</span>
+                </h2>
+
+                <p>
+                    ஒரு உலகத்தைத் தேர்ந்தெடுத்து
+                    உங்கள் அறிவியல் பயணத்தைத் தொடருங்கள்.
+                </p>
+
+                <a
+                    href="space.html"
+                    class="final-explore-button"
+                >
+                    🚀 Start Exploring
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             FOOTER
+             ===================================== -->
+
+        <footer class="dashboard-footer">
+
+            <div class="footer-main">
+
+                <a
+                    href="index.html"
+                    class="footer-brand"
+                >
+
+                    <strong>
+                        DIGITAL UNIVERSE
+                    </strong>
+
+                    <span>
+                        EXPLORE · LEARN · DISCOVER
+                    </span>
+
+                </a>
+
+
+                <div class="footer-navigation">
+
+                    <a href="space.html">
+                        Space
+                    </a>
+
+                    <a href="sea-mysteries.html">
+                        Ocean
+                    </a>
+
+                    <a href="earth-science.html">
+                        Earth
+                    </a>
+
+                    <a href="human-evolution.html">
+                        Evolution
+                    </a>
+
+                    <a href="human-invention.html">
+                        Discoveries
+                    </a>
+
+                    <a href="future-science.html">
+                        Future
+                    </a>
+
+                    <a href="our-earth.html">
+                        Our Earth
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span id="footer-year"></span>
+                    Digital Universe.
+                </p>
+
+                <a href="#dashboard-home">
+                    ↑ Back to top
+                </a>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="main-dashboard.js"></script>
+
+</body>
+
+</html>

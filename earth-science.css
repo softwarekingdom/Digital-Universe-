@@ -1,0 +1,2163 @@
+
+/* =========================================
+   EARTH SCIENCE
+   PART 1 — CSS A
+========================================= */
+
+
+/* =========================================
+   ROOT COLORS
+========================================= */
+
+:root {
+
+    --earth-dark-green: #064d2f;
+    --earth-green: #087a45;
+    --earth-green-light: #dff5e9;
+
+    --earth-dark-blue: #043b66;
+    --earth-blue: #075e96;
+    --earth-blue-light: #e0f1fb;
+
+    --earth-white: #ffffff;
+    --earth-background: #f4fbf7;
+
+    --earth-text: #17352a;
+    --earth-muted: #60776d;
+
+    --earth-border: #cfe5da;
+
+    --earth-shadow:
+        0 12px 30px rgba(4, 59, 102, 0.10);
+
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        var(--earth-background);
+
+    color:
+        var(--earth-text);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.earth-science-header {
+
+    width: 100%;
+
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding:
+        14px 6%;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--earth-dark-green),
+            var(--earth-dark-blue)
+        );
+
+    color: var(--earth-white);
+
+    border-bottom:
+        3px solid var(--earth-green);
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.earth-science-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+
+.earth-brand-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    font-size: 28px;
+
+    flex-shrink: 0;
+}
+
+
+.earth-brand-text h1 {
+
+    font-size: 1.15rem;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.3px;
+}
+
+
+.earth-brand-text span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 0.75rem;
+
+    opacity: 0.82;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.earth-science-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.earth-science-nav a {
+
+    padding:
+        8px 13px;
+
+    border-radius: 8px;
+
+    font-size: 0.88rem;
+
+    font-weight: 650;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.earth-science-nav a:hover {
+
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.earth-science-main {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        45px 6% 70px;
+}
+
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.earth-introduction {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(280px, 0.65fr);
+
+    gap: 45px;
+
+    align-items: center;
+
+    min-height: 470px;
+}
+
+
+.earth-intro-content {
+
+    max-width: 680px;
+}
+
+
+.earth-small-label {
+
+    display: inline-block;
+
+    padding:
+        6px 12px;
+
+    border-radius: 30px;
+
+    background:
+        var(--earth-green-light);
+
+    color:
+        var(--earth-dark-green);
+
+    font-size: 0.76rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.earth-intro-content h2 {
+
+    margin-top: 18px;
+
+    font-size:
+        clamp(2rem, 5vw, 3.7rem);
+
+    line-height: 1.15;
+
+    color:
+        var(--earth-dark-blue);
+}
+
+
+.earth-intro-content h2 strong {
+
+    display: block;
+
+    color:
+        var(--earth-dark-green);
+}
+
+
+.earth-intro-content p {
+
+    max-width: 650px;
+
+    margin-top: 18px;
+
+    color:
+        var(--earth-muted);
+
+    font-size:
+        clamp(0.96rem, 2vw, 1.05rem);
+}
+
+
+/* =========================================
+   INTRO BUTTON
+========================================= */
+
+.earth-intro-actions {
+
+    margin-top: 28px;
+}
+
+
+.earth-primary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        12px 20px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--earth-dark-green),
+            var(--earth-dark-blue)
+        );
+
+    color:
+        var(--earth-white);
+
+    font-weight: 750;
+
+    box-shadow:
+        0 8px 20px
+        rgba(4, 59, 102, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.earth-primary-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 25px
+        rgba(4, 59, 102, 0.24);
+}
+/* =========================================
+   EARTH SCIENCE
+   PART 1 — CSS B
+========================================= */
+
+
+/* =========================================
+   EARTH VISUAL CARD
+========================================= */
+
+.earth-visual-card {
+
+    min-height: 350px;
+
+    padding: 35px 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e8f8ef,
+            #e4f3fb
+        );
+
+    border:
+        1px solid var(--earth-border);
+
+    border-radius: 24px;
+
+    box-shadow:
+        var(--earth-shadow);
+}
+
+
+.earth-circle {
+
+    width: 190px;
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--earth-green),
+            var(--earth-blue)
+        );
+
+    box-shadow:
+        inset 0 0 0 10px
+        rgba(255, 255, 255, 0.13),
+
+        0 18px 35px
+        rgba(4, 59, 102, 0.20);
+}
+
+
+.earth-circle-symbol {
+
+    font-size: 92px;
+
+    line-height: 1;
+
+    filter:
+        drop-shadow(
+            0 8px 10px
+            rgba(0, 0, 0, 0.18)
+        );
+}
+
+
+.earth-visual-card h3 {
+
+    margin-top: 25px;
+
+    color:
+        var(--earth-dark-green);
+
+    font-size: 1.25rem;
+}
+
+
+.earth-visual-card p {
+
+    margin-top: 6px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   TOPIC INTRO
+========================================= */
+
+.earth-topic-intro {
+
+    margin-top: 55px;
+}
+
+
+.section-heading {
+
+    text-align: center;
+
+    max-width: 700px;
+
+    margin:
+        0 auto 30px;
+}
+
+
+.section-heading span {
+
+    color:
+        var(--earth-green);
+
+    font-size: 0.75rem;
+
+    font-weight: 850;
+
+    letter-spacing: 1.5px;
+}
+
+
+.section-heading h2 {
+
+    margin-top: 7px;
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size:
+        clamp(1.7rem, 4vw, 2.4rem);
+
+    line-height: 1.25;
+}
+
+
+.section-heading p {
+
+    margin-top: 8px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.95rem;
+}
+
+
+/* =========================================
+   TOPIC GRID
+========================================= */
+
+.earth-topic-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+/* =========================================
+   TOPIC CARD
+========================================= */
+
+.earth-topic-card {
+
+    display: flex;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    background:
+        var(--earth-white);
+
+    border:
+        1px solid var(--earth-border);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(4, 59, 102, 0.06);
+}
+
+
+.topic-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--earth-green-light),
+            var(--earth-blue-light)
+        );
+
+    font-size: 25px;
+}
+
+
+.topic-content h3 {
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size: 1rem;
+
+    line-height: 1.3;
+}
+
+
+.topic-content p {
+
+    margin-top: 5px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   DASHBOARD INTRO
+========================================= */
+
+.earth-dashboard-intro {
+
+    margin-top: 50px;
+}
+
+
+.dashboard-intro-box {
+
+    padding:
+        35px 30px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--earth-green-light),
+            var(--earth-blue-light)
+        );
+
+    border:
+        1px solid var(--earth-border);
+}
+
+
+.dashboard-intro-box h2 {
+
+    margin-top: 10px;
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size:
+        clamp(1.45rem, 3vw, 2rem);
+}
+
+
+.dashboard-intro-box p {
+
+    max-width: 650px;
+
+    margin:
+        10px auto 20px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.95rem;
+}
+
+
+.earth-secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        10px 18px;
+
+    border-radius: 9px;
+
+    background:
+        var(--earth-dark-blue);
+
+    color:
+        var(--earth-white);
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.earth-secondary-button:hover {
+
+    background:
+        var(--earth-dark-green);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .earth-introduction {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 35px;
+
+        min-height: auto;
+    }
+
+
+    .earth-intro-content {
+
+        max-width: none;
+
+        text-align: center;
+    }
+
+
+    .earth-intro-content p {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .earth-topic-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .earth-science-nav {
+
+        gap: 3px;
+    }
+
+
+    .earth-science-nav a {
+
+        padding:
+            7px 9px;
+
+        font-size: 0.8rem;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+
+    .earth-science-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding:
+            14px 5%;
+
+        gap: 12px;
+    }
+
+
+    .earth-science-nav {
+
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 5px;
+    }
+
+
+    .earth-science-nav a {
+
+        text-align: center;
+
+        padding:
+            7px 4px;
+
+        font-size: 0.72rem;
+
+        background:
+            rgba(255, 255, 255, 0.07);
+    }
+
+
+    .earth-science-main {
+
+        padding:
+            32px 5% 55px;
+    }
+
+
+    .earth-intro-content h2 {
+
+        font-size:
+            clamp(1.8rem, 9vw, 2.5rem);
+    }
+
+
+    .earth-intro-content p {
+
+        font-size: 0.91rem;
+    }
+
+
+    .earth-primary-button {
+
+        width: 100%;
+
+        padding:
+            12px 15px;
+    }
+
+
+    .earth-visual-card {
+
+        min-height: 310px;
+
+        padding: 25px 18px;
+    }
+
+
+    .earth-circle {
+
+        width: 155px;
+        height: 155px;
+    }
+
+
+    .earth-circle-symbol {
+
+        font-size: 75px;
+    }
+
+
+    .earth-topic-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 13px;
+    }
+
+
+    .earth-topic-card {
+
+        padding: 17px;
+    }
+
+
+    .dashboard-intro-box {
+
+        padding:
+            28px 18px;
+    }
+
+
+    .earth-secondary-button {
+
+        width: 100%;
+    }
+}
+/* =========================================
+   EARTH SCIENCE
+   PART 2 — CSS A
+   IMAGE SHOWCASE
+========================================= */
+
+
+/* =========================================
+   IMAGE SHOWCASE
+========================================= */
+
+.earth-image-showcase {
+
+    margin-top: 65px;
+}
+
+
+.earth-image-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   IMAGE CARD
+========================================= */
+
+.earth-image-card {
+
+    overflow: hidden;
+
+    background:
+        var(--earth-white);
+
+    border:
+        1px solid var(--earth-border);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 28px
+        rgba(4, 59, 102, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.earth-image-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 16px 35px
+        rgba(4, 59, 102, 0.14);
+}
+
+
+/* =========================================
+   IMAGE WRAPPER
+========================================= */
+
+.earth-image-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 215px;
+
+    overflow: hidden;
+
+    background:
+        var(--earth-dark-blue);
+}
+
+
+.earth-image-wrapper img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.earth-image-card:hover
+.earth-image-wrapper img {
+
+    transform:
+        scale(1.04);
+}
+
+
+/* =========================================
+   IMAGE LABEL
+========================================= */
+
+.image-label {
+
+    position: absolute;
+
+    left: 12px;
+    bottom: 12px;
+
+    padding:
+        6px 10px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(4, 59, 102, 0.86);
+
+    color:
+        var(--earth-white);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+/* =========================================
+   IMAGE CONTENT
+========================================= */
+
+.earth-image-content {
+
+    padding:
+        20px;
+}
+
+
+.earth-image-content h3 {
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size:
+        1.08rem;
+}
+
+
+.earth-image-content p {
+
+    margin-top: 7px;
+
+    color:
+        var(--earth-muted);
+
+    font-size:
+        0.86rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FACT SECTION
+========================================= */
+
+.earth-fact-section {
+
+    margin-top: 55px;
+}
+
+
+.earth-fact-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding:
+        30px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--earth-dark-green),
+            var(--earth-dark-blue)
+        );
+
+    color:
+        var(--earth-white);
+
+    box-shadow:
+        0 15px 35px
+        rgba(4, 59, 102, 0.16);
+}
+
+
+.earth-fact-icon {
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    font-size: 38px;
+}
+
+
+.earth-fact-content span {
+
+    font-size: 0.7rem;
+
+    font-weight: 850;
+
+    letter-spacing: 1.5px;
+
+    opacity: 0.75;
+}
+
+
+.earth-fact-content h2 {
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(1.25rem, 3vw, 1.8rem);
+
+    line-height: 1.25;
+}
+
+
+.earth-fact-content p {
+
+    margin-top: 8px;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+
+    font-size:
+        0.9rem;
+}
+/* =========================================
+   EARTH SCIENCE
+   PART 2 — CSS B
+========================================= */
+
+
+/* =========================================
+   EXPLORE SECTION
+========================================= */
+
+.earth-explore-section {
+
+    margin-top: 60px;
+}
+
+
+.earth-explore-list {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+
+.earth-explore-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    padding:
+        20px;
+
+    background:
+        var(--earth-white);
+
+    border:
+        1px solid var(--earth-border);
+
+    border-left:
+        4px solid var(--earth-green);
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 7px 20px
+        rgba(4, 59, 102, 0.05);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.earth-explore-item:hover {
+
+    transform:
+        translateX(3px);
+
+    border-left-color:
+        var(--earth-dark-blue);
+}
+
+
+.explore-number {
+
+    color:
+        var(--earth-green);
+
+    font-size:
+        0.82rem;
+
+    font-weight: 900;
+
+    min-width: 25px;
+}
+
+
+.earth-explore-item h3 {
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size:
+        1rem;
+}
+
+
+.earth-explore-item p {
+
+    margin-top: 4px;
+
+    color:
+        var(--earth-muted);
+
+    font-size:
+        0.84rem;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   MAIN CTA
+========================================= */
+
+.earth-main-cta {
+
+    margin-top: 60px;
+}
+
+
+.earth-main-cta-content {
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding:
+        25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e2f5ea,
+            #e0f1fb
+        );
+
+    border:
+        1px solid var(--earth-border);
+}
+
+
+.cta-earth-image {
+
+    width: 100%;
+
+    height: 260px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background:
+        var(--earth-dark-blue);
+}
+
+
+.cta-earth-image img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.cta-text h2 {
+
+    margin-top: 12px;
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size:
+        clamp(1.6rem, 4vw, 2.35rem);
+
+    line-height: 1.2;
+}
+
+
+.cta-text p {
+
+    margin-top: 12px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.93rem;
+}
+
+
+.cta-text .earth-primary-button {
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .earth-image-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .earth-image-card:last-child {
+
+        grid-column:
+            1 / -1;
+
+        max-width: 50%;
+
+        margin: 0 auto;
+
+        width: 100%;
+    }
+
+
+    .earth-main-cta-content {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+
+    .earth-image-showcase {
+
+        margin-top: 50px;
+    }
+
+
+    .earth-image-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 15px;
+    }
+
+
+    .earth-image-card:last-child {
+
+        grid-column:
+            auto;
+
+        max-width: none;
+
+        margin: 0;
+    }
+
+
+    .earth-image-wrapper {
+
+        height: 205px;
+    }
+
+
+    .earth-fact-box {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        padding:
+            24px 20px;
+
+        gap: 16px;
+    }
+
+
+    .earth-fact-icon {
+
+        width: 58px;
+        height: 58px;
+
+        font-size: 30px;
+    }
+
+
+    .earth-explore-list {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 12px;
+    }
+
+
+    .earth-explore-item {
+
+        padding:
+            17px;
+    }
+
+
+    .earth-main-cta-content {
+
+        grid-template-columns:
+            1fr;
+
+        padding:
+            18px;
+    }
+
+
+    .cta-earth-image {
+
+        height: 210px;
+    }
+
+
+    .cta-text {
+
+        text-align: center;
+    }
+
+
+    .cta-text .earth-primary-button {
+
+        width: 100%;
+    }
+}
+/* =========================================
+   EARTH SCIENCE
+   PART 3 — CSS A
+   NAVIGATION + FINAL
+========================================= */
+
+
+/* =========================================
+   QUICK NAVIGATION
+========================================= */
+
+.earth-quick-navigation {
+
+    margin-top: 65px;
+}
+
+
+.earth-navigation-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 17px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   NAVIGATION CARD
+========================================= */
+
+.earth-navigation-card {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-height: 245px;
+
+    padding: 23px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+        var(--earth-white);
+
+    border:
+        1px solid var(--earth-border);
+
+    box-shadow:
+        0 10px 25px
+        rgba(4, 59, 102, 0.07);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.earth-navigation-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 16px 35px
+        rgba(4, 59, 102, 0.13);
+}
+
+
+.earth-navigation-earth {
+
+    border-top:
+        4px solid var(--earth-green);
+}
+
+
+.earth-navigation-main {
+
+    border-top:
+        4px solid var(--earth-blue);
+}
+
+
+.earth-navigation-home {
+
+    border-top:
+        4px solid var(--earth-dark-blue);
+}
+
+
+/* =========================================
+   NAVIGATION ICON
+========================================= */
+
+.navigation-icon {
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--earth-green-light),
+            var(--earth-blue-light)
+        );
+
+    font-size: 28px;
+}
+
+
+.navigation-content {
+
+    margin-top: 18px;
+}
+
+
+.navigation-content span {
+
+    color:
+        var(--earth-green);
+
+    font-size: 0.68rem;
+
+    font-weight: 850;
+
+    letter-spacing: 1px;
+}
+
+
+.navigation-content h3 {
+
+    margin-top: 4px;
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size: 1.15rem;
+}
+
+
+.navigation-content p {
+
+    margin-top: 6px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.84rem;
+
+    line-height: 1.55;
+}
+
+
+.navigation-arrow {
+
+    position: absolute;
+
+    right: 20px;
+    bottom: 18px;
+
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        var(--earth-blue-light);
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.earth-final-message {
+
+    margin-top: 65px;
+}
+
+
+.earth-final-content {
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.2fr;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e1f5e9,
+            #e1f1fb
+        );
+
+    border:
+        1px solid var(--earth-border);
+}
+
+
+.final-earth-image {
+
+    height: 280px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    background:
+        var(--earth-dark-blue);
+}
+
+
+.final-earth-image img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.final-message-text h2 {
+
+    margin-top: 14px;
+
+    color:
+        var(--earth-dark-blue);
+
+    font-size:
+        clamp(1.55rem, 3.5vw, 2.35rem);
+
+    line-height: 1.25;
+}
+
+
+.final-message-text p {
+
+    margin-top: 13px;
+
+    color:
+        var(--earth-muted);
+
+    font-size: 0.94rem;
+
+    line-height: 1.7;
+}
+/* =========================================
+   EARTH SCIENCE
+   PART 3 — CSS B
+   FOOTER + RESPONSIVE
+========================================= */
+
+
+/* =========================================
+   FINAL BUTTONS
+========================================= */
+
+.earth-final-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+.earth-final-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 175px;
+
+    padding:
+        11px 17px;
+
+    border-radius: 9px;
+
+    color:
+        var(--earth-white);
+
+    font-size: 0.86rem;
+
+    font-weight: 750;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.earth-final-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    opacity: 0.92;
+}
+
+
+.earth-final-green {
+
+    background:
+        var(--earth-dark-green);
+}
+
+
+.earth-final-blue {
+
+    background:
+        var(--earth-dark-blue);
+}
+
+
+.earth-final-dark {
+
+    background:
+        #12352b;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.earth-science-footer {
+
+    margin-top: 70px;
+
+    padding:
+        40px 6% 25px;
+
+    background:
+        linear-gradient(
+            120deg,
+            var(--earth-dark-green),
+            var(--earth-dark-blue)
+        );
+
+    color:
+        var(--earth-white);
+
+    text-align: center;
+}
+
+
+/* =========================================
+   FOOTER BRAND
+========================================= */
+
+.footer-brand {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    text-align: left;
+}
+
+
+.footer-earth-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    font-size: 26px;
+}
+
+
+.footer-brand h2 {
+
+    font-size: 1.1rem;
+
+    line-height: 1.2;
+}
+
+
+.footer-brand span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 0.72rem;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   FOOTER DESCRIPTION
+========================================= */
+
+.footer-description {
+
+    max-width: 600px;
+
+    margin:
+        18px auto 0;
+
+    color:
+        rgba(255, 255, 255, 0.76);
+
+    font-size:
+        0.86rem;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER LINKS
+========================================= */
+
+.footer-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+
+.footer-links a {
+
+    padding:
+        6px 10px;
+
+    border-radius: 7px;
+
+    color:
+        rgba(255, 255, 255, 0.82);
+
+    font-size: 0.78rem;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.footer-links a:hover {
+
+    background:
+        rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================
+   FOOTER LINE
+========================================= */
+
+.footer-line {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    height: 1px;
+
+    margin:
+        22px auto 15px;
+
+    background:
+        rgba(255, 255, 255, 0.16);
+}
+
+
+.footer-copy {
+
+    color:
+        rgba(255, 255, 255, 0.58);
+
+    font-size:
+        0.72rem;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .earth-navigation-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    .earth-navigation-card:last-child {
+
+        grid-column:
+            1 / -1;
+
+        max-width: 50%;
+
+        width: 100%;
+
+        margin: 0 auto;
+    }
+
+
+    .earth-final-content {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 620px) {
+
+    .earth-quick-navigation {
+
+        margin-top: 50px;
+    }
+
+
+    .earth-navigation-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .earth-navigation-card:last-child {
+
+        grid-column:
+            auto;
+
+        max-width: none;
+
+        margin: 0;
+    }
+
+
+    .earth-navigation-card {
+
+        min-height: 215px;
+
+        padding: 20px;
+    }
+
+
+    .earth-final-content {
+
+        grid-template-columns:
+            1fr;
+
+        padding: 18px;
+    }
+
+
+    .final-earth-image {
+
+        height: 215px;
+    }
+
+
+    .final-message-text {
+
+        text-align: center;
+    }
+
+
+    .earth-final-buttons {
+
+        flex-direction: column;
+
+        padding:
+            0 5%;
+    }
+
+
+    .earth-final-button {
+
+        width: 100%;
+    }
+
+
+    .earth-science-footer {
+
+        margin-top: 55px;
+
+        padding:
+            35px 5% 22px;
+    }
+}

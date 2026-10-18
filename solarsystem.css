@@ -1,0 +1,4667 @@
+/* =====================================================
+   SOLAR SYSTEM
+   PART 1 — CSS PART A
+===================================================== */
+
+
+/* ROOT */
+
+:root {
+
+    --solar-bg:
+        #030712;
+
+    --solar-bg-deep:
+        #01030a;
+
+    --solar-text:
+        #f4f7ff;
+
+    --solar-muted:
+        rgba(220, 230, 255, 0.68);
+
+    --solar-border:
+        rgba(255, 255, 255, 0.10);
+
+    --solar-glass:
+        rgba(255, 255, 255, 0.045);
+
+    --solar-blue:
+        #65b8ff;
+
+    --solar-cyan:
+        #62e5ff;
+
+    --solar-purple:
+        #9b7cff;
+
+    --solar-gold:
+        #ffd477;
+
+}
+
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: var(--solar-text);
+
+    background:
+        var(--solar-bg);
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height: 1.5;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+img {
+    max-width: 100%;
+
+    display: block;
+}
+
+
+/* =====================================================
+   COSMIC BACKGROUND
+===================================================== */
+
+.solar-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -10;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(70, 120, 255, 0.08),
+            transparent 32%
+        ),
+        linear-gradient(
+            180deg,
+            #020611 0%,
+            #030712 55%,
+            #01030a 100%
+        );
+}
+
+
+.solar-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.65;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.75) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+        90px 90px;
+
+    animation:
+        starsMove 25s linear infinite;
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(90px);
+    }
+
+}
+
+
+.solar-nebula {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.35;
+}
+
+
+.solar-nebula-one {
+
+    width: 480px;
+    height: 480px;
+
+    top: 10%;
+    left: -180px;
+
+    background:
+        rgba(60, 100, 255, 0.16);
+}
+
+
+.solar-nebula-two {
+
+    width: 520px;
+    height: 520px;
+
+    right: -220px;
+    bottom: 5%;
+
+    background:
+        rgba(140, 70, 255, 0.13);
+}
+
+
+.solar-glow {
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: 50%;
+    top: 30%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(50, 130, 255, 0.06),
+            transparent 68%
+        );
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.solar-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom:
+        1px solid var(--solar-border);
+
+    background:
+        rgba(2, 6, 17, 0.78);
+
+    backdrop-filter:
+        blur(20px);
+}
+
+
+.solar-header-inner {
+
+    width:
+        min(1400px, 92%);
+
+    min-height: 76px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+/* BRAND */
+
+.solar-brand {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.solar-brand-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 210, 100, 0.10);
+
+    border:
+        1px solid rgba(255, 210, 100, 0.20);
+
+    box-shadow:
+        0 0 25px rgba(255, 190, 70, 0.10);
+}
+
+
+.solar-brand-text {
+
+    font-size: 1rem;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* NAV */
+
+.solar-navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.solar-nav-link {
+
+    padding: 9px 12px;
+
+    border-radius: 10px;
+
+    color:
+        rgba(230, 238, 255, 0.65);
+
+    font-size: 0.82rem;
+
+    transition:
+        0.3s ease;
+}
+
+
+.solar-nav-link:hover,
+.solar-nav-link.active {
+
+    color: #ffffff;
+
+    background:
+        rgba(255,255,255,0.06);
+}
+
+
+/* DASHBOARD */
+
+.solar-header-dashboard {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 15px;
+
+    border-radius: 12px;
+
+    color: #06101c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a9ddff,
+            #66c8ff
+        );
+
+    font-size: 0.8rem;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 25px rgba(70, 180, 255, 0.15);
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.solar-header-dashboard:hover {
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.solar-hero {
+
+    width:
+        min(1400px, 92%);
+
+    min-height:
+        calc(100vh - 76px);
+
+    margin: 0 auto;
+
+    padding:
+        90px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px, 1fr)
+        minmax(360px, 0.9fr);
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+
+.solar-hero-content {
+
+    max-width: 700px;
+}
+
+
+.solar-eyebrow {
+
+    display: inline-flex;
+
+    padding: 8px 13px;
+
+    margin-bottom: 22px;
+
+    border:
+        1px solid rgba(100, 190, 255, 0.20);
+
+    border-radius: 999px;
+
+    color:
+        #8bd8ff;
+
+    background:
+        rgba(70, 180, 255, 0.06);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+}
+
+
+.solar-hero h1 {
+
+    font-size:
+        clamp(3rem, 7vw, 6.5rem);
+
+    line-height:
+        0.92;
+
+    letter-spacing:
+        -0.06em;
+
+    font-weight:
+        850;
+}
+
+
+.solar-hero h1 span {
+
+    display: block;
+
+    margin-top: 12px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #ffffff,
+            #77cfff,
+            #9c83ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.solar-hero-description {
+
+    max-width: 650px;
+
+    margin-top: 28px;
+
+    color:
+        var(--solar-muted);
+
+    font-size:
+        clamp(0.95rem, 1.5vw, 1.08rem);
+
+    line-height: 1.9;
+}
+
+
+/* HERO BUTTONS */
+
+.solar-hero-actions {
+
+    margin-top: 32px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+}
+
+
+.solar-primary-btn,
+.solar-secondary-btn {
+
+    min-height: 50px;
+
+    padding: 13px 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    border-radius: 14px;
+
+    font-size: 0.88rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.solar-primary-btn {
+
+    color: #06101c;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b9e7ff,
+            #65c7ff
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(70, 185, 255, 0.16);
+}
+
+
+.solar-secondary-btn {
+
+    color:
+        #dcecff;
+
+    border:
+        1px solid
+        rgba(120, 200, 255, 0.17);
+
+    background:
+        rgba(100, 190, 255, 0.06);
+}
+
+
+.solar-primary-btn:hover,
+.solar-secondary-btn:hover {
+
+    transform:
+        translateY(-3px);
+}
+/* =====================================================
+   SOLAR SYSTEM
+   PART 1 — CSS PART B
+===================================================== */
+
+
+/* HERO STATS */
+
+.solar-hero-stats {
+
+    margin-top: 42px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.solar-stat {
+
+    min-width: 105px;
+
+    padding: 15px 18px;
+
+    border-radius: 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+
+.solar-stat strong {
+
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 1.2rem;
+}
+
+
+.solar-stat span {
+
+    color:
+        rgba(220,230,255,0.55);
+
+    font-size: 0.7rem;
+}
+
+
+/* =====================================================
+   HERO SOLAR VISUAL
+===================================================== */
+
+.solar-hero-visual {
+
+    position: relative;
+
+    min-height: 560px;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+.solar-system-orbit {
+
+    position: relative;
+
+    width: min(520px, 82vw);
+
+    aspect-ratio: 1;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+/* SUN */
+
+.solar-sun {
+
+    position: relative;
+
+    width: 115px;
+    height: 115px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fffbd2,
+            #ffd65e 38%,
+            #ff9f30 70%,
+            #ff6d1f
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(255,190,60,0.55),
+
+        0 0 90px
+        rgba(255,150,30,0.25);
+
+    z-index: 10;
+
+    animation:
+        sunPulse 4s ease-in-out infinite;
+}
+
+
+.solar-sun span {
+
+    font-size: 3.4rem;
+
+    color: #fff8cc;
+}
+
+
+@keyframes sunPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.045);
+    }
+
+}
+
+
+/* ORBITS */
+
+.hero-orbit {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border:
+        1px solid
+        rgba(120,190,255,0.15);
+
+    border-radius: 50%;
+
+    animation:
+        orbitRotate
+        20s
+        linear
+        infinite;
+}
+
+
+.orbit-one {
+
+    width: 150px;
+    height: 150px;
+}
+
+
+.orbit-two {
+
+    width: 215px;
+    height: 215px;
+
+    animation-duration: 26s;
+}
+
+
+.orbit-three {
+
+    width: 285px;
+    height: 285px;
+
+    animation-duration: 34s;
+}
+
+
+.orbit-four {
+
+    width: 360px;
+    height: 360px;
+
+    animation-duration: 42s;
+}
+
+
+.orbit-five {
+
+    width: 445px;
+    height: 445px;
+
+    animation-duration: 55s;
+}
+
+
+@keyframes orbitRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+/* HERO PLANETS */
+
+.hero-planet {
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+}
+
+
+.hero-mercury {
+
+    width: 10px;
+    height: 10px;
+
+    background: #aaa49b;
+
+    box-shadow:
+        0 0 10px rgba(200,200,200,0.35);
+}
+
+
+.hero-venus {
+
+    width: 15px;
+    height: 15px;
+
+    background: #d5a35e;
+
+    box-shadow:
+        0 0 13px rgba(230,170,90,0.35);
+}
+
+
+.hero-earth {
+
+    width: 18px;
+    height: 18px;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #72d5ff,
+            #2777db 55%,
+            #174caa
+        );
+
+    box-shadow:
+        0 0 16px rgba(70,170,255,0.45);
+}
+
+
+.hero-mars {
+
+    width: 14px;
+    height: 14px;
+
+    background: #c96748;
+
+    box-shadow:
+        0 0 13px rgba(210,100,70,0.40);
+}
+
+
+.hero-jupiter {
+
+    width: 28px;
+    height: 28px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #e0c29d,
+            #a87952,
+            #e4c9a8
+        );
+
+    box-shadow:
+        0 0 20px rgba(220,170,110,0.35);
+}
+
+
+/* VISUAL LABEL */
+
+.solar-visual-label {
+
+    position: absolute;
+
+    right: 5%;
+    bottom: 4%;
+
+    padding: 13px 17px;
+
+    border-radius: 15px;
+
+    border:
+        1px solid
+        rgba(110,200,255,0.14);
+
+    background:
+        rgba(5,15,30,0.68);
+
+    backdrop-filter:
+        blur(16px);
+}
+
+
+.solar-visual-label span {
+
+    display: block;
+
+    color: #9bdcff;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+}
+
+
+.solar-visual-label small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        rgba(220,235,255,0.55);
+
+    font-size: 0.68rem;
+}
+
+
+/* =====================================================
+   OVERVIEW
+===================================================== */
+
+.solar-overview-section {
+
+    width:
+        min(1250px, 90%);
+
+    margin:
+        0 auto;
+
+    padding:
+        100px 0;
+}
+
+
+.solar-section-heading {
+
+    max-width: 760px;
+
+    margin-bottom: 42px;
+}
+
+
+.solar-section-kicker {
+
+    color:
+        #72cbff;
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+}
+
+
+.solar-section-heading h2 {
+
+    margin-top: 10px;
+
+    color: #f5f8ff;
+
+    font-size:
+        clamp(2rem, 4vw, 3.6rem);
+
+    line-height: 1.05;
+
+    letter-spacing: -0.04em;
+}
+
+
+.solar-section-heading h2 span {
+
+    display: block;
+
+    color:
+        #7fcfff;
+
+    font-size: 0.48em;
+
+    margin-top: 10px;
+
+    letter-spacing: 0.02em;
+}
+
+
+.solar-section-heading p {
+
+    margin-top: 20px;
+
+    color:
+        rgba(220,230,255,0.63);
+
+    line-height: 1.85;
+}
+
+
+/* OVERVIEW CARD */
+
+.solar-overview-card {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(300px, 1fr)
+        minmax(300px, 1fr);
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(110,190,255,0.12);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,0.25);
+
+    backdrop-filter:
+        blur(20px);
+}
+
+
+/* IMAGE */
+
+.solar-overview-image {
+
+    position: relative;
+
+    min-height: 430px;
+
+    overflow: hidden;
+}
+
+
+.solar-overview-image img {
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 430px;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease;
+}
+
+
+.solar-overview-card:hover
+.solar-overview-image img {
+
+    transform:
+        scale(1.045);
+}
+
+
+.solar-image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(1,5,15,0.80)
+        );
+}
+
+
+.solar-image-badge {
+
+    position: absolute;
+
+    left: 24px;
+    bottom: 22px;
+
+    padding: 8px 13px;
+
+    border-radius: 999px;
+
+    color: #dff5ff;
+
+    background:
+        rgba(5,15,30,0.72);
+
+    border:
+        1px solid
+        rgba(120,205,255,0.22);
+
+    backdrop-filter:
+        blur(12px);
+
+    font-size: 0.68rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+}
+
+
+/* CONTENT */
+
+.solar-overview-content {
+
+    padding: 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+
+.solar-content-number {
+
+    color:
+        rgba(120,205,255,0.45);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.15em;
+}
+
+
+.solar-overview-content h3 {
+
+    margin-top: 12px;
+
+    color: #f2f7ff;
+
+    font-size:
+        clamp(1.8rem, 3vw, 2.8rem);
+
+    line-height: 1.1;
+}
+
+
+.solar-overview-content > p {
+
+    margin-top: 18px;
+
+    color:
+        rgba(220,230,255,0.63);
+
+    line-height: 1.8;
+}
+
+
+/* POINTS */
+
+.solar-overview-points {
+
+    margin-top: 28px;
+
+    display: grid;
+
+    gap: 12px;
+}
+
+
+.solar-point {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px;
+
+    border-radius: 16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+    background:
+        rgba(255,255,255,0.025);
+}
+
+
+.solar-point > span {
+
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(100,190,255,0.08);
+}
+
+
+.solar-point strong {
+
+    display: block;
+
+    color: #eaf6ff;
+
+    font-size: 0.86rem;
+}
+
+
+.solar-point small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color:
+        rgba(220,235,255,0.52);
+
+    font-size: 0.7rem;
+}
+
+
+/* SCIENCE NOTE */
+
+.solar-science-note {
+
+    margin-top: 22px;
+
+    padding: 22px;
+
+    display: flex;
+
+    gap: 15px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid
+        rgba(255,210,110,0.12);
+
+    background:
+        rgba(255,200,90,0.035);
+}
+
+
+.solar-note-icon {
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 13px;
+
+    color: #ffe39b;
+
+    background:
+        rgba(255,205,100,0.08);
+}
+
+
+.solar-science-note strong {
+
+    color: #ffe5a6;
+
+    font-size: 0.85rem;
+}
+
+
+.solar-science-note p {
+
+    margin-top: 5px;
+
+    color:
+        rgba(230,235,245,0.58);
+
+    font-size: 0.78rem;
+
+    line-height: 1.7;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+
+    .solar-navigation {
+        display: none;
+    }
+
+    .solar-hero {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 70px;
+    }
+
+    .solar-hero-content {
+
+        max-width: 850px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .solar-hero-description {
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .solar-hero-actions,
+    .solar-hero-stats {
+
+        justify-content: center;
+    }
+
+    .solar-hero-visual {
+
+        min-height: 480px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .solar-header-dashboard {
+        display: none;
+    }
+
+    .solar-hero {
+
+        width: 90%;
+
+        padding:
+            55px 0 70px;
+    }
+
+    .solar-hero-visual {
+
+        min-height: 390px;
+    }
+
+    .solar-system-orbit {
+
+        width: min(390px, 90vw);
+    }
+
+    .orbit-five {
+
+        width: 330px;
+        height: 330px;
+    }
+
+    .solar-sun {
+
+        width: 85px;
+        height: 85px;
+    }
+
+    .solar-sun span {
+        font-size: 2.5rem;
+    }
+
+    .solar-overview-section {
+
+        width: 90%;
+
+        padding: 70px 0;
+    }
+
+    .solar-overview-card {
+
+        grid-template-columns: 1fr;
+    }
+
+    .solar-overview-image,
+    .solar-overview-image img {
+
+        min-height: 300px;
+    }
+
+    .solar-overview-content {
+
+        padding: 30px 24px;
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .solar-brand-text {
+        font-size: 0.85rem;
+    }
+
+    .solar-hero h1 {
+        font-size: 3rem;
+    }
+
+    .solar-hero-stats {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .solar-stat {
+        min-width: 0;
+
+        padding: 12px 8px;
+    }
+
+    .solar-visual-label {
+        right: 0;
+    }
+
+}
+/* ============================================================
+   SOLAR SYSTEM — PART 2 CSS
+   PLANET FAMILY / INNER WORLDS
+============================================================ */
+
+.solar-planets-section {
+    position: relative;
+    width: min(1240px, 92%);
+    margin: 0 auto;
+    padding: 110px 0 70px;
+}
+
+
+.solar-section-heading {
+    max-width: 760px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+
+.solar-section-kicker {
+    display: inline-block;
+    margin-bottom: 14px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    color: var(--solar-cyan);
+}
+
+
+.solar-section-heading h2 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.08;
+    color: var(--solar-text);
+}
+
+
+.solar-section-heading p {
+    margin: 20px auto 0;
+    max-width: 680px;
+    color: var(--solar-muted);
+    line-height: 1.8;
+}
+
+
+/* SUN INTRO */
+
+.solar-family-intro {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 42px;
+    padding: 25px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 212, 119, 0.18);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 212, 119, 0.09),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(18px);
+}
+
+
+.solar-family-intro::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    right: -80px;
+    top: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 212, 119, 0.14);
+    filter: blur(30px);
+}
+
+
+.solar-family-icon {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    place-items: center;
+
+    width: 70px;
+    height: 70px;
+    flex: 0 0 70px;
+
+    border-radius: 20px;
+
+    font-size: 2rem;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 212, 119, 0.2),
+            rgba(255, 255, 255, 0.04)
+        );
+
+    border: 1px solid rgba(255, 212, 119, 0.2);
+}
+
+
+.solar-family-content {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+
+.solar-family-content span {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    color: var(--solar-gold);
+}
+
+
+.solar-family-content h3 {
+    margin: 7px 0 8px;
+    font-size: 1.25rem;
+    color: var(--solar-text);
+}
+
+
+.solar-family-content p {
+    margin: 0;
+    max-width: 720px;
+    color: var(--solar-muted);
+    line-height: 1.7;
+}
+
+
+.solar-family-number {
+    position: relative;
+    z-index: 1;
+
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: rgba(255, 212, 119, 0.18);
+}
+
+
+/* PLANET GRID */
+
+.solar-planet-lineup {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+.solar-planet-lineup.outer-planets {
+    margin-top: 20px;
+}
+
+
+/* PLANET CARD */
+
+.solar-planet-card {
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid var(--solar-border);
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.solar-planet-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(98, 229, 255, 0.28);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.38),
+        0 0 30px rgba(98, 229, 255, 0.06);
+}
+
+
+/* IMAGE */
+
+.solar-planet-image {
+    position: relative;
+    aspect-ratio: 1 / 0.82;
+    overflow: hidden;
+
+    background: rgba(0, 0, 0, 0.25);
+}
+
+
+.solar-planet-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(3, 7, 18, 0.82),
+            transparent 55%
+        );
+
+    pointer-events: none;
+}
+
+
+.solar-planet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease,
+        filter 0.6s ease;
+}
+
+
+.solar-planet-card:hover .solar-planet-image img {
+    transform: scale(1.08);
+    filter: brightness(1.08);
+}
+
+
+.solar-planet-number {
+    position: absolute;
+    z-index: 2;
+    top: 14px;
+    right: 14px;
+
+    display: grid;
+    place-items: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    color: white;
+
+    background: rgba(3, 7, 18, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* CONTENT */
+
+.solar-planet-content {
+    padding: 21px 20px 23px;
+}
+
+
+.solar-planet-type {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    color: var(--solar-cyan);
+}
+
+
+.solar-planet-content h3 {
+    margin: 7px 0 8px;
+
+    font-size: 1.45rem;
+    color: var(--solar-text);
+}
+
+
+.solar-planet-content p {
+    min-height: 50px;
+    margin: 0 0 18px;
+
+    color: var(--solar-muted);
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+
+.solar-planet-content a {
+    display: inline-flex;
+    align-items: center;
+
+    color: var(--solar-text);
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.solar-planet-content a:hover {
+    color: var(--solar-cyan);
+    transform: translateX(4px);
+}
+/* ============================================================
+   PLANET CATEGORY DETAILS
+============================================================ */
+
+.mercury-card {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.04);
+}
+
+
+.venus-card {
+    box-shadow: inset 0 1px rgba(255, 220, 160, 0.04);
+}
+
+
+.earth-card {
+    box-shadow: inset 0 1px rgba(80, 180, 255, 0.05);
+}
+
+
+.mars-card {
+    box-shadow: inset 0 1px rgba(255, 120, 80, 0.05);
+}
+
+
+.jupiter-card {
+    box-shadow: inset 0 1px rgba(220, 180, 130, 0.05);
+}
+
+
+.saturn-card {
+    box-shadow: inset 0 1px rgba(240, 210, 160, 0.05);
+}
+
+
+.uranus-card {
+    box-shadow: inset 0 1px rgba(100, 220, 255, 0.05);
+}
+
+
+.neptune-card {
+    box-shadow: inset 0 1px rgba(80, 130, 255, 0.05);
+}
+
+
+/* SUMMARY */
+
+.solar-planet-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 42px;
+    padding: 25px;
+
+    border: 1px solid var(--solar-border);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(14px);
+}
+
+
+.solar-summary-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 130px;
+}
+
+
+.solar-summary-item strong {
+    font-size: 1.7rem;
+    line-height: 1;
+
+    color: var(--solar-text);
+}
+
+
+.solar-summary-item span {
+    margin-top: 8px;
+
+    color: var(--solar-muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+
+.solar-summary-divider {
+    width: 1px;
+    height: 42px;
+
+    background: rgba(255, 255, 255, 0.10);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+
+    .solar-planet-lineup {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .solar-planets-section {
+        padding: 80px 0 50px;
+    }
+
+
+    .solar-family-intro {
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+
+    .solar-family-number {
+        display: none;
+    }
+
+
+    .solar-family-icon {
+        width: 58px;
+        height: 58px;
+        flex-basis: 58px;
+
+        font-size: 1.6rem;
+    }
+
+
+    .solar-planet-summary {
+        flex-wrap: wrap;
+        gap: 22px;
+    }
+
+
+    .solar-summary-divider {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .solar-planet-lineup {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-section-heading {
+        margin-bottom: 38px;
+    }
+
+
+    .solar-family-intro {
+        gap: 15px;
+        border-radius: 20px;
+    }
+
+
+    .solar-family-content h3 {
+        font-size: 1.05rem;
+    }
+
+
+    .solar-family-content p {
+        font-size: 0.84rem;
+    }
+
+
+    .solar-planet-card {
+        border-radius: 21px;
+    }
+
+
+    .solar-summary-item {
+        min-width: 105px;
+    }
+
+}
+/* ============================================================
+   SOLAR SYSTEM — PART 3 CSS
+   PLANETARY ORBITS
+============================================================ */
+
+.solar-orbits-section {
+    position: relative;
+
+    width: min(1240px, 92%);
+    margin: 0 auto;
+
+    padding: 110px 0 80px;
+}
+
+
+.solar-orbit-heading {
+    margin-bottom: 55px;
+}
+
+
+/* ORBIT SHOWCASE */
+
+.solar-orbit-showcase {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.25fr)
+        minmax(320px, 0.75fr);
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* IMAGE */
+
+.solar-orbit-image {
+    position: relative;
+
+    min-height: 440px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid var(--solar-border);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(16px);
+}
+
+
+.solar-orbit-image img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 440px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+.solar-orbit-image:hover img {
+    transform: scale(1.04);
+
+    filter: brightness(1.08);
+}
+
+
+.solar-orbit-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(3, 7, 18, 0.82),
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+
+.solar-orbit-image-overlay {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 25px;
+    bottom: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.solar-orbit-image-overlay span {
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.18em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-orbit-image-overlay strong {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+
+    color: white;
+}
+
+
+/* INFO CARD */
+
+.solar-orbit-info {
+    position: relative;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid var(--solar-border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+
+.solar-orbit-info::before {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    right: -100px;
+    top: -100px;
+
+    border-radius: 50%;
+
+    background: rgba(98, 229, 255, 0.08);
+
+    filter: blur(30px);
+}
+
+
+.solar-orbit-number {
+    position: relative;
+
+    display: inline-block;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.2em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-orbit-info h3 {
+    position: relative;
+
+    margin: 10px 0 13px;
+
+    font-size: clamp(1.5rem, 3vw, 2rem);
+
+    color: var(--solar-text);
+}
+
+
+.solar-orbit-info > p {
+    position: relative;
+
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    line-height: 1.8;
+}
+
+
+/* ORBIT POINTS */
+
+.solar-orbit-points {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin-top: 28px;
+}
+
+
+.solar-orbit-point {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px;
+
+    border-radius: 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.solar-orbit-point:hover {
+    transform: translateX(6px);
+
+    background: rgba(98, 229, 255, 0.045);
+
+    border-color: rgba(98, 229, 255, 0.18);
+}
+
+
+.solar-point-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex: 0 0 42px;
+
+    border-radius: 13px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    font-size: 1.25rem;
+}
+
+
+.solar-orbit-point strong {
+    display: block;
+
+    color: var(--solar-text);
+
+    font-size: 0.9rem;
+}
+
+
+.solar-orbit-point small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--solar-muted);
+
+    font-size: 0.72rem;
+}
+/* ============================================================
+   QUICK NAVIGATION
+============================================================ */
+
+.solar-navigation-panel {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 25px;
+
+    padding: 27px 30px;
+
+    border-radius: 25px;
+
+    border: 1px solid rgba(98, 229, 255, 0.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(98, 229, 255, 0.055),
+            rgba(155, 124, 255, 0.045)
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+
+.solar-navigation-content {
+    max-width: 650px;
+}
+
+
+.solar-navigation-content > span {
+    font-size: 0.62rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.18em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-navigation-content h3 {
+    margin: 7px 0;
+
+    font-size: 1.2rem;
+
+    color: var(--solar-text);
+}
+
+
+.solar-navigation-content p {
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.84rem;
+
+    line-height: 1.6;
+}
+
+
+/* BUTTONS */
+
+.solar-navigation-buttons {
+    display: flex;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+.solar-nav-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-width: 125px;
+
+    padding: 12px 17px;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.solar-nav-button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* DASHBOARD */
+
+.solar-dashboard-button {
+    color: #06101d;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--solar-cyan),
+            var(--solar-blue)
+        );
+
+    box-shadow:
+        0 12px 30px rgba(98, 229, 255, 0.12);
+}
+
+
+.solar-dashboard-button:hover {
+    box-shadow:
+        0 16px 40px rgba(98, 229, 255, 0.22);
+}
+
+
+/* HOME */
+
+.solar-home-button {
+    color: var(--solar-text);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+
+    background: rgba(255, 255, 255, 0.045);
+}
+
+
+.solar-home-button:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* FACTS */
+
+.solar-orbit-facts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-top: 25px;
+}
+
+
+.solar-orbit-fact {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    border-radius: 21px;
+
+    border: 1px solid var(--solar-border);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(14px);
+}
+
+
+.solar-fact-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    font-size: 1.25rem;
+}
+
+
+.solar-orbit-fact strong {
+    color: var(--solar-text);
+
+    font-size: 0.9rem;
+}
+
+
+.solar-orbit-fact p {
+    margin: 6px 0 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.77rem;
+
+    line-height: 1.6;
+}
+
+
+/* NOTE */
+
+.solar-orbit-note {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 22px;
+
+    padding: 18px 21px;
+
+    border-radius: 17px;
+
+    border: 1px solid rgba(255, 212, 119, 0.12);
+
+    background: rgba(255, 212, 119, 0.035);
+}
+
+
+.solar-orbit-note > span {
+    font-size: 1.25rem;
+}
+
+
+.solar-orbit-note p {
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+}
+
+
+.solar-orbit-note strong {
+    color: var(--solar-gold);
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .solar-orbit-showcase {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-orbit-image,
+    .solar-orbit-image img {
+        min-height: 360px;
+    }
+
+
+    .solar-navigation-panel {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .solar-navigation-buttons {
+        width: 100%;
+    }
+
+
+    .solar-nav-button {
+        flex: 1;
+    }
+
+
+    .solar-orbit-facts {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .solar-orbits-section {
+        padding: 80px 0 55px;
+    }
+
+
+    .solar-orbit-info {
+        padding: 24px;
+    }
+
+
+    .solar-orbit-image,
+    .solar-orbit-image img {
+        min-height: 280px;
+    }
+
+
+    .solar-orbit-image-overlay {
+        left: 20px;
+        bottom: 20px;
+    }
+
+
+    .solar-navigation-panel {
+        padding: 22px;
+    }
+
+
+    .solar-navigation-buttons {
+        flex-direction: column;
+    }
+
+
+    .solar-nav-button {
+        width: 100%;
+    }
+
+}
+/* ============================================================
+   SOLAR SYSTEM — PART 4 CSS
+   PLANET SIZE COMPARISON
+============================================================ */
+
+.solar-sizes-section {
+    position: relative;
+
+    width: min(1240px, 92%);
+    margin: 0 auto;
+
+    padding: 110px 0 80px;
+}
+
+
+/* SHOWCASE */
+
+.solar-size-showcase {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(320px, 0.8fr);
+
+    gap: 25px;
+
+    align-items: stretch;
+}
+
+
+/* IMAGE */
+
+.solar-size-image {
+    position: relative;
+
+    min-height: 450px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid var(--solar-border);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+
+.solar-size-image img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 450px;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease;
+}
+
+
+.solar-size-image:hover img {
+    transform: scale(1.035);
+
+    filter: brightness(1.07);
+}
+
+
+.solar-size-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(3, 7, 18, 0.88),
+            transparent 62%
+        );
+
+    pointer-events: none;
+}
+
+
+.solar-size-overlay {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 27px;
+    bottom: 27px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.solar-size-overlay span {
+    font-size: 0.64rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.17em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-size-overlay strong {
+    font-size: clamp(1.35rem, 3vw, 2rem);
+
+    color: white;
+}
+
+
+/* CONTENT */
+
+.solar-size-content {
+    position: relative;
+
+    padding: 32px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid var(--solar-border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.065),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+
+.solar-size-content::before {
+    content: "";
+
+    position: absolute;
+
+    width: 210px;
+    height: 210px;
+
+    right: -110px;
+    top: -110px;
+
+    border-radius: 50%;
+
+    background: rgba(155, 124, 255, 0.09);
+
+    filter: blur(32px);
+}
+
+
+.solar-size-number {
+    position: relative;
+
+    display: block;
+
+    font-size: 0.68rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.2em;
+
+    color: var(--solar-purple);
+}
+
+
+.solar-size-label {
+    position: relative;
+
+    display: inline-block;
+
+    margin-top: 11px;
+
+    font-size: 0.62rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.14em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-size-content h3 {
+    position: relative;
+
+    margin: 10px 0 14px;
+
+    font-size: clamp(1.45rem, 3vw, 2rem);
+
+    line-height: 1.2;
+
+    color: var(--solar-text);
+}
+
+
+.solar-size-content > p {
+    position: relative;
+
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    line-height: 1.8;
+}
+
+
+/* HIGHLIGHTS */
+
+.solar-size-highlights {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 27px;
+}
+
+
+.solar-size-highlight {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 13px 15px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    background: rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.solar-size-highlight:hover {
+    transform: translateX(5px);
+
+    background: rgba(255, 255, 255, 0.055);
+}
+
+
+.solar-size-highlight > span {
+    display: grid;
+
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    font-size: 1.1rem;
+}
+
+
+.solar-size-highlight strong {
+    display: block;
+
+    color: var(--solar-text);
+
+    font-size: 0.86rem;
+}
+
+
+.solar-size-highlight small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--solar-muted);
+
+    font-size: 0.7rem;
+}
+/* ============================================================
+   ROCKY / GIANT WORLD CARDS
+============================================================ */
+
+.solar-world-types {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-top: 25px;
+}
+
+
+.solar-world-type {
+    position: relative;
+
+    display: flex;
+
+    gap: 20px;
+
+    padding: 27px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    border: 1px solid var(--solar-border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(16px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.solar-world-type:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(98, 229, 255, 0.2);
+}
+
+
+.solar-world-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 58px;
+    height: 58px;
+
+    flex: 0 0 58px;
+
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    font-size: 1.6rem;
+}
+
+
+.solar-world-content > span {
+    font-size: 0.62rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.16em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-world-content h3 {
+    margin: 7px 0 8px;
+
+    font-size: 1.3rem;
+
+    color: var(--solar-text);
+}
+
+
+.solar-world-content p {
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+
+/* WORLD LIST */
+
+.solar-world-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 17px;
+}
+
+
+.solar-world-list span {
+    padding: 6px 9px;
+
+    border-radius: 9px;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: var(--solar-text);
+
+    font-size: 0.66rem;
+
+    font-weight: 700;
+}
+
+
+/* SCALE BANNER */
+
+.solar-scale-banner {
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+    margin-top: 22px;
+
+    padding: 20px 23px;
+
+    border-radius: 19px;
+
+    border: 1px solid rgba(255, 212, 119, 0.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 212, 119, 0.045),
+            rgba(255, 255, 255, 0.02)
+        );
+}
+
+
+.solar-scale-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    flex: 0 0 48px;
+
+    border-radius: 14px;
+
+    background: rgba(255, 212, 119, 0.08);
+
+    font-size: 1.35rem;
+}
+
+
+.solar-scale-text strong {
+    color: var(--solar-gold);
+
+    font-size: 0.92rem;
+}
+
+
+.solar-scale-text p {
+    margin: 4px 0 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.78rem;
+
+    line-height: 1.6;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .solar-size-showcase {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-size-image,
+    .solar-size-image img {
+        min-height: 360px;
+    }
+
+
+    .solar-world-types {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .solar-sizes-section {
+        padding: 80px 0 55px;
+    }
+
+
+    .solar-size-content {
+        padding: 24px;
+    }
+
+
+    .solar-size-image,
+    .solar-size-image img {
+        min-height: 280px;
+    }
+
+
+    .solar-size-overlay {
+        left: 20px;
+        bottom: 20px;
+    }
+
+
+    .solar-world-type {
+        flex-direction: column;
+
+        padding: 22px;
+    }
+
+
+    .solar-scale-banner {
+        align-items: flex-start;
+
+        padding: 18px;
+    }
+
+}
+/* ============================================================
+   SOLAR SYSTEM — PART 5 CSS
+   BEYOND THE PLANETS
+============================================================ */
+
+.solar-beyond-section {
+    position: relative;
+
+    width: min(1240px, 92%);
+    margin: 0 auto;
+
+    padding: 110px 0 80px;
+}
+
+
+/* COSMIC OBJECT GRID */
+
+.solar-beyond-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+
+.solar-cosmic-card {
+    position: relative;
+
+    min-height: 290px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    border-radius: 24px;
+
+    border: 1px solid var(--solar-border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.015)
+        );
+
+    backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.solar-cosmic-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    right: -75px;
+    bottom: -75px;
+
+    border-radius: 50%;
+
+    background: rgba(98, 229, 255, 0.07);
+
+    filter: blur(28px);
+}
+
+
+.solar-cosmic-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(98, 229, 255, 0.22);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.3);
+}
+
+
+.solar-cosmic-card-top {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+
+.solar-cosmic-icon {
+    display: grid;
+
+    place-items: center;
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 1.45rem;
+}
+
+
+.solar-cosmic-card-top > span {
+    font-size: 0.6rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.14em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-cosmic-card h3 {
+    position: relative;
+
+    margin: 28px 0 10px;
+
+    font-size: 1.35rem;
+
+    color: var(--solar-text);
+}
+
+
+.solar-cosmic-card p {
+    position: relative;
+
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.75;
+}
+
+
+.solar-cosmic-tag {
+    position: absolute;
+
+    left: 25px;
+    bottom: 22px;
+
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    color: rgba(220, 230, 255, 0.72);
+
+    font-size: 0.58rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.1em;
+}
+
+
+/* PLUTO */
+
+.solar-pluto-card {
+    display: grid;
+
+    grid-template-columns:
+        0.75fr 1.25fr;
+
+    gap: 30px;
+
+    align-items: center;
+
+    margin-top: 25px;
+
+    padding: 30px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 1px solid
+        rgba(155, 124, 255, 0.16);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(155, 124, 255, 0.06),
+            rgba(255, 255, 255, 0.02)
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+
+/* PLUTO VISUAL */
+
+.solar-pluto-visual {
+    position: relative;
+
+    display: grid;
+
+    place-items: center;
+
+    min-height: 230px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(155, 124, 255, 0.10),
+            transparent 60%
+        );
+}
+
+
+.solar-pluto-orbit {
+    position: absolute;
+
+    width: 190px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(155, 124, 255, 0.35);
+
+    transform: rotate(-15deg);
+
+    animation:
+        solarPlutoOrbit 12s linear infinite;
+}
+
+
+.solar-pluto-object {
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+
+    place-items: center;
+
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 2.1rem;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,255,255,0.65),
+            rgba(155,124,255,0.25) 40%,
+            rgba(25,20,55,0.9)
+        );
+
+    box-shadow:
+        0 0 45px
+        rgba(155, 124, 255, 0.2);
+}
+
+
+@keyframes solarPlutoOrbit {
+
+    from {
+        transform:
+            rotate(-15deg)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(-15deg)
+            rotate(360deg);
+    }
+
+}
+/* PLUTO CONTENT */
+
+.solar-pluto-content > span {
+    font-size: 0.64rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.18em;
+
+    color: var(--solar-purple);
+}
+
+
+.solar-pluto-content h3 {
+    margin: 8px 0 12px;
+
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+
+    color: var(--solar-text);
+}
+
+
+.solar-pluto-content > p {
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    line-height: 1.8;
+}
+
+
+.solar-pluto-content strong {
+    color: var(--solar-text);
+}
+
+
+.solar-pluto-fact {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 22px;
+
+    padding: 13px;
+
+    width: fit-content;
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+}
+
+
+.solar-pluto-fact > span {
+    font-size: 0.75rem;
+
+    font-weight: 900;
+
+    color: var(--solar-purple);
+}
+
+
+.solar-pluto-fact strong {
+    display: block;
+
+    font-size: 0.78rem;
+}
+
+
+.solar-pluto-fact small {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--solar-muted);
+
+    font-size: 0.65rem;
+}
+
+
+/* EXPLORER */
+
+.solar-explorer-panel {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 25px;
+
+    padding: 28px 30px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.12);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(98, 229, 255, 0.045),
+            rgba(155, 124, 255, 0.05)
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+
+.solar-explorer-heading {
+    max-width: 680px;
+}
+
+
+.solar-explorer-heading > span {
+    font-size: 0.61rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.16em;
+
+    color: var(--solar-cyan);
+}
+
+
+.solar-explorer-heading h3 {
+    margin: 8px 0;
+
+    color: var(--solar-text);
+
+    font-size: 1.25rem;
+}
+
+
+.solar-explorer-heading p {
+    margin: 0;
+
+    color: var(--solar-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+}
+
+
+/* ACTIONS */
+
+.solar-explorer-actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    min-width: 230px;
+}
+
+
+.solar-explorer-button {
+    display: grid;
+
+    grid-template-columns:
+        25px 1fr 20px;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 12px 15px;
+
+    border-radius: 14px;
+
+    color: var(--solar-text);
+
+    text-decoration: none;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.09);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    font-size: 0.77rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.solar-explorer-button:hover {
+    transform: translateX(5px);
+
+    background:
+        rgba(98, 229, 255, 0.06);
+
+    border-color:
+        rgba(98, 229, 255, 0.2);
+}
+
+
+.solar-explorer-button b {
+    color: var(--solar-cyan);
+
+    font-size: 1rem;
+
+    text-align: right;
+}
+
+
+/* FINAL FACTS */
+
+.solar-final-facts {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 22px;
+}
+
+
+.solar-final-fact {
+    padding: 24px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    border:
+        1px solid var(--solar-border);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(14px);
+}
+
+
+.solar-final-fact strong {
+    display: block;
+
+    font-size: 2rem;
+
+    color: var(--solar-text);
+}
+
+
+.solar-final-fact span {
+    display: block;
+
+    margin-top: 6px;
+
+    color: var(--solar-muted);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+    .solar-beyond-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .solar-pluto-card {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-explorer-panel {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+
+    .solar-explorer-actions {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .solar-beyond-section {
+        padding: 80px 0 55px;
+    }
+
+
+    .solar-beyond-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-cosmic-card {
+        min-height: 265px;
+
+        padding: 22px;
+    }
+
+
+    .solar-pluto-card {
+        padding: 20px;
+    }
+
+
+    .solar-pluto-visual {
+        min-height: 190px;
+    }
+
+
+    .solar-explorer-panel {
+        padding: 22px;
+    }
+
+
+    .solar-final-facts {
+        gap: 10px;
+    }
+
+
+    .solar-final-fact {
+        padding: 19px 10px;
+    }
+
+}
+/* =========================================
+   SECTION 6 — FINAL EXPLORATION
+========================================= */
+
+.solar-final-section {
+    position: relative;
+    padding: 130px 20px 110px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(98, 229, 255, 0.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(155, 124, 255, 0.08),
+            transparent 30%
+        );
+}
+
+
+.solar-final-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.solar-final-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 16px;
+
+    border: 1px solid rgba(98, 229, 255, 0.2);
+    border-radius: 999px;
+
+    background: rgba(98, 229, 255, 0.06);
+
+    color: #62e5ff;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+
+    box-shadow:
+        0 0 25px rgba(98, 229, 255, 0.08);
+}
+
+
+.solar-final-title {
+    max-width: 850px;
+
+    margin: 25px auto 18px;
+
+    color: #f4f7ff;
+
+    font-size: clamp(38px, 6vw, 72px);
+
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+}
+
+
+.solar-final-title span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #65b8ff,
+            #62e5ff,
+            #9b7cff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.solar-final-description {
+    width: min(760px, 100%);
+
+    margin: 0 auto;
+
+    color: rgba(220, 230, 255, 0.68);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+/* FINAL COSMIC VISUAL */
+
+.solar-final-visual {
+    position: relative;
+
+    width: min(620px, 90vw);
+    aspect-ratio: 1;
+
+    margin: 75px auto 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.solar-final-sun {
+    position: absolute;
+
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff7d2,
+            #ffd477 35%,
+            #ff9f43 65%,
+            #ff7043
+        );
+
+    box-shadow:
+        0 0 35px rgba(255, 212, 119, 0.7),
+        0 0 90px rgba(255, 159, 67, 0.3);
+
+    animation: solarFinalSunPulse 3s ease-in-out infinite;
+}
+
+
+.solar-final-orbit {
+    position: absolute;
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
+    border-radius: 50%;
+
+    transform: rotateX(65deg);
+}
+
+
+.solar-final-orbit span {
+    position: absolute;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    background: #65b8ff;
+
+    box-shadow:
+        0 0 15px rgba(101, 184, 255, 0.8);
+
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+.solar-final-orbit.orbit-one {
+    width: 160px;
+    height: 160px;
+
+    animation: solarFinalOrbitOne 8s linear infinite;
+}
+
+
+.solar-final-orbit.orbit-two {
+    width: 260px;
+    height: 260px;
+
+    animation: solarFinalOrbitTwo 12s linear infinite;
+}
+
+
+.solar-final-orbit.orbit-three {
+    width: 370px;
+    height: 370px;
+
+    animation: solarFinalOrbitThree 17s linear infinite;
+}
+
+
+.solar-final-orbit.orbit-four {
+    width: 490px;
+    height: 490px;
+
+    animation: solarFinalOrbitFour 23s linear infinite;
+}
+
+
+.solar-final-orbit.orbit-two span {
+    background: #62e5ff;
+}
+
+
+.solar-final-orbit.orbit-three span {
+    background: #9b7cff;
+}
+
+
+.solar-final-orbit.orbit-four span {
+    background: #ffd477;
+}
+
+
+.solar-final-stars {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.solar-final-stars i {
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+
+.solar-final-stars i:nth-child(1) {
+    top: 12%;
+    left: 25%;
+}
+
+
+.solar-final-stars i:nth-child(2) {
+    top: 20%;
+    right: 18%;
+}
+
+
+.solar-final-stars i:nth-child(3) {
+    top: 52%;
+    left: 4%;
+}
+
+
+.solar-final-stars i:nth-child(4) {
+    bottom: 17%;
+    left: 20%;
+}
+
+
+.solar-final-stars i:nth-child(5) {
+    bottom: 8%;
+    right: 28%;
+}
+
+
+.solar-final-stars i:nth-child(6) {
+    top: 35%;
+    right: 3%;
+}
+
+
+.solar-final-stars i:nth-child(7) {
+    top: 72%;
+    right: 12%;
+}
+
+
+.solar-final-stars i:nth-child(8) {
+    top: 7%;
+    left: 62%;
+}
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.solar-final-message {
+    width: min(700px, 100%);
+
+    margin: 0 auto 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    padding: 20px 24px;
+
+    text-align: left;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.22);
+}
+
+
+.solar-final-message-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: rgba(98, 229, 255, 0.08);
+
+    font-size: 24px;
+}
+
+
+.solar-final-message strong {
+    color: #f4f7ff;
+
+    font-size: 16px;
+}
+
+
+.solar-final-message p {
+    margin: 4px 0 0;
+
+    color: rgba(220, 230, 255, 0.6);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   FINAL NAVIGATION
+========================================= */
+
+.solar-final-navigation {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    width: min(900px, 100%);
+
+    margin: 0 auto 60px;
+}
+
+
+.solar-final-button {
+    min-height: 92px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 20px;
+
+    text-decoration: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: #f4f7ff;
+
+    text-align: left;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.solar-final-button:hover {
+    transform: translateY(-5px);
+
+    background: rgba(255, 255, 255, 0.065);
+
+    border-color: rgba(98, 229, 255, 0.3);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.25);
+}
+
+
+.solar-final-button-icon {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    font-size: 21px;
+}
+
+
+.solar-final-button-content {
+    flex: 1;
+}
+
+
+.solar-final-button-content strong {
+    display: block;
+
+    font-size: 15px;
+
+    margin-bottom: 4px;
+}
+
+
+.solar-final-button-content small {
+    display: block;
+
+    color: rgba(220, 230, 255, 0.52);
+
+    font-size: 12px;
+}
+
+
+.solar-final-arrow {
+    font-size: 22px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    transition: transform 0.3s ease;
+}
+
+
+.solar-final-button:hover .solar-final-arrow {
+    transform: translateX(5px);
+
+    color: #62e5ff;
+}
+
+
+/* =========================================
+   FINAL FACTS
+========================================= */
+
+.solar-final-facts {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    width: min(700px, 100%);
+
+    margin: 0 auto 55px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+
+.solar-final-fact {
+    padding: 25px 15px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+.solar-final-fact:last-child {
+    border-right: none;
+}
+
+
+.solar-final-fact-number {
+    display: block;
+
+    color: #62e5ff;
+
+    font-size: 30px;
+    font-weight: 900;
+}
+
+
+.solar-final-fact-label {
+    display: block;
+
+    margin-top: 5px;
+
+    color: rgba(220, 230, 255, 0.55);
+
+    font-size: 12px;
+}
+
+
+/* =========================================
+   BACK TO TOP
+========================================= */
+
+.solar-back-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 12px 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    color: rgba(244, 247, 255, 0.75);
+
+    font: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.solar-back-top:hover {
+    transform: translateY(-3px);
+
+    background: rgba(98, 229, 255, 0.08);
+
+    border-color: rgba(98, 229, 255, 0.25);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.solar-footer {
+    position: relative;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    background: rgba(1, 3, 10, 0.7);
+
+    padding: 45px 20px 25px;
+}
+
+
+.solar-footer-container {
+    width: min(1180px, 100%);
+
+    margin: 0 auto;
+}
+
+
+.solar-footer-brand {
+    text-align: center;
+}
+
+
+.solar-footer-logo {
+    color: #f4f7ff;
+
+    text-decoration: none;
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+
+.solar-footer-brand p {
+    margin: 10px auto 25px;
+
+    color: rgba(220, 230, 255, 0.5);
+
+    font-size: 13px;
+}
+
+
+.solar-footer-links {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+
+.solar-footer-links a {
+    color: rgba(220, 230, 255, 0.58);
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: color 0.25s ease;
+}
+
+
+.solar-footer-links a:hover {
+    color: #62e5ff;
+}
+
+
+.solar-footer-bottom {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+    color: rgba(220, 230, 255, 0.35);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes solarFinalSunPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+
+@keyframes solarFinalOrbitOne {
+
+    from {
+        transform: rotateX(65deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(65deg) rotateZ(360deg);
+    }
+}
+
+
+@keyframes solarFinalOrbitTwo {
+
+    from {
+        transform: rotateX(65deg) rotateZ(360deg);
+    }
+
+    to {
+        transform: rotateX(65deg) rotateZ(0deg);
+    }
+}
+
+
+@keyframes solarFinalOrbitThree {
+
+    from {
+        transform: rotateX(65deg) rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateX(65deg) rotateZ(360deg);
+    }
+}
+
+
+@keyframes solarFinalOrbitFour {
+
+    from {
+        transform: rotateX(65deg) rotateZ(360deg);
+    }
+
+    to {
+        transform: rotateX(65deg) rotateZ(0deg);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .solar-final-section {
+        padding: 95px 16px 80px;
+    }
+
+
+    .solar-final-title {
+        font-size: clamp(34px, 10vw, 48px);
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .solar-final-description {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+
+    .solar-final-visual {
+        width: 88vw;
+
+        margin-top: 55px;
+    }
+
+
+    .solar-final-sun {
+        width: 58px;
+        height: 58px;
+    }
+
+
+    .solar-final-orbit.orbit-one {
+        width: 120px;
+        height: 120px;
+    }
+
+
+    .solar-final-orbit.orbit-two {
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .solar-final-orbit.orbit-three {
+        width: 270px;
+        height: 270px;
+    }
+
+
+    .solar-final-orbit.orbit-four {
+        width: 350px;
+        height: 350px;
+    }
+
+
+    .solar-final-navigation {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-final-facts {
+        grid-template-columns: 1fr;
+    }
+
+
+    .solar-final-fact {
+        border-right: none;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+
+    .solar-final-fact:last-child {
+        border-bottom: none;
+    }
+
+
+    .solar-final-message {
+        text-align: left;
+
+        padding: 17px;
+    }
+
+
+    .solar-footer-links {
+        gap: 14px;
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .solar-final-sun,
+    .solar-final-orbit {
+        animation: none;
+    }
+
+}

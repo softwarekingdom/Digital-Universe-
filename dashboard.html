@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Digital Universe Dashboard - பிரபஞ்சத்தை அறிவியல் மூலம் ஆராயுங்கள்."
+    >
+
+    <meta
+        name="theme-color"
+        content="#03040d"
+    >
+
+    <title>
+        Digital Universe | Dashboard
+    </title>
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Dashboard CSS -->
+
+    <link
+        rel="stylesheet"
+        href="dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         COSMIC BACKGROUND
+         ===================================================== -->
+
+    <div class="dashboard-background">
+
+        <div class="dashboard-stars"></div>
+
+        <div class="dashboard-nebula dashboard-nebula-one"></div>
+
+        <div class="dashboard-nebula dashboard-nebula-two"></div>
+
+        <div class="dashboard-grid"></div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOP NAVIGATION
+         ===================================================== -->
+
+    <header class="dashboard-header">
+
+        <a
+            href="index.html"
+            class="dashboard-logo"
+            aria-label="Digital Universe முகப்பு"
+        >
+
+            <span class="dashboard-logo-icon">
+                ◉
+            </span>
+
+            <span class="dashboard-logo-text">
+                Digital Universe
+            </span>
+
+        </a>
+
+
+        <div class="dashboard-header-right">
+
+            <div
+                class="dashboard-time"
+                id="dashboardTime"
+            >
+                --:--
+            </div>
+
+
+            <a
+                href="index.html"
+                class="dashboard-home-button"
+            >
+
+                <span>⌂</span>
+
+                <span>
+                    முகப்பு
+                </span>
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section class="dashboard-hero">
+
+            <div class="dashboard-status">
+
+                <span class="dashboard-status-dot"></span>
+
+                DIGITAL UNIVERSE • EXPLORATION HUB
+
+            </div>
+
+
+            <h1 class="dashboard-title">
+
+                பிரபஞ்சத்தை
+                <span>
+                    ஆராயத் 
+                </span>
+<span>தொடங்குங்கள்</span>
+            </h1>
+
+
+            <p class="dashboard-description">
+
+                விண்வெளி, அண்டங்கள், நட்சத்திரங்கள்,
+                கோள்கள், கருந்துளைகள் மற்றும்
+                பிரபஞ்சத்தின் மர்மங்களை
+                அறிவியல் அடிப்படையில் அறிந்துகொள்ளுங்கள்.
+
+            </p>
+
+
+            <!-- Search -->
+
+            <div class="dashboard-search">
+
+                <span class="dashboard-search-icon">
+                    ⌕
+                </span>
+
+                <input
+                    type="search"
+                    id="dashboardSearch"
+                    placeholder="எதைப் பற்றி அறிய விரும்புகிறீர்கள்?"
+                    autocomplete="off"
+                    aria-label="விண்வெளி தலைப்புகளைத் தேடுங்கள்"
+                >
+
+                <span
+                    class="dashboard-search-key"
+                >
+                    /
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK STATS
+             ================================================= -->
+
+        <section class="dashboard-stats">
+
+            <div class="dashboard-stat-card">
+
+                <span class="dashboard-stat-icon">
+                    🌌
+                </span>
+
+                <div>
+
+                    <strong>
+                        10
+                    </strong>
+
+                    <span>
+                        Explore Pages
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <span class="dashboard-stat-icon">
+                    🔭
+                </span>
+
+                <div>
+
+                    <strong>
+                        100%
+                    </strong>
+
+                    <span>
+                        Science Focus
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-stat-card">
+
+                <span class="dashboard-stat-icon">
+                    ∞
+                </span>
+
+                <div>
+
+                    <strong>
+                        ∞
+                    </strong>
+
+                    <span>
+                        Questions
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+             ================================================= -->
+
+        <section
+            class="quick-actions-section"
+            id="quickActions"
+        >
+
+            <div class="quick-actions-heading">
+
+                <div>
+
+                    <span class="section-kicker">
+                        QUICK ACTIONS
+                    </span>
+
+                    <h2>
+                        உங்கள் விண்வெளிப் பயணம்
+                    </h2>
+
+                </div>
+
+
+                <span
+                    class="quick-count"
+                    id="quickCount"
+                >
+                    10 தலைப்புகள்
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="quick-actions-grid"
+                id="quickActionsGrid"
+            >
+
+
+                <!-- Universe -->
+
+                <a
+                    href="universe.html"
+                    class="quick-action-card"
+                    data-search="பிரபஞ்சம் universe cosmos"
+                >
+
+                    <div class="quick-action-number">
+                        01
+                    </div>
+
+                    <div class="quick-action-icon universe-icon">
+                        🌌
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            பிரபஞ்சத்தை அறிக
+                        </h3>
+
+                        <p>
+                            பிரபஞ்சத்தின் தோற்றம்,
+                            அமைப்பு மற்றும் விரிவாக்கத்தை அறிக.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Milky Way -->
+
+                <a
+                    href="milkyway.html"
+                    class="quick-action-card"
+                    data-search="பால்வெளி அண்டம் milky way galaxy"
+                >
+
+                    <div class="quick-action-number">
+                        02
+                    </div>
+
+                    <div class="quick-action-icon milkyway-icon">
+                        🌠
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            பால்வெளி அண்டத்தை அறிக
+                        </h3>
+
+                        <p>
+                            நாம் வாழும் Milky Way
+                            அண்டத்தை ஆராயுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Solar System -->
+
+                <a
+                    href="solarsystem.html"
+                    class="quick-action-card"
+                    data-search="சூரிய குடும்பம் solar system sun"
+                >
+
+                    <div class="quick-action-number">
+                        03
+                    </div>
+
+                    <div class="quick-action-icon solar-icon">
+                        ☀️
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            சூரிய குடும்பத்தை அறிக
+                        </h3>
+
+                        <p>
+                            சூரியன் மற்றும் அதைச் சுற்றியுள்ள
+                            உலகங்களை அறிந்துகொள்ளுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Planets -->
+
+                <a
+                    href="planets.html"
+                    class="quick-action-card"
+                    data-search="கோள்கள் planets earth mars jupiter"
+                >
+
+                    <div class="quick-action-number">
+                        04
+                    </div>
+
+                    <div class="quick-action-icon planet-icon">
+                        🪐
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            கோள்களை அறிக
+                        </h3>
+
+                        <p>
+                            சூரிய குடும்பத்தின் கோள்களை
+                            விரிவாக ஆராயுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Black Hole -->
+
+                <a
+                    href="blackhole.html"
+                    class="quick-action-card"
+                    data-search="கருந்துளை black hole event horizon gravity"
+                >
+
+                    <div class="quick-action-number">
+                        05
+                    </div>
+
+                    <div class="quick-action-icon blackhole-icon">
+                        🕳️
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            கருந்துளையை அறிக
+                        </h3>
+
+                        <p>
+                            மிக வலுவான ஈர்ப்பு விசை கொண்ட
+                            கருந்துளைகளின் இயற்பியலை அறிக.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Stars -->
+
+                <a
+                    href="stars.html"
+                    class="quick-action-card"
+                    data-search="நட்சத்திரங்கள் stars sun stellar"
+                >
+
+                    <div class="quick-action-number">
+                        06
+                    </div>
+
+                    <div class="quick-action-icon stars-icon">
+                        ⭐
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            நட்சத்திரங்களை அறிக
+                        </h3>
+
+                        <p>
+                            நட்சத்திரங்களின் பிறப்பு,
+                            வாழ்க்கை மற்றும் முடிவை அறிக.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Supernova -->
+
+                <a
+                    href="supernova.html"
+                    class="quick-action-card"
+                    data-search="சூப்பர் நோவா supernova explosion stellar death"
+                >
+
+                    <div class="quick-action-number">
+                        07
+                    </div>
+
+                    <div class="quick-action-icon supernova-icon">
+                        💥
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            சூப்பர் நோவா வெடிப்பை அறிக
+                        </h3>
+
+                        <p>
+                            சில நட்சத்திரங்களின் இறுதிக்கட்ட
+                            பேராற்றல் நிகழ்வை அறிக.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Light -->
+
+                <a
+                    href="light.html"
+                    class="quick-action-card"
+                    data-search="ஒளி light photon electromagnetic"
+                >
+
+                    <div class="quick-action-number">
+                        08
+                    </div>
+
+                    <div class="quick-action-icon light-icon">
+                        💡
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            ஒளியை விரிவாக அறிக
+                        </h3>
+
+                        <p>
+                            ஒளி, photons மற்றும்
+                            மின்காந்த அலைகளை அறிக.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Home -->
+
+                <a
+                    href="index.html"
+                    class="quick-action-card special-card"
+                    data-search="முகப்பு home homepage index"
+                >
+
+                    <div class="quick-action-number">
+                        09
+                    </div>
+
+                    <div class="quick-action-icon home-icon">
+                        🏠
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            முகப்பு பக்கத்திற்கு செல்க
+                        </h3>
+
+                        <p>
+                            Digital Universe-ன்
+                            முதன்மை முகப்பு பக்கத்திற்கு செல்லுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <!-- Creator -->
+
+                <a
+                    href="creator.html"
+                    class="quick-action-card creator-card"
+                    data-search="உருவாக்கியவர் creator developer about"
+                >
+
+                    <div class="quick-action-number">
+                        10
+                    </div>
+
+                    <div class="quick-action-icon creator-icon">
+                        👨‍🚀
+                    </div>
+
+                    <div class="quick-action-content">
+
+                        <h3>
+                            உருவாக்கியவரை அறிக
+                        </h3>
+
+                        <p>
+                            Digital Universe-ஐ உருவாக்கியவரைப்
+                            பற்றி அறிந்துகொள்ளுங்கள்.
+                        </p>
+
+                    </div>
+
+                    <span class="quick-action-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- No Result -->
+
+            <div
+                class="dashboard-no-result"
+                id="dashboardNoResult"
+            >
+
+                <span>
+                    🔭
+                </span>
+
+                <h3>
+                    தலைப்பு கிடைக்கவில்லை
+                </h3>
+
+                <p>
+                    வேறு ஒரு விண்வெளி தலைப்பைத் தேடிப் பாருங்கள்.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOTTOM MESSAGE
+             ================================================= -->
+
+        <section class="dashboard-bottom">
+
+            <div class="dashboard-bottom-visual">
+
+                <div class="bottom-orbit bottom-orbit-one"></div>
+
+                <div class="bottom-orbit bottom-orbit-two"></div>
+
+                <div class="bottom-core">
+                    ∞
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-bottom-content">
+
+                <span class="section-kicker">
+                    KEEP EXPLORING
+                </span>
+
+                <h2>
+                    கேள்விகள் இருக்கும் வரை
+                    <span>
+                        கண்டுபிடிப்புகளும் தொடரும்.
+                    </span>
+                </h2>
+
+                <p>
+                    பிரபஞ்சத்தைப் பற்றி தெரிந்துகொள்வதற்கான
+                    உங்கள் அடுத்த பயணம் இங்கே தொடங்குகிறது.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="dashboard-footer">
+
+        <div class="dashboard-footer-inner">
+
+            <div>
+
+                <strong>
+                    Digital Universe
+                </strong>
+
+                <p>
+                    Science • Space • Discovery
+                </p>
+
+            </div>
+
+
+            <a href="index.html">
+                ← முகப்பு பக்கம்
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

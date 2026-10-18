@@ -1,0 +1,8038 @@
+:root {
+
+    --bh-bg: #010207;
+    --bh-bg-deep: #000106;
+
+    --bh-text: #f5f7ff;
+
+    --bh-muted: rgba(220, 230, 255, 0.68);
+
+    --bh-border: rgba(255, 255, 255, 0.10);
+
+    --bh-glass: rgba(255, 255, 255, 0.045);
+
+    --bh-cyan: #62e5ff;
+
+    --bh-blue: #65b8ff;
+
+    --bh-purple: #9b7cff;
+
+    --bh-orange: #ff9f43;
+
+    --bh-gold: #ffd477;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--bh-bg);
+
+    color: var(--bh-text);
+
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   COSMIC BACKGROUND
+========================================= */
+
+.blackhole-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(70, 20, 120, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(20, 100, 160, 0.08),
+            transparent 30%
+        ),
+        var(--bh-bg-deep);
+}
+
+
+.blackhole-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0.65;
+
+    background-image:
+        radial-gradient(
+            1px 1px at 10% 20%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 30% 70%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 55% 25%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80% 65%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 92% 15%,
+            white,
+            transparent
+        );
+
+    background-size:
+        240px 240px,
+        320px 320px,
+        280px 280px,
+        360px 360px,
+        300px 300px;
+
+    animation:
+        blackholeStarsMove
+        35s
+        linear
+        infinite;
+}
+
+
+.blackhole-nebula {
+
+    position: absolute;
+
+    width: 55vw;
+
+    height: 55vw;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.12;
+
+    pointer-events: none;
+}
+
+
+.blackhole-nebula-one {
+
+    top: -20%;
+
+    left: -15%;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--bh-purple),
+            transparent 65%
+        );
+}
+
+
+.blackhole-nebula-two {
+
+    right: -20%;
+
+    bottom: -25%;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--bh-cyan),
+            transparent 65%
+        );
+}
+
+
+.blackhole-background-glow {
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    left: 50%;
+
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(155, 124, 255, 0.06),
+            transparent 65%
+        );
+
+    filter: blur(30px);
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.blackhole-header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    background:
+        rgba(1, 2, 7, 0.72);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+.blackhole-header-inner {
+
+    width: min(1200px, 100%);
+
+    min-height: 72px;
+
+    margin: 0 auto;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+.blackhole-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+.blackhole-brand-icon {
+
+    width: 36px;
+
+    height: 36px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(155, 124, 255, 0.10);
+
+    border:
+        1px solid
+        rgba(155, 124, 255, 0.18);
+
+    font-size: 18px;
+}
+
+
+.blackhole-nav {
+
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 24px;
+}
+
+
+.blackhole-nav a {
+
+    color:
+        rgba(220, 230, 255, 0.58);
+
+    font-size: 13px;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.blackhole-nav a:hover {
+
+    color: var(--bh-cyan);
+}
+
+
+.blackhole-dashboard-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 15px;
+
+    border:
+        1px solid
+        rgba(98, 229, 255, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(98, 229, 255, 0.06);
+
+    color: var(--bh-cyan);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.blackhole-dashboard-button:hover {
+
+    transform: translateY(-2px);
+
+    background:
+        rgba(98, 229, 255, 0.11);
+}
+/* =========================================
+   INTRO SECTION
+========================================= */
+
+.blackhole-intro-section {
+
+    min-height: calc(100vh - 72px);
+
+    padding:
+        90px
+        20px
+        110px;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.blackhole-intro-container {
+
+    width: min(1200px, 100%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.95fr)
+        minmax(0, 1.05fr);
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+
+.blackhole-intro-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.blackhole-eyebrow {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid
+        rgba(98, 229, 255, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(98, 229, 255, 0.05);
+
+    color: var(--bh-cyan);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.blackhole-main-title {
+
+    margin:
+        25px
+        0
+        20px;
+
+    font-size:
+        clamp(48px, 7vw, 82px);
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+}
+
+
+.blackhole-main-title span {
+
+    display: block;
+
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-blue),
+            var(--bh-cyan),
+            var(--bh-purple)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.blackhole-intro-text {
+
+    max-width: 610px;
+
+    color: var(--bh-muted);
+
+    font-size: 16px;
+
+    line-height: 1.9;
+}
+
+
+.blackhole-intro-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+.blackhole-primary-button,
+.blackhole-secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 48px;
+
+    padding: 0 19px;
+
+    border-radius: 14px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.blackhole-primary-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--bh-blue),
+            var(--bh-purple)
+        );
+
+    color: white;
+
+    box-shadow:
+        0 12px 35px
+        rgba(101, 184, 255, 0.18);
+}
+
+
+.blackhole-primary-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(101, 184, 255, 0.28);
+}
+
+
+.blackhole-secondary-button {
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color:
+        rgba(244, 247, 255, 0.85);
+}
+
+
+.blackhole-secondary-button:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.075);
+}
+
+
+/* =========================================
+   INTRO STATS
+========================================= */
+
+.blackhole-intro-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    max-width: 600px;
+
+    margin-top: 42px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    padding-top: 25px;
+}
+
+
+.blackhole-stat {
+
+    padding-right: 18px;
+
+    border-right:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+
+.blackhole-stat:last-child {
+
+    border-right: none;
+
+    padding-left: 18px;
+}
+
+
+.blackhole-stat strong {
+
+    display: block;
+
+    color: var(--bh-cyan);
+
+    font-size: 25px;
+
+    font-weight: 900;
+}
+
+
+.blackhole-stat span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color:
+        rgba(220, 230, 255, 0.50);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   HERO VISUAL
+========================================= */
+
+.blackhole-hero-visual {
+
+    position: relative;
+
+    min-height: 560px;
+
+    display: grid;
+
+    place-items: center;
+}
+
+
+.blackhole-image-frame {
+
+    position: relative;
+
+    width: min(590px, 100%);
+
+    aspect-ratio: 1 / 0.82;
+
+    overflow: hidden;
+
+    border-radius: 32px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background: #000;
+
+    box-shadow:
+        0 35px 100px
+        rgba(0, 0, 0, 0.55),
+
+        0 0 80px
+        rgba(155, 124, 255, 0.10);
+}
+
+
+.blackhole-main-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.8s ease;
+}
+
+
+.blackhole-image-frame:hover
+.blackhole-main-image {
+
+    transform: scale(1.045);
+}
+
+
+.blackhole-image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(0, 0, 0, 0.62)
+        );
+}
+
+
+.blackhole-image-label {
+
+    position: absolute;
+
+    left: 20px;
+
+    bottom: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.48);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.blackhole-live-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #62e5ff;
+
+    box-shadow:
+        0 0 12px
+        rgba(98, 229, 255, 0.8);
+
+    animation:
+        blackholeLivePulse
+        1.8s
+        ease-in-out
+        infinite;
+}
+
+
+/* =========================================
+   FLOATING CARDS
+========================================= */
+
+.blackhole-floating-card {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 16px;
+
+    background:
+        rgba(5, 8, 18, 0.72);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.30);
+}
+
+
+.blackhole-floating-card > span {
+
+    width: 35px;
+
+    height: 35px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+.blackhole-floating-card strong {
+
+    display: block;
+
+    color: #f4f7ff;
+
+    font-size: 12px;
+}
+
+
+.blackhole-floating-card small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        rgba(220, 230, 255, 0.48);
+
+    font-size: 9px;
+}
+
+
+.blackhole-card-one {
+
+    top: 7%;
+
+    left: -5%;
+}
+
+
+.blackhole-card-two {
+
+    top: 47%;
+
+    right: -7%;
+}
+
+
+.blackhole-card-three {
+
+    bottom: 4%;
+
+    left: 4%;
+}
+
+
+/* =========================================
+   OVERVIEW
+========================================= */
+
+.blackhole-overview-section {
+
+    padding:
+        110px
+        20px
+        120px;
+}
+
+
+.blackhole-section-container {
+
+    width: min(1120px, 100%);
+
+    margin: 0 auto;
+}
+
+
+.blackhole-section-heading {
+
+    max-width: 760px;
+
+    margin: 0 auto 50px;
+
+    text-align: center;
+}
+
+
+.blackhole-section-label {
+
+    color: var(--bh-cyan);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+.blackhole-section-heading h2 {
+
+    margin-top: 15px;
+
+    font-size:
+        clamp(32px, 5vw, 52px);
+
+    letter-spacing: -1.5px;
+}
+
+
+.blackhole-section-heading p {
+
+    margin-top: 15px;
+
+    color: var(--bh-muted);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+
+.blackhole-overview-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 17px;
+}
+
+
+.blackhole-info-card {
+
+    padding: 28px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.blackhole-info-card:hover {
+
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(98, 229, 255, 0.25);
+}
+
+
+.blackhole-info-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(98, 229, 255, 0.07);
+
+    font-size: 21px;
+}
+
+
+.blackhole-info-card h3 {
+
+    margin-top: 20px;
+
+    font-size: 17px;
+}
+
+
+.blackhole-info-card p {
+
+    margin-top: 9px;
+
+    color:
+        rgba(220, 230, 255, 0.58);
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+
+.blackhole-science-note {
+
+    display: flex;
+
+    gap: 14px;
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border:
+        1px solid
+        rgba(255, 212, 119, 0.13);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 212, 119, 0.035);
+}
+
+
+.blackhole-science-note > span {
+
+    font-size: 20px;
+}
+
+
+.blackhole-science-note p {
+
+    color:
+        rgba(220, 230, 255, 0.62);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+}
+
+
+.blackhole-science-note strong {
+
+    color: var(--bh-gold);
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes blackholeLivePulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+
+@keyframes blackholeStarsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .blackhole-nav {
+        display: none;
+    }
+
+
+    .blackhole-intro-container {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .blackhole-intro-content {
+        text-align: center;
+    }
+
+
+    .blackhole-intro-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .blackhole-intro-actions {
+        justify-content: center;
+    }
+
+
+    .blackhole-intro-stats {
+        margin-left: auto;
+        margin-right: auto;
+
+        text-align: left;
+    }
+
+
+    .blackhole-hero-visual {
+        min-height: 480px;
+    }
+
+
+    .blackhole-overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-header-inner {
+        min-height: 64px;
+
+        padding: 0 14px;
+    }
+
+
+    .blackhole-dashboard-button {
+        margin-left: auto;
+
+        padding: 9px 11px;
+    }
+
+
+    .blackhole-dashboard-button span:last-child {
+        display: none;
+    }
+
+
+    .blackhole-intro-section {
+        padding:
+            65px
+            15px
+            80px;
+    }
+
+
+    .blackhole-main-title {
+        font-size: 48px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .blackhole-intro-text {
+        font-size: 14px;
+    }
+
+
+    .blackhole-intro-stats {
+        gap: 8px;
+    }
+
+
+    .blackhole-stat {
+        padding-right: 8px;
+    }
+
+
+    .blackhole-stat:last-child {
+        padding-left: 8px;
+    }
+
+
+    .blackhole-stat strong {
+        font-size: 20px;
+    }
+
+
+    .blackhole-stat span {
+        font-size: 9px;
+    }
+
+
+    .blackhole-hero-visual {
+        min-height: 390px;
+    }
+
+
+    .blackhole-image-frame {
+        border-radius: 22px;
+    }
+
+
+    .blackhole-floating-card {
+        padding: 8px;
+
+        gap: 7px;
+    }
+
+
+    .blackhole-floating-card > span {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .blackhole-floating-card small {
+        display: none;
+    }
+
+
+    .blackhole-card-one {
+        left: -2%;
+    }
+
+
+    .blackhole-card-two {
+        right: -2%;
+    }
+
+
+    .blackhole-card-three {
+        left: 2%;
+    }
+
+
+    .blackhole-overview-section {
+        padding:
+            80px
+            15px
+            90px;
+    }
+
+}
+/* =========================================
+   SECTION 02 — EVENT HORIZON
+========================================= */
+
+.blackhole-event-section {
+
+    position: relative;
+
+    padding:
+        120px
+        20px
+        130px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(155, 124, 255, 0.07),
+            transparent 32%
+        );
+}
+
+
+.blackhole-event-container {
+
+    width: min(1150px, 100%);
+
+    margin: 0 auto;
+}
+
+
+.blackhole-event-heading {
+
+    max-width: 780px;
+
+    margin:
+        0
+        auto
+        65px;
+
+    text-align: center;
+}
+
+
+.blackhole-event-heading h2 {
+
+    margin-top: 15px;
+
+    font-size:
+        clamp(38px, 5.5vw, 62px);
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+
+.blackhole-event-heading h2 span {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-purple),
+            var(--bh-cyan)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.blackhole-event-heading p {
+
+    max-width: 700px;
+
+    margin:
+        18px
+        auto
+        0;
+
+    color: var(--bh-muted);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================
+   EVENT LAYOUT
+========================================= */
+
+.blackhole-event-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 0.9fr);
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.blackhole-event-image-wrap {
+
+    position: relative;
+}
+
+
+.blackhole-event-image-frame {
+
+    position: relative;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 11;
+
+    border-radius: 28px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.11);
+
+    background: #000;
+
+    box-shadow:
+        0 30px 80px
+        rgba(0, 0, 0, 0.45),
+
+        0 0 70px
+        rgba(155, 124, 255, 0.08);
+}
+
+
+.blackhole-event-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease;
+}
+
+
+.blackhole-event-image-frame:hover
+.blackhole-event-image {
+
+    transform: scale(1.05);
+}
+
+
+.blackhole-event-image-shade {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 50%,
+            rgba(0, 0, 0, 0.68)
+        );
+
+    pointer-events: none;
+}
+
+
+.blackhole-event-image-tag {
+
+    position: absolute;
+
+    left: 18px;
+
+    bottom: 18px;
+
+    padding:
+        9px
+        13px;
+
+    border-radius: 999px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(0, 0, 0, 0.45);
+
+    backdrop-filter: blur(12px);
+
+    -webkit-backdrop-filter: blur(12px);
+
+    color:
+        rgba(255, 255, 255, 0.78);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.blackhole-event-content {
+
+    position: relative;
+}
+
+
+.blackhole-event-number {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(155, 124, 255, 0.09);
+
+    border:
+        1px solid
+        rgba(155, 124, 255, 0.18);
+
+    color: var(--bh-purple);
+
+    font-size: 14px;
+
+    font-weight: 900;
+}
+
+
+.blackhole-event-content h3 {
+
+    max-width: 520px;
+
+    font-size:
+        clamp(28px, 4vw, 43px);
+
+    line-height: 1.12;
+
+    letter-spacing: -1.3px;
+}
+
+
+.blackhole-event-content > p {
+
+    margin-top: 17px;
+
+    color:
+        rgba(220, 230, 255, 0.62);
+
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+/* =========================================
+   EVENT POINTS
+========================================= */
+
+.blackhole-event-points {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+
+.blackhole-event-point {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    padding: 14px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.03);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.blackhole-event-point:hover {
+
+    transform: translateX(5px);
+
+    border-color:
+        rgba(98, 229, 255, 0.20);
+
+    background:
+        rgba(98, 229, 255, 0.035);
+}
+
+
+.blackhole-event-point > span {
+
+    width: 30px;
+
+    height: 30px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(98, 229, 255, 0.07);
+
+    color: var(--bh-cyan);
+
+    font-size: 9px;
+
+    font-weight: 900;
+}
+
+
+.blackhole-event-point strong {
+
+    display: block;
+
+    color: #f4f7ff;
+
+    font-size: 12px;
+}
+
+
+.blackhole-event-point p {
+
+    margin-top: 3px;
+
+    color:
+        rgba(220, 230, 255, 0.50);
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================
+   DASHBOARD BUTTON
+========================================= */
+
+.blackhole-event-dashboard {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 25px;
+
+    padding: 15px 17px;
+
+    border:
+        1px solid
+        rgba(98, 229, 255, 0.14);
+
+    border-radius: 17px;
+
+    background:
+        rgba(98, 229, 255, 0.045);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.blackhole-event-dashboard:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        rgba(98, 229, 255, 0.075);
+
+    border-color:
+        rgba(98, 229, 255, 0.28);
+}
+
+
+.blackhole-event-dashboard-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(98, 229, 255, 0.08);
+}
+
+
+.blackhole-event-dashboard strong {
+
+    display: block;
+
+    color: #f4f7ff;
+
+    font-size: 12px;
+}
+
+
+.blackhole-event-dashboard small {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color:
+        rgba(220, 230, 255, 0.48);
+
+    font-size: 10px;
+}
+
+
+.blackhole-event-arrow {
+
+    margin-left: auto;
+
+    color:
+        rgba(255, 255, 255, 0.45);
+
+    font-size: 20px;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.blackhole-event-dashboard:hover
+.blackhole-event-arrow {
+
+    transform: translateX(5px);
+
+    color: var(--bh-cyan);
+}
+
+
+/* =========================================
+   SCIENCE CALLOUT
+========================================= */
+
+.blackhole-event-callout {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-top: 55px;
+
+    padding: 22px;
+
+    border:
+        1px solid
+        rgba(255, 212, 119, 0.13);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 212, 119, 0.035);
+}
+
+
+.blackhole-event-callout-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 212, 119, 0.07);
+
+    font-size: 19px;
+}
+
+
+.blackhole-event-callout strong {
+
+    display: block;
+
+    color: var(--bh-gold);
+
+    font-size: 13px;
+}
+
+
+.blackhole-event-callout p {
+
+    margin-top: 5px;
+
+    color:
+        rgba(220, 230, 255, 0.56);
+
+    font-size: 12px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .blackhole-event-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+
+    .blackhole-event-heading {
+
+        margin-bottom: 45px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-event-section {
+
+        padding:
+            85px
+            15px
+            95px;
+    }
+
+
+    .blackhole-event-heading h2 {
+
+        font-size: 40px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .blackhole-event-heading p {
+
+        font-size: 13px;
+    }
+
+
+    .blackhole-event-image-frame {
+
+        border-radius: 21px;
+    }
+
+
+    .blackhole-event-content h3 {
+
+        font-size: 30px;
+    }
+
+
+    .blackhole-event-content > p {
+
+        font-size: 13px;
+    }
+
+
+    .blackhole-event-callout {
+
+        padding: 17px;
+
+        gap: 11px;
+    }
+
+}
+/* =========================================================
+   SECTION 03 — ACCRETION DISK
+   ========================================================= */
+
+.blackhole-accretion-section {
+    position: relative;
+    width: 100%;
+    padding: 120px 24px;
+    overflow: hidden;
+}
+
+
+.blackhole-accretion-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+
+/* -------------------------
+   தலைப்பு
+   ------------------------- */
+
+.blackhole-accretion-heading {
+    max-width: 820px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+
+.blackhole-accretion-heading .blackhole-section-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 16px;
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(98, 229, 255, 0.20);
+    border-radius: 999px;
+
+    background: rgba(98, 229, 255, 0.055);
+
+    color: var(--bh-cyan);
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    letter-spacing: 0.16em;
+
+    box-shadow:
+        0 0 25px rgba(98, 229, 255, 0.08);
+}
+
+
+.blackhole-accretion-heading h2 {
+    margin: 0;
+
+    color: var(--bh-text);
+
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.045em;
+}
+
+
+.blackhole-accretion-heading h2 span {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-orange),
+            var(--bh-gold),
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.blackhole-accretion-heading p {
+    max-width: 720px;
+
+    margin: 24px auto 0;
+
+    color: var(--bh-muted);
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+.blackhole-accretion-heading strong {
+    color: var(--bh-gold);
+}
+
+
+/* -------------------------
+   இரண்டு column layout
+   ------------------------- */
+
+.blackhole-accretion-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(0, 0.95fr);
+
+    gap: 65px;
+
+    align-items: center;
+}
+
+
+/* -------------------------
+   படம்
+   ------------------------- */
+
+.blackhole-accretion-visual {
+    position: relative;
+}
+
+
+.blackhole-accretion-image-frame {
+    position: relative;
+
+    min-height: 570px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--bh-border);
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.55),
+        0 0 80px rgba(255, 159, 67, 0.08);
+
+    isolation: isolate;
+}
+
+
+.blackhole-accretion-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.82)
+        contrast(1.08)
+        saturate(1.12);
+
+    transform: scale(1.02);
+
+    transition:
+        transform 1.2s ease,
+        filter 0.8s ease;
+}
+
+
+.blackhole-accretion-image-frame:hover
+.blackhole-accretion-image {
+    transform: scale(1.07);
+
+    filter:
+        brightness(0.92)
+        contrast(1.1)
+        saturate(1.2);
+}
+
+
+.blackhole-accretion-image-glow {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 174, 78, 0.18),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.blackhole-accretion-image-frame::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.05),
+            rgba(0, 0, 0, 0.52)
+        );
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   படம் label
+   ------------------------- */
+
+.blackhole-accretion-image-label {
+    position: absolute;
+
+    left: 22px;
+    bottom: 22px;
+
+    z-index: 5;
+
+    padding: 10px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    color: #ffffff;
+
+    font-size: 0.78rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* -------------------------
+   orbit decorations
+   ------------------------- */
+
+.blackhole-accretion-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    border: 1px solid rgba(255, 194, 110, 0.18);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg);
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    animation:
+        blackholeOrbitSpin 14s linear infinite;
+}
+
+
+.blackhole-accretion-orbit.orbit-one {
+    width: 210px;
+    height: 95px;
+}
+
+
+.blackhole-accretion-orbit.orbit-two {
+    width: 310px;
+    height: 140px;
+
+    animation-duration: 19s;
+}
+
+
+.blackhole-accretion-orbit.orbit-three {
+    width: 420px;
+    height: 190px;
+
+    animation-duration: 25s;
+}
+
+
+@keyframes blackholeOrbitSpin {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(-12deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(348deg);
+    }
+}
+/* -------------------------
+   உள்ளடக்கம்
+   ------------------------- */
+
+.blackhole-accretion-content {
+    position: relative;
+}
+
+
+.blackhole-accretion-number {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 20px;
+
+    border: 1px solid rgba(255, 159, 67, 0.25);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 159, 67, 0.12),
+            rgba(155, 124, 255, 0.08)
+        );
+
+    color: var(--bh-gold);
+
+    font-size: 1rem;
+    font-weight: 900;
+
+    box-shadow:
+        0 0 35px rgba(255, 159, 67, 0.08);
+}
+
+
+.blackhole-accretion-content h3 {
+    margin: 0 0 20px;
+
+    color: var(--bh-text);
+
+    font-size: clamp(1.7rem, 3vw, 2.6rem);
+
+    line-height: 1.2;
+
+    letter-spacing: -0.025em;
+}
+
+
+.blackhole-accretion-content > p {
+    margin: 0 0 16px;
+
+    color: var(--bh-muted);
+
+    font-size: 0.98rem;
+
+    line-height: 1.85;
+}
+
+
+/* -------------------------
+   முக்கிய புள்ளிகள்
+   ------------------------- */
+
+.blackhole-accretion-points {
+    display: grid;
+
+    gap: 13px;
+
+    margin-top: 30px;
+}
+
+
+.blackhole-accretion-point {
+    display: flex;
+
+    gap: 16px;
+
+    padding: 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+
+.blackhole-accretion-point:hover {
+    transform: translateX(7px);
+
+    border-color:
+        rgba(255, 174, 78, 0.25);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 159, 67, 0.08),
+            rgba(255, 255, 255, 0.025)
+        );
+}
+
+
+.blackhole-accretion-point-icon {
+    flex: 0 0 45px;
+
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 159, 67, 0.09);
+
+    border:
+        1px solid rgba(255, 159, 67, 0.14);
+
+    font-size: 1.15rem;
+}
+
+
+.blackhole-accretion-point h4 {
+    margin: 0 0 5px;
+
+    color: var(--bh-text);
+
+    font-size: 0.95rem;
+}
+
+
+.blackhole-accretion-point p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.6;
+}
+
+
+/* -------------------------
+   அறிவியல் குறிப்பு
+   ------------------------- */
+
+.blackhole-accretion-fact {
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 25px;
+    padding: 18px;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.13);
+
+    border-radius: 20px;
+
+    background:
+        rgba(98, 229, 255, 0.035);
+}
+
+
+.blackhole-accretion-fact-icon {
+    flex: 0 0 40px;
+
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(98, 229, 255, 0.08);
+}
+
+
+.blackhole-accretion-fact span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--bh-cyan);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+.blackhole-accretion-fact p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.65;
+}
+
+
+/* -------------------------
+   Dashboard button
+   ------------------------- */
+
+.blackhole-accretion-dashboard {
+    display: inline-flex;
+
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 25px;
+    padding: 13px 18px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: var(--bh-text);
+
+    text-decoration: none;
+
+    font-size: 0.84rem;
+    font-weight: 800;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.blackhole-accretion-dashboard:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(98, 229, 255, 0.28);
+
+    background:
+        rgba(98, 229, 255, 0.08);
+}
+
+
+.blackhole-accretion-dashboard strong {
+    color: var(--bh-cyan);
+
+    font-size: 1.1rem;
+}
+
+
+/* -------------------------
+   கீழ் mini cards
+   ------------------------- */
+
+.blackhole-accretion-bottom {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.blackhole-accretion-mini-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.blackhole-accretion-mini-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(255, 255, 255, 0.16);
+}
+
+
+.mini-card-icon {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    font-size: 1.15rem;
+}
+
+
+.blackhole-accretion-mini-card strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--bh-text);
+
+    font-size: 0.9rem;
+}
+
+
+.blackhole-accretion-mini-card p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.75rem;
+
+    line-height: 1.5;
+}
+
+
+/* -------------------------
+   Reveal animation
+   ------------------------- */
+
+.blackhole-accretion-section
+.blackhole-accretion-point,
+.blackhole-accretion-section
+.blackhole-accretion-mini-card,
+.blackhole-accretion-section
+.blackhole-accretion-fact {
+    opacity: 0;
+
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+}
+
+
+.blackhole-accretion-section
+.blackhole-accretion-point.blackhole-accretion-visible,
+.blackhole-accretion-section
+.blackhole-accretion-mini-card.blackhole-accretion-visible,
+.blackhole-accretion-section
+.blackhole-accretion-fact.blackhole-accretion-visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* -------------------------
+   மொபைல்
+   ------------------------- */
+
+@media (max-width: 900px) {
+
+    .blackhole-accretion-section {
+        padding: 90px 18px;
+    }
+
+
+    .blackhole-accretion-layout {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+
+    .blackhole-accretion-image-frame {
+        min-height: 460px;
+    }
+
+
+    .blackhole-accretion-bottom {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-accretion-heading {
+        margin-bottom: 45px;
+    }
+
+
+    .blackhole-accretion-heading h2 {
+        font-size: 2.25rem;
+    }
+
+
+    .blackhole-accretion-heading p {
+        font-size: 0.9rem;
+    }
+
+
+    .blackhole-accretion-image-frame {
+        min-height: 360px;
+
+        border-radius: 24px;
+    }
+
+
+    .blackhole-accretion-orbit.orbit-one {
+        width: 150px;
+        height: 70px;
+    }
+
+
+    .blackhole-accretion-orbit.orbit-two {
+        width: 230px;
+        height: 105px;
+    }
+
+
+    .blackhole-accretion-orbit.orbit-three {
+        width: 310px;
+        height: 140px;
+    }
+
+
+    .blackhole-accretion-content h3 {
+        font-size: 1.65rem;
+    }
+
+
+    .blackhole-accretion-point {
+        padding: 14px;
+    }
+
+
+    .blackhole-accretion-fact {
+        align-items: flex-start;
+    }
+
+}
+/* =========================================================
+   SECTION 04 — GRAVITATIONAL LENSING
+   ========================================================= */
+
+.blackhole-lensing-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 120px 24px;
+
+    overflow: hidden;
+}
+
+
+.blackhole-lensing-container {
+    width: min(1180px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* -------------------------
+   தலைப்பு
+   ------------------------- */
+
+.blackhole-lensing-heading {
+    max-width: 850px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+
+.blackhole-lensing-heading h2 {
+    margin: 0;
+
+    color: var(--bh-text);
+
+    font-size: clamp(2.2rem, 5vw, 4.1rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.045em;
+}
+
+
+.blackhole-lensing-heading h2 span {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-cyan),
+            var(--bh-blue),
+            var(--bh-purple)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.blackhole-lensing-heading p {
+    max-width: 730px;
+
+    margin: 23px auto 0;
+
+    color: var(--bh-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+
+/* -------------------------
+   முக்கிய படம்
+   ------------------------- */
+
+.blackhole-lensing-hero {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 55px;
+}
+
+
+.blackhole-lensing-image-frame {
+    position: relative;
+
+    min-height: 610px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.13);
+
+    border-radius: 34px;
+
+    background: #000;
+
+    box-shadow:
+        0 35px 100px rgba(0, 0, 0, 0.6),
+        0 0 90px rgba(98, 229, 255, 0.06);
+
+    isolation: isolate;
+}
+
+
+.blackhole-lensing-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.78)
+        contrast(1.1)
+        saturate(1.05);
+
+    transform: scale(1.02);
+
+    transition:
+        transform 1s ease,
+        filter 0.7s ease;
+}
+
+
+.blackhole-lensing-image-frame:hover
+.blackhole-lensing-image {
+    transform: scale(1.055);
+
+    filter:
+        brightness(0.9)
+        contrast(1.12)
+        saturate(1.12);
+}
+
+
+.blackhole-lensing-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            transparent 0%,
+            rgba(0, 0, 0, 0.06) 35%,
+            rgba(0, 0, 0, 0.58) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   ஒளிப் பாதைகள்
+   ------------------------- */
+
+.blackhole-light-path {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 65%;
+    height: 22%;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.24);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-8deg);
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    opacity: 0.65;
+
+    animation:
+        lensingPathPulse 4s ease-in-out infinite;
+}
+
+
+.blackhole-light-path.path-two {
+    width: 48%;
+    height: 15%;
+
+    border-color:
+        rgba(155, 124, 255, 0.27);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(12deg);
+
+    animation-delay: 0.8s;
+}
+
+
+.blackhole-light-path.path-three {
+    width: 80%;
+    height: 30%;
+
+    border-color:
+        rgba(255, 212, 119, 0.13);
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-18deg);
+
+    animation-delay: 1.5s;
+}
+
+
+@keyframes lensingPathPulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.75;
+    }
+
+}
+
+
+/* -------------------------
+   படம் label
+   ------------------------- */
+
+.blackhole-lensing-label {
+    position: absolute;
+
+    left: 24px;
+    bottom: 24px;
+
+    z-index: 5;
+
+    padding: 11px 17px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    color: #fff;
+
+    font-size: 0.78rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* -------------------------
+   மையக் குறிப்பு
+   ------------------------- */
+
+.blackhole-lensing-center-note {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 5;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    min-width: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 22px;
+
+    background:
+        rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+
+.blackhole-lensing-center-note span {
+    font-size: 1.6rem;
+
+    filter:
+        drop-shadow(0 0 14px rgba(255, 255, 255, 0.35));
+}
+
+
+.blackhole-lensing-center-note strong {
+    color: #fff;
+
+    font-size: 0.85rem;
+}
+
+
+.blackhole-lensing-center-note small {
+    color: var(--bh-muted);
+
+    font-size: 0.68rem;
+}
+/* -------------------------
+   விளக்கப் பகுதி
+   ------------------------- */
+
+.blackhole-lensing-content {
+    position: relative;
+}
+
+
+.blackhole-lensing-intro {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    gap: 22px;
+
+    align-items: start;
+
+    margin-bottom: 35px;
+}
+
+
+.blackhole-lensing-number {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.2);
+
+    border-radius: 18px;
+
+    background:
+        rgba(98, 229, 255, 0.055);
+
+    color: var(--bh-cyan);
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 30px rgba(98, 229, 255, 0.07);
+}
+
+
+.blackhole-lensing-intro h3 {
+    margin: 0 0 12px;
+
+    color: var(--bh-text);
+
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+
+    line-height: 1.25;
+}
+
+
+.blackhole-lensing-intro p {
+    max-width: 800px;
+
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.96rem;
+
+    line-height: 1.85;
+}
+
+
+/* -------------------------
+   மூன்று அட்டைகள்
+   ------------------------- */
+
+.blackhole-lensing-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.blackhole-lensing-card {
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.blackhole-lensing-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    right: -50px;
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(98, 229, 255, 0.08);
+
+    filter: blur(25px);
+}
+
+
+.blackhole-lensing-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(98, 229, 255, 0.2);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.3);
+}
+
+
+.blackhole-lensing-card-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(98, 229, 255, 0.07);
+
+    font-size: 1.25rem;
+}
+
+
+.blackhole-lensing-card-index {
+    position: absolute;
+
+    top: 23px;
+    right: 23px;
+
+    color:
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+.blackhole-lensing-card h4 {
+    margin: 0 0 10px;
+
+    color: var(--bh-text);
+
+    font-size: 1rem;
+}
+
+
+.blackhole-lensing-card p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   அறிவியல் குறிப்பு
+   ------------------------- */
+
+.blackhole-lensing-fact {
+    display: flex;
+
+    gap: 16px;
+
+    margin-top: 22px;
+    padding: 20px;
+
+    border:
+        1px solid rgba(155, 124, 255, 0.14);
+
+    border-radius: 21px;
+
+    background:
+        rgba(155, 124, 255, 0.035);
+}
+
+
+.blackhole-lensing-fact-icon {
+    flex: 0 0 43px;
+
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(155, 124, 255, 0.08);
+}
+
+
+.blackhole-lensing-fact span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--bh-purple);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+}
+
+
+.blackhole-lensing-fact p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   Dashboard
+   ------------------------- */
+
+.blackhole-lensing-dashboard {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    padding: 13px 19px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: var(--bh-text);
+
+    text-decoration: none;
+
+    font-size: 0.84rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.blackhole-lensing-dashboard:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(98, 229, 255, 0.28);
+
+    background:
+        rgba(98, 229, 255, 0.075);
+}
+
+
+.blackhole-lensing-dashboard strong {
+    color: var(--bh-cyan);
+
+    font-size: 1.1rem;
+}
+
+
+/* -------------------------
+   கீழ் தகவல்கள்
+   ------------------------- */
+
+.blackhole-lensing-bottom {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.blackhole-lensing-stat {
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    text-align: center;
+}
+
+
+.blackhole-lensing-stat span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--bh-cyan);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+.blackhole-lensing-stat strong {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--bh-text);
+
+    font-size: 0.95rem;
+}
+
+
+.blackhole-lensing-stat p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.75rem;
+}
+
+
+/* -------------------------
+   Responsive
+   ------------------------- */
+
+@media (max-width: 900px) {
+
+    .blackhole-lensing-section {
+        padding: 90px 18px;
+    }
+
+
+    .blackhole-lensing-image-frame {
+        min-height: 470px;
+    }
+
+
+    .blackhole-lensing-cards {
+        grid-template-columns: 1fr;
+    }
+
+
+    .blackhole-lensing-card {
+        min-height: auto;
+    }
+
+
+    .blackhole-lensing-bottom {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-lensing-heading h2 {
+        font-size: 2.25rem;
+    }
+
+
+    .blackhole-lensing-heading p {
+        font-size: 0.9rem;
+    }
+
+
+    .blackhole-lensing-image-frame {
+        min-height: 360px;
+
+        border-radius: 24px;
+    }
+
+
+    .blackhole-lensing-center-note {
+        min-width: 125px;
+
+        padding: 14px;
+    }
+
+
+    .blackhole-lensing-intro {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .blackhole-lensing-number {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .blackhole-lensing-fact {
+        align-items: flex-start;
+    }
+
+}
+/* =========================================================
+   SECTION 05 — RELATIVISTIC JETS
+   ========================================================= */
+
+.blackhole-jets-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 120px 24px;
+
+    overflow: hidden;
+}
+
+
+.blackhole-jets-container {
+    width: min(1180px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* -------------------------
+   தலைப்பு
+   ------------------------- */
+
+.blackhole-jets-heading {
+    max-width: 900px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+
+.blackhole-jets-heading h2 {
+    margin: 0;
+
+    color: var(--bh-text);
+
+    font-size: clamp(2.15rem, 5vw, 4.15rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.045em;
+}
+
+
+.blackhole-jets-heading h2 span {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--bh-cyan),
+            var(--bh-purple)
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.blackhole-jets-heading p {
+    max-width: 760px;
+
+    margin: 24px auto 0;
+
+    color: var(--bh-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+
+/* -------------------------
+   முக்கிய படம்
+   ------------------------- */
+
+.blackhole-jets-hero {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 58px;
+}
+
+
+.blackhole-jets-image-frame {
+    position: relative;
+
+    min-height: 620px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.13);
+
+    border-radius: 35px;
+
+    background: #000;
+
+    box-shadow:
+        0 40px 110px rgba(0, 0, 0, 0.65),
+        0 0 100px rgba(98, 229, 255, 0.065);
+
+    isolation: isolate;
+}
+
+
+.blackhole-jets-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.78)
+        contrast(1.12)
+        saturate(1.12);
+
+    transform: scale(1.02);
+
+    transition:
+        transform 1.1s ease,
+        filter 0.7s ease;
+}
+
+
+.blackhole-jets-image-frame:hover
+.blackhole-jets-image {
+    transform: scale(1.055);
+
+    filter:
+        brightness(0.9)
+        contrast(1.14)
+        saturate(1.2);
+}
+
+
+.blackhole-jets-image-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.08),
+            rgba(0, 0, 0, 0.58)
+        );
+
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   மேல் badge
+   ------------------------- */
+
+.blackhole-jets-top-badge {
+    position: absolute;
+
+    top: 23px;
+    left: 23px;
+
+    z-index: 7;
+
+    padding: 10px 16px;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.2);
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.4);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    color: #ffffff;
+
+    font-size: 0.76rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* -------------------------
+   கற்றை அலங்காரம்
+   ------------------------- */
+
+.blackhole-jet-beam {
+    position: absolute;
+
+    left: 50%;
+
+    width: 18px;
+
+    z-index: 4;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(98, 229, 255, 0.5),
+            rgba(255, 255, 255, 0.95),
+            rgba(98, 229, 255, 0.5),
+            transparent
+        );
+
+    filter:
+        blur(2px);
+
+    opacity: 0.75;
+
+    pointer-events: none;
+
+    animation:
+        blackholeJetPulse 3.2s ease-in-out infinite;
+}
+
+
+.jet-beam-top {
+    top: -5%;
+
+    height: 55%;
+}
+
+
+.jet-beam-bottom {
+    bottom: -5%;
+
+    height: 55%;
+
+    animation-delay: 1.4s;
+}
+
+
+.blackhole-jet-beam span {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 80px;
+    height: 80px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(98, 229, 255, 0.25),
+            transparent 70%
+        );
+
+    filter: blur(12px);
+}
+
+
+@keyframes blackholeJetPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform:
+            translateX(-50%)
+            scaleX(0.75);
+    }
+
+    50% {
+        opacity: 0.9;
+
+        transform:
+            translateX(-50%)
+            scaleX(1.35);
+    }
+
+}
+
+
+/* -------------------------
+   மையக் குறிப்பு
+   ------------------------- */
+
+.blackhole-jets-center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 7;
+
+    min-width: 165px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 18px;
+
+    transform: translate(-50%, -50%);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 24px;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    text-align: center;
+}
+
+
+.blackhole-jets-center-core {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #000;
+
+    box-shadow:
+        0 0 35px rgba(255, 255, 255, 0.12);
+
+    font-size: 1.2rem;
+}
+
+
+.blackhole-jets-center strong {
+    color: #ffffff;
+
+    font-size: 0.83rem;
+}
+
+
+.blackhole-jets-center small {
+    color: var(--bh-muted);
+
+    font-size: 0.67rem;
+}
+
+
+/* -------------------------
+   கீழ் caption
+   ------------------------- */
+
+.blackhole-jets-image-caption {
+    position: absolute;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 7;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    max-width: 310px;
+
+    padding: 13px 16px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 18px;
+
+    background:
+        rgba(0, 0, 0, 0.4);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+.blackhole-jets-image-caption > span {
+    font-size: 1.25rem;
+}
+
+
+.blackhole-jets-image-caption strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #ffffff;
+
+    font-size: 0.78rem;
+}
+
+
+.blackhole-jets-image-caption small {
+    display: block;
+
+    color: var(--bh-muted);
+
+    font-size: 0.67rem;
+
+    line-height: 1.5;
+}
+/* -------------------------
+   உள்ளடக்கத் தலைப்பு
+   ------------------------- */
+
+.blackhole-jets-title-row {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    gap: 22px;
+
+    align-items: start;
+
+    margin-bottom: 35px;
+}
+
+
+.blackhole-jets-number {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid rgba(98, 229, 255, 0.2);
+
+    border-radius: 18px;
+
+    background:
+        rgba(98, 229, 255, 0.055);
+
+    color: var(--bh-cyan);
+
+    font-size: 1rem;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 0 30px rgba(98, 229, 255, 0.07);
+}
+
+
+.blackhole-jets-title-row h3 {
+    margin: 0 0 12px;
+
+    color: var(--bh-text);
+
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+
+    line-height: 1.25;
+}
+
+
+.blackhole-jets-title-row p {
+    max-width: 820px;
+
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.96rem;
+
+    line-height: 1.85;
+}
+
+
+/* -------------------------
+   செயல்முறை அட்டைகள்
+   ------------------------- */
+
+.blackhole-jets-process {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.blackhole-jets-process-card {
+    position: relative;
+
+    min-height: 250px;
+
+    padding: 24px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.blackhole-jets-process-card::after {
+    content: "";
+
+    position: absolute;
+
+    right: -45px;
+    bottom: -45px;
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(98, 229, 255, 0.07);
+
+    filter: blur(24px);
+}
+
+
+.blackhole-jets-process-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(98, 229, 255, 0.2);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.32);
+}
+
+
+.blackhole-jets-process-top {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.blackhole-jets-process-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background:
+        rgba(98, 229, 255, 0.07);
+
+    font-size: 1.2rem;
+}
+
+
+.blackhole-jets-process-number {
+    color:
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+.blackhole-jets-process-card h4 {
+    margin: 0 0 10px;
+
+    color: var(--bh-text);
+
+    font-size: 1rem;
+}
+
+
+.blackhole-jets-process-card p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   அறிவியல் உண்மை
+   ------------------------- */
+
+.blackhole-jets-fact {
+    display: flex;
+
+    gap: 16px;
+
+    margin-top: 23px;
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 159, 67, 0.14);
+
+    border-radius: 21px;
+
+    background:
+        rgba(255, 159, 67, 0.035);
+}
+
+
+.blackhole-jets-fact-icon {
+    flex: 0 0 43px;
+
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 159, 67, 0.08);
+}
+
+
+.blackhole-jets-fact span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--bh-gold);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+}
+
+
+.blackhole-jets-fact p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   Dashboard
+   ------------------------- */
+
+.blackhole-jets-dashboard {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    padding: 13px 19px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: var(--bh-text);
+
+    text-decoration: none;
+
+    font-size: 0.84rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.blackhole-jets-dashboard:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(98, 229, 255, 0.28);
+
+    background:
+        rgba(98, 229, 255, 0.075);
+}
+
+
+.blackhole-jets-dashboard strong {
+    color: var(--bh-cyan);
+
+    font-size: 1.1rem;
+}
+
+
+/* -------------------------
+   கீழ் தகவல் அட்டைகள்
+   ------------------------- */
+
+.blackhole-jets-bottom {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.blackhole-jets-info-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 21px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.blackhole-jets-info-card:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(98, 229, 255, 0.18);
+}
+
+
+.blackhole-jets-info-card > span {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(98, 229, 255, 0.06);
+
+    font-size: 1.1rem;
+}
+
+
+.blackhole-jets-info-card strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--bh-text);
+
+    font-size: 0.88rem;
+}
+
+
+.blackhole-jets-info-card p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.74rem;
+
+    line-height: 1.5;
+}
+
+
+/* -------------------------
+   Responsive
+   ------------------------- */
+
+@media (max-width: 900px) {
+
+    .blackhole-jets-section {
+        padding: 90px 18px;
+    }
+
+
+    .blackhole-jets-image-frame {
+        min-height: 480px;
+    }
+
+
+    .blackhole-jets-process {
+        grid-template-columns: 1fr;
+    }
+
+
+    .blackhole-jets-process-card {
+        min-height: auto;
+    }
+
+
+    .blackhole-jets-bottom {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-jets-heading h2 {
+        font-size: 2.2rem;
+    }
+
+
+    .blackhole-jets-heading p {
+        font-size: 0.9rem;
+    }
+
+
+    .blackhole-jets-image-frame {
+        min-height: 365px;
+
+        border-radius: 25px;
+    }
+
+
+    .blackhole-jets-top-badge {
+        top: 15px;
+        left: 15px;
+
+        font-size: 0.68rem;
+    }
+
+
+    .blackhole-jets-image-caption {
+        right: 15px;
+        bottom: 15px;
+
+        max-width: 245px;
+
+        padding: 11px 12px;
+    }
+
+
+    .blackhole-jets-title-row {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .blackhole-jets-number {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .blackhole-jets-fact {
+        align-items: flex-start;
+    }
+
+}
+/* =========================================================
+   SECTION 06 — STELLAR-MASS BLACK HOLE
+   ========================================================= */
+
+.blackhole-stellar-section {
+    position: relative;
+
+    width: 100%;
+
+    padding: 120px 24px;
+
+    overflow: hidden;
+}
+
+
+.blackhole-stellar-container {
+    width: min(1180px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/* -------------------------
+   தலைப்பு
+   ------------------------- */
+
+.blackhole-stellar-heading {
+    max-width: 900px;
+
+    margin: 0 auto 65px;
+
+    text-align: center;
+}
+
+
+.blackhole-stellar-heading h2 {
+    margin: 0;
+
+    color: var(--bh-text);
+
+    font-size: clamp(2.2rem, 5vw, 4.15rem);
+
+    line-height: 1.08;
+
+    letter-spacing: -0.045em;
+}
+
+
+.blackhole-stellar-heading h2 span {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-gold),
+            var(--bh-orange),
+            #ffffff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+.blackhole-stellar-heading p {
+    max-width: 770px;
+
+    margin: 24px auto 0;
+
+    color: var(--bh-muted);
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+
+/* -------------------------
+   முக்கிய படம்
+   ------------------------- */
+
+.blackhole-stellar-hero {
+    width: 100%;
+
+    margin-bottom: 58px;
+}
+
+
+.blackhole-stellar-image-frame {
+    position: relative;
+
+    min-height: 620px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 212, 119, 0.13);
+
+    border-radius: 35px;
+
+    background: #000;
+
+    box-shadow:
+        0 40px 110px rgba(0, 0, 0, 0.65),
+        0 0 100px rgba(255, 159, 67, 0.06);
+
+    isolation: isolate;
+}
+
+
+.blackhole-stellar-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter:
+        brightness(0.78)
+        contrast(1.1)
+        saturate(1.12);
+
+    transform: scale(1.02);
+
+    transition:
+        transform 1.1s ease,
+        filter 0.7s ease;
+}
+
+
+.blackhole-stellar-image-frame:hover
+.blackhole-stellar-image {
+    transform: scale(1.055);
+
+    filter:
+        brightness(0.91)
+        contrast(1.13)
+        saturate(1.2);
+}
+
+
+.blackhole-stellar-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            transparent 0%,
+            rgba(0, 0, 0, 0.08) 40%,
+            rgba(0, 0, 0, 0.6) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* -------------------------
+   Badge
+   ------------------------- */
+
+.blackhole-stellar-badge {
+    position: absolute;
+
+    top: 23px;
+    left: 23px;
+
+    z-index: 7;
+
+    padding: 10px 17px;
+
+    border:
+        1px solid rgba(255, 212, 119, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+
+    color: #ffffff;
+
+    font-size: 0.76rem;
+
+    font-weight: 800;
+
+    letter-spacing: 0.07em;
+}
+
+
+/* -------------------------
+   மைய ஒளி
+   ------------------------- */
+
+.blackhole-stellar-core-glow {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 280px;
+    height: 280px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 212, 119, 0.16),
+            rgba(255, 159, 67, 0.06) 40%,
+            transparent 72%
+        );
+
+    filter: blur(18px);
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    animation:
+        stellarCorePulse 4s ease-in-out infinite;
+}
+
+
+@keyframes stellarCorePulse {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+
+        opacity: 0.55;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.12);
+
+        opacity: 1;
+    }
+
+}
+
+
+/* -------------------------
+   சுற்றுப்பாதை
+   ------------------------- */
+
+.blackhole-stellar-orbit {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 390px;
+    height: 170px;
+
+    z-index: 4;
+
+    border:
+        1px solid rgba(255, 212, 119, 0.2);
+
+    border-radius: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(-15deg);
+
+    pointer-events: none;
+
+    animation:
+        stellarOrbitRotate 13s linear infinite;
+}
+
+
+.blackhole-stellar-orbit-dot {
+    position: absolute;
+
+    top: -5px;
+    left: 50%;
+
+    width: 10px;
+    height: 10px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.8),
+        0 0 35px rgba(255, 212, 119, 0.5);
+}
+
+
+@keyframes stellarOrbitRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(-15deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(345deg);
+    }
+
+}
+
+
+/* -------------------------
+   மைய குறிப்பு
+   ------------------------- */
+
+.blackhole-stellar-center {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 7;
+
+    min-width: 175px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 19px;
+
+    transform: translate(-50%, -50%);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 24px;
+
+    background:
+        rgba(0, 0, 0, 0.43);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    text-align: center;
+}
+
+
+.blackhole-stellar-center span {
+    font-size: 1.55rem;
+}
+
+
+.blackhole-stellar-center strong {
+    color: #ffffff;
+
+    font-size: 0.84rem;
+}
+
+
+.blackhole-stellar-center small {
+    color: var(--bh-muted);
+
+    font-size: 0.67rem;
+}
+/* -------------------------
+   படம் கீழ் தகவல்
+   ------------------------- */
+
+.blackhole-stellar-caption {
+    position: absolute;
+
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 7;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    max-width: 325px;
+
+    padding: 14px 17px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 19px;
+
+    background:
+        rgba(0, 0, 0, 0.42);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+.blackhole-stellar-caption > span {
+    font-size: 1.25rem;
+}
+
+
+.blackhole-stellar-caption strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #ffffff;
+
+    font-size: 0.78rem;
+}
+
+
+.blackhole-stellar-caption small {
+    display: block;
+
+    color: var(--bh-muted);
+
+    font-size: 0.67rem;
+
+    line-height: 1.5;
+}
+
+
+/* -------------------------
+   உள்ளடக்கத் தலைப்பு
+   ------------------------- */
+
+.blackhole-stellar-intro {
+    display: grid;
+
+    grid-template-columns: auto 1fr;
+
+    gap: 22px;
+
+    align-items: start;
+
+    margin-bottom: 35px;
+}
+
+
+.blackhole-stellar-number {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid rgba(255, 212, 119, 0.2);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 212, 119, 0.055);
+
+    color: var(--bh-gold);
+
+    font-size: 1rem;
+
+    font-weight: 900;
+}
+
+
+.blackhole-stellar-intro h3 {
+    margin: 0 0 12px;
+
+    color: var(--bh-text);
+
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+
+    line-height: 1.25;
+}
+
+
+.blackhole-stellar-intro p {
+    max-width: 820px;
+
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.96rem;
+
+    line-height: 1.85;
+}
+
+
+/* -------------------------
+   வாழ்க்கைச் சுழற்சி
+   ------------------------- */
+
+.blackhole-stellar-timeline {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+
+.blackhole-stellar-step {
+    position: relative;
+
+    min-height: 265px;
+
+    padding: 24px;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.018)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.blackhole-stellar-step:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(255, 212, 119, 0.2);
+
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.3);
+}
+
+
+.blackhole-stellar-step-number {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    color:
+        rgba(255, 255, 255, 0.23);
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+}
+
+
+.blackhole-stellar-step-icon {
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 212, 119, 0.07);
+
+    font-size: 1.25rem;
+}
+
+
+.blackhole-stellar-step h4 {
+    margin: 0 0 10px;
+
+    color: var(--bh-text);
+
+    font-size: 0.98rem;
+}
+
+
+.blackhole-stellar-step p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.81rem;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   அறிவியல் உண்மை
+   ------------------------- */
+
+.blackhole-stellar-fact {
+    display: flex;
+
+    gap: 16px;
+
+    margin-top: 23px;
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 212, 119, 0.14);
+
+    border-radius: 21px;
+
+    background:
+        rgba(255, 212, 119, 0.035);
+}
+
+
+.blackhole-stellar-fact-icon {
+    flex: 0 0 43px;
+
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 212, 119, 0.08);
+}
+
+
+.blackhole-stellar-fact span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--bh-gold);
+
+    font-size: 0.75rem;
+
+    font-weight: 800;
+}
+
+
+.blackhole-stellar-fact p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.82rem;
+
+    line-height: 1.7;
+}
+
+
+/* -------------------------
+   Dashboard
+   ------------------------- */
+
+.blackhole-stellar-dashboard {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    padding: 13px 19px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    color: var(--bh-text);
+
+    text-decoration: none;
+
+    font-size: 0.84rem;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.blackhole-stellar-dashboard:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255, 212, 119, 0.28);
+
+    background:
+        rgba(255, 212, 119, 0.07);
+}
+
+
+.blackhole-stellar-dashboard strong {
+    color: var(--bh-gold);
+
+    font-size: 1.1rem;
+}
+
+
+/* -------------------------
+   கீழ் தகவல்
+   ------------------------- */
+
+.blackhole-stellar-bottom {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+
+    margin-top: 35px;
+}
+
+
+.blackhole-stellar-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 21px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.blackhole-stellar-info:hover {
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(255, 212, 119, 0.18);
+}
+
+
+.blackhole-stellar-info-icon {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 212, 119, 0.06);
+
+    font-size: 1.1rem;
+}
+
+
+.blackhole-stellar-info strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--bh-text);
+
+    font-size: 0.88rem;
+}
+
+
+.blackhole-stellar-info p {
+    margin: 0;
+
+    color: var(--bh-muted);
+
+    font-size: 0.74rem;
+
+    line-height: 1.5;
+}
+
+
+/* -------------------------
+   Responsive
+   ------------------------- */
+
+@media (max-width: 1000px) {
+
+    .blackhole-stellar-timeline {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .blackhole-stellar-section {
+        padding: 90px 18px;
+    }
+
+
+    .blackhole-stellar-image-frame {
+        min-height: 480px;
+    }
+
+
+    .blackhole-stellar-bottom {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-stellar-heading h2 {
+        font-size: 2.2rem;
+    }
+
+
+    .blackhole-stellar-heading p {
+        font-size: 0.9rem;
+    }
+
+
+    .blackhole-stellar-image-frame {
+        min-height: 365px;
+
+        border-radius: 25px;
+    }
+
+
+    .blackhole-stellar-badge {
+        top: 15px;
+        left: 15px;
+
+        font-size: 0.68rem;
+    }
+
+
+    .blackhole-stellar-orbit {
+        width: 250px;
+        height: 110px;
+    }
+
+
+    .blackhole-stellar-caption {
+        right: 15px;
+        bottom: 15px;
+
+        max-width: 250px;
+
+        padding: 11px 12px;
+    }
+
+
+    .blackhole-stellar-intro {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .blackhole-stellar-number {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .blackhole-stellar-timeline {
+        grid-template-columns: 1fr;
+    }
+
+
+    .blackhole-stellar-step {
+        min-height: auto;
+    }
+
+
+    .blackhole-stellar-fact {
+        align-items: flex-start;
+    }
+
+}
+/* =========================================================
+   SECTION 07 — SUPERMASSIVE BLACK HOLE
+   ========================================================= */
+
+.blackhole-supermassive-section {
+    position: relative;
+    width: 100%;
+    padding: 125px 24px;
+    overflow: hidden;
+}
+
+.blackhole-supermassive-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+.blackhole-supermassive-heading {
+    max-width: 920px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.blackhole-supermassive-heading h2 {
+    margin: 0;
+    color: var(--bh-text);
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.07;
+    letter-spacing: -0.05em;
+}
+
+.blackhole-supermassive-heading h2 span {
+    display: inline-block;
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-purple),
+            var(--bh-cyan),
+            #ffffff
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blackhole-supermassive-heading p {
+    max-width: 790px;
+    margin: 25px auto 0;
+    color: var(--bh-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* HERO */
+
+.blackhole-supermassive-hero {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.blackhole-supermassive-image-frame {
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+    border: 1px solid rgba(155, 124, 255, 0.16);
+    border-radius: 38px;
+    background: #000;
+    box-shadow:
+        0 45px 120px rgba(0, 0, 0, 0.68),
+        0 0 120px rgba(155, 124, 255, 0.075);
+    isolation: isolate;
+}
+
+.blackhole-supermassive-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter:
+        brightness(0.74)
+        contrast(1.15)
+        saturate(1.15);
+    transform: scale(1.025);
+    transition:
+        transform 1.2s ease,
+        filter 0.8s ease;
+}
+
+.blackhole-supermassive-image-frame:hover
+.blackhole-supermassive-image {
+    transform: scale(1.065);
+    filter:
+        brightness(0.88)
+        contrast(1.17)
+        saturate(1.22);
+}
+
+.blackhole-supermassive-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            transparent 0%,
+            rgba(0, 0, 0, 0.12) 35%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+    pointer-events: none;
+}
+
+.blackhole-supermassive-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 10;
+    padding: 11px 17px;
+    border: 1px solid rgba(155, 124, 255, 0.24);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.43);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+
+/* GALAXY RINGS */
+
+.blackhole-supermassive-galaxy-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 530px;
+    height: 530px;
+    z-index: 3;
+    transform:
+        translate(-50%, -50%)
+        rotate(-18deg);
+    pointer-events: none;
+}
+
+.blackhole-supermassive-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(155, 124, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-one {
+    width: 95%;
+    height: 35%;
+    animation:
+        supermassiveRingOne 9s linear infinite;
+}
+
+.ring-two {
+    width: 75%;
+    height: 27%;
+    border-color: rgba(98, 229, 255, 0.22);
+    animation:
+        supermassiveRingTwo 13s linear infinite reverse;
+}
+
+.ring-three {
+    width: 55%;
+    height: 20%;
+    border-color: rgba(255, 255, 255, 0.18);
+    animation:
+        supermassiveRingThree 7s linear infinite;
+}
+
+@keyframes supermassiveRingOne {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes supermassiveRingTwo {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+}
+
+@keyframes supermassiveRingThree {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(-360deg);
+    }
+}
+
+
+/* CORE */
+
+.blackhole-supermassive-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 8;
+    min-width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 21px;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 27px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(23px);
+    -webkit-backdrop-filter: blur(23px);
+    text-align: center;
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.5);
+}
+
+.blackhole-supermassive-core-glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 230px;
+    height: 230px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(155, 124, 255, 0.24),
+            rgba(98, 229, 255, 0.08) 40%,
+            transparent 72%
+        );
+    filter: blur(20px);
+    z-index: -1;
+    animation:
+        supermassiveCorePulse 4.5s ease-in-out infinite;
+}
+
+@keyframes supermassiveCorePulse {
+    0%, 100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.88);
+        opacity: 0.55;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+        opacity: 1;
+    }
+}
+
+.blackhole-supermassive-core-hole {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #000;
+    box-shadow:
+        0 0 35px rgba(155, 124, 255, 0.24),
+        inset 0 0 18px rgba(255, 255, 255, 0.05);
+    font-size: 1.4rem;
+}
+
+.blackhole-supermassive-core strong {
+    color: #ffffff;
+    font-size: 0.87rem;
+}
+
+.blackhole-supermassive-core small {
+    color: var(--bh-muted);
+    font-size: 0.68rem;
+}
+
+
+/* ORBIT DOTS */
+
+.blackhole-supermassive-orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 420px;
+    height: 180px;
+    z-index: 7;
+    border: 1px solid rgba(98, 229, 255, 0.18);
+    border-radius: 50%;
+    transform:
+        translate(-50%, -50%)
+        rotate(-13deg);
+    pointer-events: none;
+    animation:
+        supermassiveOrbit 14s linear infinite;
+}
+
+@keyframes supermassiveOrbit {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(-13deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(347deg);
+    }
+}
+
+.supermassive-orbit-dot {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(98, 229, 255, 0.55);
+}
+
+.dot-one {
+    top: -4px;
+    left: 50%;
+}
+
+.dot-two {
+    right: 12%;
+    bottom: 15%;
+}
+
+.dot-three {
+    left: 13%;
+    bottom: 18%;
+}
+
+
+/* IMAGE CAPTION */
+
+.blackhole-supermassive-caption {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    max-width: 335px;
+    padding: 14px 17px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.44);
+    backdrop-filter: blur(19px);
+    -webkit-backdrop-filter: blur(19px);
+}
+
+.blackhole-supermassive-caption > span {
+    font-size: 1.3rem;
+}
+
+.blackhole-supermassive-caption strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-size: 0.79rem;
+}
+
+.blackhole-supermassive-caption small {
+    display: block;
+    color: var(--bh-muted);
+    font-size: 0.67rem;
+    line-height: 1.55;
+}
+.blackhole-supermassive-intro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: start;
+    margin-bottom: 36px;
+}
+
+.blackhole-supermassive-number {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(155, 124, 255, 0.24);
+    border-radius: 18px;
+    background: rgba(155, 124, 255, 0.065);
+    color: var(--bh-purple);
+    font-size: 1rem;
+    font-weight: 900;
+    box-shadow:
+        0 0 35px rgba(155, 124, 255, 0.08);
+}
+
+.blackhole-supermassive-intro h3 {
+    margin: 0 0 12px;
+    color: var(--bh-text);
+    font-size: clamp(1.7rem, 3vw, 2.55rem);
+    line-height: 1.25;
+}
+
+.blackhole-supermassive-intro p {
+    max-width: 830px;
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.96rem;
+    line-height: 1.85;
+}
+
+
+/* FACT CARDS */
+
+.blackhole-supermassive-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.blackhole-supermassive-fact-card {
+    position: relative;
+    min-height: 350px;
+    padding: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 25px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.017)
+        );
+    backdrop-filter: blur(19px);
+    -webkit-backdrop-filter: blur(19px);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.blackhole-supermassive-fact-card::after {
+    content: "";
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background:
+        rgba(155, 124, 255, 0.07);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.blackhole-supermassive-fact-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(155, 124, 255, 0.22);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.blackhole-supermassive-fact-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.blackhole-supermassive-fact-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: rgba(155, 124, 255, 0.08);
+    font-size: 1.25rem;
+}
+
+.blackhole-supermassive-fact-top > span {
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 0.64rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+.blackhole-supermassive-fact-card h4 {
+    margin: 0 0 11px;
+    color: var(--bh-text);
+    font-size: 1rem;
+}
+
+.blackhole-supermassive-fact-card p {
+    margin: 0 0 16px;
+    color: var(--bh-muted);
+    font-size: 0.82rem;
+    line-height: 1.75;
+}
+
+.blackhole-supermassive-fact-card small {
+    display: block;
+    margin-top: 12px;
+    color: rgba(220, 230, 255, 0.5);
+    font-size: 0.67rem;
+    line-height: 1.5;
+}
+
+
+/* MASS METER */
+
+.blackhole-supermassive-meter {
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.blackhole-supermassive-meter-fill {
+    width: 92%;
+    height: 100%;
+    border-radius: inherit;
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-purple),
+            var(--bh-cyan),
+            #ffffff
+        );
+    box-shadow:
+        0 0 18px rgba(98, 229, 255, 0.35);
+    animation:
+        supermassiveMeter 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes supermassiveMeter {
+    from {
+        width: 72%;
+    }
+
+    to {
+        width: 96%;
+    }
+}
+
+
+/* MINI ORBIT */
+
+.blackhole-supermassive-orbit-mini {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    margin-top: 12px;
+    border: 1px solid rgba(98, 229, 255, 0.13);
+    border-radius: 50%;
+    transform: rotate(-8deg);
+}
+
+.blackhole-supermassive-orbit-mini span {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:
+        0 0 13px rgba(255, 255, 255, 0.8);
+}
+
+.blackhole-supermassive-orbit-mini span:nth-child(1) {
+    top: -4px;
+    left: 30%;
+}
+
+.blackhole-supermassive-orbit-mini span:nth-child(2) {
+    right: 17%;
+    top: 35%;
+}
+
+.blackhole-supermassive-orbit-mini span:nth-child(3) {
+    left: 14%;
+    bottom: 2px;
+}
+
+
+/* ENERGY BARS */
+
+.blackhole-supermassive-energy {
+    display: flex;
+    align-items: flex-end;
+    gap: 7px;
+    height: 55px;
+    margin-top: 12px;
+}
+
+.blackhole-supermassive-energy i {
+    display: block;
+    width: 12px;
+    height: 20px;
+    border-radius: 999px;
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            var(--bh-cyan),
+            var(--bh-purple)
+        );
+    box-shadow:
+        0 0 15px rgba(98, 229, 255, 0.18);
+    animation:
+        supermassiveEnergy 1.3s ease-in-out infinite alternate;
+}
+
+.blackhole-supermassive-energy i:nth-child(2) {
+    height: 34px;
+    animation-delay: 0.15s;
+}
+
+.blackhole-supermassive-energy i:nth-child(3) {
+    height: 49px;
+    animation-delay: 0.3s;
+}
+
+.blackhole-supermassive-energy i:nth-child(4) {
+    height: 38px;
+    animation-delay: 0.45s;
+}
+
+.blackhole-supermassive-energy i:nth-child(5) {
+    height: 27px;
+    animation-delay: 0.6s;
+}
+
+@keyframes supermassiveEnergy {
+    from {
+        opacity: 0.35;
+        transform: scaleY(0.72);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+
+/* DISCOVERY */
+
+.blackhole-supermassive-discovery {
+    margin-top: 55px;
+    padding: 35px;
+    border: 1px solid rgba(98, 229, 255, 0.11);
+    border-radius: 30px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(98, 229, 255, 0.035),
+            rgba(155, 124, 255, 0.025)
+        );
+}
+
+.blackhole-supermassive-discovery-heading {
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+.blackhole-supermassive-discovery-heading > span {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--bh-cyan);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.blackhole-supermassive-discovery-heading h3 {
+    margin: 0 0 12px;
+    color: var(--bh-text);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.3;
+}
+
+.blackhole-supermassive-discovery-heading p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.86rem;
+    line-height: 1.8;
+}
+
+.blackhole-supermassive-discovery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.blackhole-supermassive-discovery-card {
+    position: relative;
+    min-height: 265px;
+    padding: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.025);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.blackhole-supermassive-discovery-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(98, 229, 255, 0.2);
+}
+
+.discovery-number {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    color: rgba(255, 255, 255, 0.22);
+    font-size: 0.68rem;
+    font-weight: 900;
+}
+
+.discovery-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 19px;
+    border-radius: 14px;
+    background: rgba(98, 229, 255, 0.06);
+    font-size: 1.15rem;
+}
+
+.blackhole-supermassive-discovery-card h4 {
+    margin: 0 0 10px;
+    color: var(--bh-text);
+    font-size: 0.94rem;
+}
+
+.blackhole-supermassive-discovery-card p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.77rem;
+    line-height: 1.7;
+}
+
+
+/* SCIENCE FACT */
+
+.blackhole-supermassive-fact {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 21px;
+    border: 1px solid rgba(155, 124, 255, 0.15);
+    border-radius: 22px;
+    background:
+        rgba(155, 124, 255, 0.035);
+}
+
+.blackhole-supermassive-fact-symbol {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(155, 124, 255, 0.08);
+}
+
+.blackhole-supermassive-fact span {
+    display: block;
+    margin-bottom: 6px;
+    color: #c4b4ff;
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+.blackhole-supermassive-fact p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.82rem;
+    line-height: 1.75;
+}
+
+
+/* DASHBOARD */
+
+.blackhole-supermassive-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 13px 20px;
+    border: 1px solid rgba(155, 124, 255, 0.17);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--bh-text);
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 800;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.blackhole-supermassive-dashboard:hover {
+    transform: translateY(-3px);
+    border-color: rgba(155, 124, 255, 0.35);
+    background: rgba(155, 124, 255, 0.075);
+}
+
+.blackhole-supermassive-dashboard strong {
+    color: var(--bh-purple);
+    font-size: 1.1rem;
+}
+
+
+/* BOTTOM CARDS */
+
+.blackhole-supermassive-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.blackhole-supermassive-bottom-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 21px;
+    background: rgba(255, 255, 255, 0.025);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.blackhole-supermassive-bottom-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(155, 124, 255, 0.2);
+}
+
+.blackhole-supermassive-bottom-card > span {
+    width: 45px;
+    height: 45px;
+    flex: 0 0 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(155, 124, 255, 0.06);
+    font-size: 1.1rem;
+}
+
+.blackhole-supermassive-bottom-card strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--bh-text);
+    font-size: 0.87rem;
+}
+
+.blackhole-supermassive-bottom-card p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.73rem;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+
+    .blackhole-supermassive-discovery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .blackhole-supermassive-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-supermassive-fact-card {
+        min-height: auto;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .blackhole-supermassive-section {
+        padding: 90px 18px;
+    }
+
+    .blackhole-supermassive-image-frame {
+        min-height: 500px;
+    }
+
+    .blackhole-supermassive-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-supermassive-discovery {
+        padding: 25px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-supermassive-heading h2 {
+        font-size: 2.2rem;
+    }
+
+    .blackhole-supermassive-heading p {
+        font-size: 0.9rem;
+    }
+
+    .blackhole-supermassive-image-frame {
+        min-height: 370px;
+        border-radius: 26px;
+    }
+
+    .blackhole-supermassive-badge {
+        top: 15px;
+        left: 15px;
+        font-size: 0.64rem;
+    }
+
+    .blackhole-supermassive-galaxy-ring {
+        width: 330px;
+        height: 330px;
+    }
+
+    .blackhole-supermassive-orbit {
+        width: 270px;
+        height: 115px;
+    }
+
+    .blackhole-supermassive-core {
+        min-width: 150px;
+        padding: 15px;
+    }
+
+    .blackhole-supermassive-core-hole {
+        width: 45px;
+        height: 45px;
+    }
+
+    .blackhole-supermassive-caption {
+        right: 15px;
+        bottom: 15px;
+        max-width: 250px;
+        padding: 11px 12px;
+    }
+
+    .blackhole-supermassive-intro {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .blackhole-supermassive-number {
+        width: 52px;
+        height: 52px;
+    }
+
+    .blackhole-supermassive-discovery {
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    .blackhole-supermassive-discovery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-supermassive-discovery-card {
+        min-height: auto;
+    }
+
+    .blackhole-supermassive-fact {
+        align-items: flex-start;
+    }
+
+}
+/* =========================================================
+   SECTION 08 — BINARY BLACK HOLE MERGER
+   ========================================================= */
+
+.blackhole-binary-section {
+    position: relative;
+    width: 100%;
+    padding: 125px 24px;
+    overflow: hidden;
+}
+
+.blackhole-binary-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+.blackhole-binary-heading {
+    max-width: 920px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.blackhole-binary-heading h2 {
+    margin: 0;
+    color: var(--bh-text);
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1.07;
+    letter-spacing: -0.05em;
+}
+
+.blackhole-binary-heading h2 span {
+    display: inline-block;
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-cyan),
+            var(--bh-purple),
+            #ffffff
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blackhole-binary-heading p {
+    max-width: 800px;
+    margin: 25px auto 0;
+    color: var(--bh-muted);
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+
+/* HERO */
+
+.blackhole-binary-hero {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.blackhole-binary-image-frame {
+    position: relative;
+    min-height: 650px;
+    overflow: hidden;
+    border: 1px solid rgba(98, 229, 255, 0.15);
+    border-radius: 38px;
+    background: #000;
+    box-shadow:
+        0 45px 120px rgba(0, 0, 0, 0.7),
+        0 0 120px rgba(98, 229, 255, 0.065);
+    isolation: isolate;
+}
+
+.blackhole-binary-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter:
+        brightness(0.72)
+        contrast(1.16)
+        saturate(1.18);
+    transform: scale(1.025);
+    transition:
+        transform 1.2s ease,
+        filter 0.8s ease;
+}
+
+.blackhole-binary-image-frame:hover
+.blackhole-binary-image {
+    transform: scale(1.06);
+    filter:
+        brightness(0.87)
+        contrast(1.18)
+        saturate(1.25);
+}
+
+.blackhole-binary-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            transparent 0%,
+            rgba(0, 0, 0, 0.18) 40%,
+            rgba(0, 0, 0, 0.7) 100%
+        );
+    pointer-events: none;
+}
+
+.blackhole-binary-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 10;
+    padding: 11px 17px;
+    border: 1px solid rgba(98, 229, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.43);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+
+/* ORBIT */
+
+.blackhole-binary-orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 245px;
+    z-index: 5;
+    border: 1px solid rgba(98, 229, 255, 0.23);
+    border-radius: 50%;
+    transform:
+        translate(-50%, -50%)
+        rotate(-12deg);
+    pointer-events: none;
+    animation:
+        binaryOrbitSpin 8s linear infinite;
+}
+
+@keyframes binaryOrbitSpin {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(-12deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(348deg);
+    }
+
+}
+
+.binary-orbit-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 0.9),
+        0 0 32px rgba(98, 229, 255, 0.6);
+}
+
+.particle-one {
+    top: -5px;
+    left: 50%;
+}
+
+.particle-two {
+    bottom: -5px;
+    left: 50%;
+}
+
+
+/* BLACK HOLES */
+
+.blackhole-binary-hole {
+    position: absolute;
+    z-index: 8;
+    width: 105px;
+    height: 105px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            #000 0 43%,
+            rgba(155, 124, 255, 0.35) 45%,
+            rgba(98, 229, 255, 0.08) 64%,
+            transparent 73%
+        );
+    box-shadow:
+        0 0 55px rgba(155, 124, 255, 0.24);
+}
+
+.blackhole-binary-hole span {
+    font-size: 1.55rem;
+}
+
+.binary-hole-one {
+    left: calc(50% - 112px);
+    top: calc(50% - 25px);
+    animation:
+        binaryHoleOne 3s ease-in-out infinite alternate;
+}
+
+.binary-hole-two {
+    left: calc(50% + 8px);
+    top: calc(50% - 25px);
+    animation:
+        binaryHoleTwo 3s ease-in-out infinite alternate;
+}
+
+@keyframes binaryHoleOne {
+
+    from {
+        transform: translateX(-10px);
+    }
+
+    to {
+        transform: translateX(16px);
+    }
+
+}
+
+@keyframes binaryHoleTwo {
+
+    from {
+        transform: translateX(10px);
+    }
+
+    to {
+        transform: translateX(-16px);
+    }
+
+}
+
+
+/* MERGER GLOW */
+
+.blackhole-binary-center-glow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 260px;
+    height: 260px;
+    z-index: 4;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.15),
+            rgba(98, 229, 255, 0.1) 30%,
+            rgba(155, 124, 255, 0.08) 48%,
+            transparent 72%
+        );
+    filter: blur(25px);
+    pointer-events: none;
+    animation:
+        binaryMergerGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes binaryMergerGlow {
+
+    0%, 100% {
+        opacity: 0.45;
+        transform:
+            translate(-50%, -50%)
+            scale(0.85);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translate(-50%, -50%)
+            scale(1.2);
+    }
+
+}
+
+
+/* GRAVITATIONAL WAVES */
+
+.blackhole-binary-wave {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    border: 1px solid rgba(98, 229, 255, 0.18);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.wave-one {
+    width: 320px;
+    height: 320px;
+    animation:
+        binaryWaveExpand 3.2s ease-out infinite;
+}
+
+.wave-two {
+    width: 430px;
+    height: 430px;
+    animation:
+        binaryWaveExpand 3.2s ease-out 1s infinite;
+}
+
+.wave-three {
+    width: 550px;
+    height: 550px;
+    animation:
+        binaryWaveExpand 3.2s ease-out 2s infinite;
+}
+
+@keyframes binaryWaveExpand {
+
+    0% {
+        opacity: 0.65;
+        transform:
+            translate(-50%, -50%)
+            scale(0.45);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+    }
+
+}
+
+
+/* CAPTION */
+
+.blackhole-binary-caption {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    max-width: 335px;
+    padding: 14px 17px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.44);
+    backdrop-filter: blur(19px);
+    -webkit-backdrop-filter: blur(19px);
+}
+
+.blackhole-binary-caption > span {
+    font-size: 1.3rem;
+}
+
+.blackhole-binary-caption strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #ffffff;
+    font-size: 0.79rem;
+}
+
+.blackhole-binary-caption small {
+    display: block;
+    color: var(--bh-muted);
+    font-size: 0.67rem;
+    line-height: 1.55;
+}
+.blackhole-binary-intro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 22px;
+    align-items: start;
+    margin-bottom: 36px;
+}
+
+.blackhole-binary-number {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(98, 229, 255, 0.22);
+    border-radius: 18px;
+    background: rgba(98, 229, 255, 0.055);
+    color: var(--bh-cyan);
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.blackhole-binary-intro h3 {
+    margin: 0 0 12px;
+    color: var(--bh-text);
+    font-size: clamp(1.7rem, 3vw, 2.55rem);
+    line-height: 1.25;
+}
+
+.blackhole-binary-intro p {
+    max-width: 830px;
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.96rem;
+    line-height: 1.85;
+}
+
+
+/* STAGES */
+
+.blackhole-binary-stages {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.blackhole-binary-stage {
+    position: relative;
+    min-height: 285px;
+    padding: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.017)
+        );
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.blackhole-binary-stage:hover {
+    transform: translateY(-8px);
+    border-color: rgba(98, 229, 255, 0.22);
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+.blackhole-binary-stage-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.stage-icon {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(98, 229, 255, 0.07);
+    font-size: 1.2rem;
+}
+
+.stage-number {
+    color: rgba(255, 255, 255, 0.23);
+    font-size: 0.68rem;
+    font-weight: 900;
+}
+
+.blackhole-binary-stage h4 {
+    margin: 0 0 10px;
+    color: var(--bh-text);
+    font-size: 0.98rem;
+}
+
+.blackhole-binary-stage p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.8rem;
+    line-height: 1.72;
+}
+
+
+/* GRAVITY CARD */
+
+.blackhole-binary-gravity-card {
+    display: flex;
+    gap: 17px;
+    margin-top: 24px;
+    padding: 24px;
+    border: 1px solid rgba(98, 229, 255, 0.14);
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(98, 229, 255, 0.045),
+            rgba(155, 124, 255, 0.025)
+        );
+}
+
+.blackhole-binary-gravity-icon {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(98, 229, 255, 0.07);
+    color: var(--bh-cyan);
+    font-size: 1.3rem;
+}
+
+.blackhole-binary-gravity-card span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--bh-cyan);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.blackhole-binary-gravity-card h3 {
+    margin: 0 0 10px;
+    color: var(--bh-text);
+    font-size: 1.35rem;
+}
+
+.blackhole-binary-gravity-card p {
+    max-width: 850px;
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.82rem;
+    line-height: 1.75;
+}
+
+
+/* WAVE VISUAL */
+
+.blackhole-binary-wave-visual {
+    position: relative;
+    margin-top: 28px;
+    padding: 28px 25px;
+    overflow: hidden;
+    border: 1px solid rgba(155, 124, 255, 0.13);
+    border-radius: 25px;
+    background:
+        rgba(155, 124, 255, 0.025);
+}
+
+.blackhole-binary-wave-heading {
+    margin-bottom: 25px;
+}
+
+.blackhole-binary-wave-heading span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--bh-purple);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+}
+
+.blackhole-binary-wave-heading h3 {
+    margin: 0;
+    color: var(--bh-text);
+    font-size: 1.3rem;
+}
+
+
+/* WAVE LINE */
+
+.blackhole-wave-line {
+    position: relative;
+    width: 100%;
+    height: 105px;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.blackhole-wave-line::before {
+    content: "";
+    position: absolute;
+    left: -2%;
+    top: 50%;
+    width: 104%;
+    height: 5px;
+    transform: translateY(-50%);
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--bh-cyan),
+            var(--bh-purple),
+            #ffffff,
+            var(--bh-purple),
+            var(--bh-cyan),
+            transparent
+        );
+    border-radius: 999px;
+    filter:
+        blur(1px)
+        drop-shadow(0 0 12px rgba(98, 229, 255, 0.45));
+    clip-path:
+        polygon(
+            0 48%,
+            10% 49%,
+            20% 51%,
+            28% 48%,
+            35% 50%,
+            40% 43%,
+            44% 60%,
+            47% 20%,
+            49% 82%,
+            51% 5%,
+            53% 95%,
+            55% 18%,
+            58% 80%,
+            61% 35%,
+            66% 65%,
+            72% 45%,
+            80% 52%,
+            90% 49%,
+            100% 50%,
+            100% 55%,
+            0 55%
+        );
+    animation:
+        blackholeWaveSignal 2.4s linear infinite;
+}
+
+@keyframes blackholeWaveSignal {
+
+    from {
+        transform:
+            translateY(-50%)
+            translateX(-4%);
+    }
+
+    to {
+        transform:
+            translateY(-50%)
+            translateX(4%);
+    }
+
+}
+
+
+/* WAVE POINTS */
+
+.wave-point {
+    position: absolute;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow:
+        0 0 15px rgba(255, 255, 255, 0.8);
+    animation:
+        wavePointPulse 1.6s ease-in-out infinite;
+}
+
+.point-01 { left: 10%; }
+.point-02 { left: 20%; animation-delay: 0.1s; }
+.point-03 { left: 30%; animation-delay: 0.2s; }
+.point-04 { left: 40%; animation-delay: 0.3s; }
+.point-05 { left: 50%; animation-delay: 0.4s; }
+.point-06 { left: 60%; animation-delay: 0.5s; }
+.point-07 { left: 70%; animation-delay: 0.6s; }
+.point-08 { left: 80%; animation-delay: 0.7s; }
+.point-09 { left: 90%; animation-delay: 0.8s; }
+.point-10 { left: 96%; animation-delay: 0.9s; }
+
+@keyframes wavePointPulse {
+
+    0%, 100% {
+        opacity: 0.3;
+        transform:
+            translateY(-50%)
+            scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translateY(-50%)
+            scale(1.4);
+    }
+
+}
+
+
+/* WAVE LABELS */
+
+.blackhole-wave-labels {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 14px;
+    color: rgba(220, 230, 255, 0.48);
+    font-size: 0.67rem;
+}
+
+.blackhole-wave-labels span:nth-child(2),
+.blackhole-wave-labels span:nth-child(3) {
+    text-align: center;
+}
+
+.blackhole-wave-labels span:last-child {
+    text-align: right;
+}
+
+
+/* FACT */
+
+.blackhole-binary-fact {
+    display: flex;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 21px;
+    border: 1px solid rgba(255, 212, 119, 0.14);
+    border-radius: 22px;
+    background:
+        rgba(255, 212, 119, 0.035);
+}
+
+.blackhole-binary-fact-icon {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(255, 212, 119, 0.08);
+}
+
+.blackhole-binary-fact span {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--bh-gold);
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+.blackhole-binary-fact p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.81rem;
+    line-height: 1.75;
+}
+
+
+/* DASHBOARD */
+
+.blackhole-binary-dashboard {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+    padding: 13px 20px;
+    border: 1px solid rgba(98, 229, 255, 0.15);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--bh-text);
+    text-decoration: none;
+    font-size: 0.84rem;
+    font-weight: 800;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.blackhole-binary-dashboard:hover {
+    transform: translateY(-3px);
+    border-color: rgba(98, 229, 255, 0.3);
+    background: rgba(98, 229, 255, 0.07);
+}
+
+.blackhole-binary-dashboard strong {
+    color: var(--bh-cyan);
+    font-size: 1.1rem;
+}
+
+
+/* BOTTOM */
+
+.blackhole-binary-bottom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 35px;
+}
+
+.blackhole-binary-bottom-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 21px;
+    background: rgba(255, 255, 255, 0.025);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.blackhole-binary-bottom-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(98, 229, 255, 0.18);
+}
+
+.blackhole-binary-bottom-card > span {
+    width: 45px;
+    height: 45px;
+    flex: 0 0 45px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(98, 229, 255, 0.06);
+    font-size: 1.1rem;
+}
+
+.blackhole-binary-bottom-card strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--bh-text);
+    font-size: 0.87rem;
+}
+
+.blackhole-binary-bottom-card p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.73rem;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1050px) {
+
+    .blackhole-binary-stages {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .blackhole-binary-section {
+        padding: 90px 18px;
+    }
+
+    .blackhole-binary-image-frame {
+        min-height: 500px;
+    }
+
+    .blackhole-binary-bottom {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-binary-orbit {
+        width: 390px;
+        height: 190px;
+    }
+
+    .blackhole-binary-hole {
+        width: 85px;
+        height: 85px;
+    }
+
+    .binary-hole-one {
+        left: calc(50% - 92px);
+    }
+
+    .binary-hole-two {
+        left: calc(50% + 7px);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .blackhole-binary-heading h2 {
+        font-size: 2.2rem;
+    }
+
+    .blackhole-binary-heading p {
+        font-size: 0.9rem;
+    }
+
+    .blackhole-binary-image-frame {
+        min-height: 375px;
+        border-radius: 26px;
+    }
+
+    .blackhole-binary-badge {
+        top: 15px;
+        left: 15px;
+        font-size: 0.61rem;
+    }
+
+    .blackhole-binary-orbit {
+        width: 280px;
+        height: 125px;
+    }
+
+    .blackhole-binary-hole {
+        width: 68px;
+        height: 68px;
+    }
+
+    .binary-hole-one {
+        left: calc(50% - 70px);
+        top: calc(50% - 20px);
+    }
+
+    .binary-hole-two {
+        left: calc(50% + 2px);
+        top: calc(50% - 20px);
+    }
+
+    .blackhole-binary-caption {
+        right: 15px;
+        bottom: 15px;
+        max-width: 250px;
+        padding: 11px 12px;
+    }
+
+    .blackhole-binary-intro {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .blackhole-binary-number {
+        width: 52px;
+        height: 52px;
+    }
+
+    .blackhole-binary-stages {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-binary-stage {
+        min-height: auto;
+    }
+
+    .blackhole-binary-gravity-card {
+        align-items: flex-start;
+    }
+
+    .blackhole-binary-wave-visual {
+        padding: 20px 15px;
+    }
+
+    .blackhole-wave-labels {
+        font-size: 0.58rem;
+    }
+
+    .blackhole-binary-fact {
+        align-items: flex-start;
+    }
+
+}
+/* =========================================================
+   SECTION 09 — FINAL EXPLORATION & FOOTER
+   ========================================================= */
+
+.blackhole-final-section {
+    position: relative;
+    width: 100%;
+    padding: 130px 24px 45px;
+    overflow: hidden;
+}
+
+.blackhole-final-container {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+}
+
+
+/* FINAL HERO */
+
+.blackhole-final-hero {
+    position: relative;
+    min-height: 570px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 70px 30px;
+    border: 1px solid rgba(98, 229, 255, 0.13);
+    border-radius: 38px;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(155, 124, 255, 0.11),
+            transparent 35%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    text-align: center;
+    box-shadow:
+        0 45px 120px rgba(0, 0, 0, 0.55);
+}
+
+
+.blackhole-final-stars {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 0.75rem;
+    letter-spacing: 0.8em;
+    animation:
+        finalStarsFloat 5s ease-in-out infinite;
+}
+
+@keyframes finalStarsFloat {
+
+    0%, 100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.85;
+        transform: translateY(8px);
+    }
+
+}
+
+
+/* FINAL ORBIT */
+
+.blackhole-final-orbit {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 360px;
+    height: 360px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+.blackhole-final-orbit-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(98, 229, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-a {
+    width: 100%;
+    height: 30%;
+    animation:
+        finalRingRotate 11s linear infinite;
+}
+
+.ring-b {
+    width: 78%;
+    height: 23%;
+    border-color: rgba(155, 124, 255, 0.19);
+    animation:
+        finalRingRotate 8s linear infinite reverse;
+}
+
+.ring-c {
+    width: 56%;
+    height: 17%;
+    border-color: rgba(255, 255, 255, 0.15);
+    animation:
+        finalRingRotate 6s linear infinite;
+}
+
+@keyframes finalRingRotate {
+
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+    }
+
+}
+
+
+.blackhole-final-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #000;
+    box-shadow:
+        0 0 45px rgba(155, 124, 255, 0.3),
+        0 0 100px rgba(98, 229, 255, 0.12);
+    font-size: 1.7rem;
+    animation:
+        finalCorePulse 3.5s ease-in-out infinite;
+}
+
+@keyframes finalCorePulse {
+
+    0%, 100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.92);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+}
+
+
+/* HERO CONTENT */
+
+.blackhole-final-hero .blackhole-section-label,
+.blackhole-final-hero h2,
+.blackhole-final-hero p,
+.blackhole-final-actions {
+    position: relative;
+    z-index: 5;
+}
+
+
+.blackhole-final-hero h2 {
+    max-width: 850px;
+    margin: 12px auto 0;
+    color: var(--bh-text);
+    font-size: clamp(2.4rem, 5.3vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+}
+
+
+.blackhole-final-hero h2 span {
+    display: inline-block;
+    background:
+        linear-gradient(
+            90deg,
+            var(--bh-cyan),
+            var(--bh-purple),
+            #ffffff
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+.blackhole-final-hero p {
+    max-width: 760px;
+    margin: 24px auto 0;
+    color: var(--bh-muted);
+    font-size: 0.95rem;
+    line-height: 1.9;
+}
+
+
+/* BUTTONS */
+
+.blackhole-final-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 13px;
+    margin-top: 32px;
+}
+
+
+.blackhole-final-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 0.83rem;
+    font-weight: 900;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.blackhole-final-button.primary {
+    border: 1px solid rgba(98, 229, 255, 0.25);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(98, 229, 255, 0.13),
+            rgba(155, 124, 255, 0.11)
+        );
+    color: #ffffff;
+}
+
+
+.blackhole-final-button.secondary {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--bh-text);
+}
+
+
+.blackhole-final-button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+
+.blackhole-final-button strong {
+    color: var(--bh-cyan);
+    font-size: 1.05rem;
+}
+
+
+/* NAVIGATION */
+
+.blackhole-final-navigation {
+    margin-top: 75px;
+}
+
+
+.blackhole-final-navigation-heading {
+    margin-bottom: 25px;
+}
+
+
+.blackhole-final-navigation-heading span {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--bh-cyan);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+
+.blackhole-final-navigation-heading h3 {
+    margin: 0;
+    color: var(--bh-text);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+
+.blackhole-final-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+
+.blackhole-final-nav-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    min-height: 155px;
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 23px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.017)
+        );
+    text-decoration: none;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.blackhole-final-nav-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(98, 229, 255, 0.2);
+    background:
+        rgba(98, 229, 255, 0.035);
+}
+
+
+.blackhole-final-nav-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    background: rgba(98, 229, 255, 0.06);
+    font-size: 1.2rem;
+}
+
+
+.blackhole-final-nav-card small {
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.58rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+
+.blackhole-final-nav-card strong {
+    display: block;
+    color: var(--bh-text);
+    font-size: 0.92rem;
+}
+
+
+.blackhole-final-nav-card p {
+    margin: 5px 0 0;
+    color: var(--bh-muted);
+    font-size: 0.71rem;
+    line-height: 1.5;
+}
+
+
+.nav-arrow {
+    color: var(--bh-cyan);
+    font-size: 1.15rem;
+}
+
+
+/* SUMMARY */
+
+.blackhole-final-summary {
+    margin-top: 75px;
+}
+
+
+.blackhole-final-summary-heading {
+    margin-bottom: 25px;
+}
+
+
+.blackhole-final-summary-heading span {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--bh-purple);
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+}
+
+
+.blackhole-final-summary-heading h3 {
+    margin: 0;
+    color: var(--bh-text);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+
+.blackhole-final-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+
+.blackhole-final-summary-card {
+    position: relative;
+    min-height: 165px;
+    padding: 22px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 21px;
+    background: rgba(255, 255, 255, 0.025);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.blackhole-final-summary-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(155, 124, 255, 0.19);
+}
+
+
+.blackhole-final-summary-card > span {
+    display: block;
+    margin-bottom: 17px;
+    color: rgba(255, 255, 255, 0.22);
+    font-size: 0.68rem;
+    font-weight: 900;
+}
+
+
+.blackhole-final-summary-card strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--bh-text);
+    font-size: 0.9rem;
+}
+
+
+.blackhole-final-summary-card p {
+    margin: 0;
+    color: var(--bh-muted);
+    font-size: 0.74rem;
+    line-height: 1.6;
+}
+
+
+/* FOOTER */
+
+.blackhole-footer {
+    margin-top: 80px;
+    padding-top: 35px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.blackhole-footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+
+.blackhole-footer-logo {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(98, 229, 255, 0.16);
+    border-radius: 14px;
+    background: #000;
+    box-shadow:
+        0 0 25px rgba(98, 229, 255, 0.08);
+}
+
+
+.blackhole-footer-brand strong {
+    display: block;
+    color: var(--bh-text);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+}
+
+
+.blackhole-footer-brand span {
+    display: block;
+    margin-top: 3px;
+    color: var(--bh-muted);
+    font-size: 0.68rem;
+}
+
+
+.blackhole-footer-text {
+    max-width: 650px;
+    margin: 20px 0 0;
+    color: var(--bh-muted);
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+
+
+.blackhole-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 22px;
+}
+
+
+.blackhole-footer-links a {
+    color: rgba(220, 230, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 700;
+    transition: color 0.25s ease;
+}
+
+
+.blackhole-footer-links a:hover {
+    color: var(--bh-cyan);
+}
+
+
+.blackhole-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(220, 230, 255, 0.35);
+    font-size: 0.63rem;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+    .blackhole-final-nav-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-final-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .blackhole-final-section {
+        padding:
+            90px 18px 30px;
+    }
+
+    .blackhole-final-hero {
+        min-height: 560px;
+        padding: 60px 20px;
+        border-radius: 27px;
+    }
+
+    .blackhole-final-hero h2 {
+        font-size: 2.25rem;
+    }
+
+    .blackhole-final-hero p {
+        font-size: 0.86rem;
+    }
+
+    .blackhole-final-orbit {
+        width: 270px;
+        height: 270px;
+    }
+
+    .blackhole-final-actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .blackhole-final-button {
+        justify-content: center;
+    }
+
+    .blackhole-final-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blackhole-final-summary-card {
+        min-height: auto;
+    }
+
+    .blackhole-footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .blackhole-final-hero h2 {
+        font-size: 2rem;
+    }
+
+    .blackhole-final-stars {
+        font-size: 0.58rem;
+        letter-spacing: 0.45em;
+    }
+
+    .blackhole-final-nav-card {
+        grid-template-columns: auto 1fr;
+    }
+
+    .nav-arrow {
+        display: none;
+    }
+
+}

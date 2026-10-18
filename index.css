@@ -1,0 +1,6846 @@
+/* =========================================================
+   DIGITAL UNIVERSE
+   INDEX.CSS — PART A
+   GRAND INTRODUCTION
+========================================================= */
+
+:root {
+
+    --bg-main: #03050f;
+    --bg-secondary: #070b1d;
+    --bg-card: rgba(13, 19, 42, 0.72);
+
+    --text-main: #f5f7ff;
+    --text-soft: #aeb8d4;
+    --text-muted: #6f7a99;
+
+    --accent: #78a9ff;
+    --accent-soft: #9d7cff;
+    --cyan: #55e6ff;
+
+    --border: rgba(255, 255, 255, 0.10);
+
+    --shadow:
+        0 30px 80px rgba(0, 0, 0, 0.45);
+
+    --radius-lg: 30px;
+    --radius-md: 20px;
+
+    --container: 1240px;
+
+}
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            rgba(83, 93, 255, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(55, 213, 255, 0.08),
+            transparent 28%
+        ),
+        var(--bg-main);
+
+    color: var(--text-main);
+
+    font-family:
+        "Noto Sans Tamil",
+        sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button {
+    font: inherit;
+}
+
+
+/* ================= SPACE BACKGROUND ================= */
+
+.universe-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: -10;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+}
+
+
+.stars-layer {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-repeat: repeat;
+
+    opacity: 0.55;
+
+}
+
+
+.stars-one {
+
+    background-image:
+        radial-gradient(
+            1px 1px at 10% 20%,
+            rgba(255,255,255,.9),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 30% 70%,
+            rgba(255,255,255,.8),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 70% 30%,
+            rgba(255,255,255,.8),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 90% 80%,
+            rgba(255,255,255,.7),
+            transparent
+        );
+
+    background-size: 280px 280px;
+
+}
+
+
+.stars-two {
+
+    background-image:
+        radial-gradient(
+            1.5px 1.5px at 20% 40%,
+            rgba(120,169,255,.9),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 60% 60%,
+            rgba(255,255,255,.7),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80% 10%,
+            rgba(85,230,255,.8),
+            transparent
+        );
+
+    background-size: 420px 420px;
+
+    animation:
+        starsMove 90s linear infinite;
+
+}
+
+
+.stars-three {
+
+    background-image:
+        radial-gradient(
+            1px 1px at 40% 20%,
+            rgba(157,124,255,.7),
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80% 60%,
+            rgba(255,255,255,.8),
+            transparent
+        );
+
+    background-size: 520px 520px;
+
+    animation:
+        starsMoveReverse 130s linear infinite;
+
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-80px, 100px, 0);
+    }
+
+}
+
+
+@keyframes starsMoveReverse {
+
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(100px, -80px, 0);
+    }
+
+}
+
+
+/* ================= HEADER ================= */
+
+.main-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 100;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+    background:
+        rgba(3, 5, 15, .68);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+}
+
+
+.header-inner {
+
+    width: min(
+        var(--container),
+        calc(100% - 40px)
+    );
+
+    min-height: 78px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.brand-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.brand-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle,
+            var(--cyan),
+            var(--accent-soft)
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(85,230,255,.28);
+
+    font-size: 20px;
+
+}
+
+
+.brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    line-height: 1.1;
+
+}
+
+
+.brand-text strong {
+
+    color: var(--accent);
+
+    font-size: 14px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.nav-link {
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    transition:
+        .25s ease;
+
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+
+    color: white;
+
+    background:
+        rgba(120,169,255,.10);
+
+}
+
+
+.dashboard-nav {
+
+    border:
+        1px solid
+        rgba(120,169,255,.25);
+
+}
+
+
+.mobile-menu-button {
+
+    display: none;
+
+    border: 0;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+}
+
+
+/* ================= HERO ================= */
+
+.hero-section {
+
+    position: relative;
+
+    width: min(
+        var(--container),
+        calc(100% - 40px)
+    );
+
+    min-height: 100vh;
+
+    margin: auto;
+
+    padding:
+        150px 0
+        100px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.05fr .95fr;
+
+    align-items: center;
+
+    gap: 70px;
+
+}
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+
+.hero-badge {
+
+    width: fit-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 22px;
+
+    padding: 8px 13px;
+
+    border:
+        1px solid
+        rgba(85,230,255,.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(85,230,255,.05);
+
+    color: #b9eff8;
+
+    font-size: 12px;
+
+}
+
+
+.badge-dot {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        var(--cyan);
+
+    box-shadow:
+        0 0 12px
+        var(--cyan);
+
+}
+
+
+.hero-overline {
+
+    margin-bottom: 10px;
+
+    color: var(--text-muted);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+}
+
+
+.hero-title {
+
+    font-family: Orbitron, sans-serif;
+
+    font-size:
+        clamp(54px, 8vw, 104px);
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    line-height: .95;
+
+}
+
+
+.hero-title span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            110deg,
+            #ffffff,
+            var(--accent),
+            var(--cyan)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.hero-subtitle {
+
+    max-width: 650px;
+
+    margin-top: 30px;
+
+    color: #dfe5f8;
+
+    font-size:
+        clamp(19px, 2.2vw, 27px);
+
+    line-height: 1.7;
+
+    font-weight: 600;
+
+}
+
+
+.hero-description {
+
+    max-width: 640px;
+
+    margin-top: 18px;
+
+    color: var(--text-soft);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+
+.hero-description strong {
+
+    color: var(--cyan);
+
+}
+
+
+.hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 34px;
+
+}
+
+
+.primary-action,
+.secondary-action {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-height: 54px;
+
+    padding:
+        0 20px;
+
+    border-radius: 15px;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+}
+
+
+.primary-action {
+
+    background:
+        linear-gradient(
+            110deg,
+            #667dff,
+            #9b6cff
+        );
+
+    box-shadow:
+        0 12px 35px
+        rgba(102,125,255,.22);
+
+    font-weight: 700;
+
+}
+
+
+.primary-action:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(102,125,255,.35);
+
+}
+
+
+.secondary-action {
+
+    border:
+        1px solid
+        var(--border);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: var(--text-soft);
+
+}
+
+
+.secondary-action:hover {
+
+    color: white;
+
+    background:
+        rgba(255,255,255,.08);
+
+}
+
+
+.action-arrow {
+
+    font-size: 20px;
+
+}
+
+
+.hero-stats {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    margin-top: 42px;
+
+}
+
+
+.hero-stat {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.stat-number {
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 22px;
+
+    color: white;
+
+}
+
+
+.stat-label {
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+}
+
+
+.stat-divider {
+
+    width: 1px;
+
+    height: 35px;
+
+    background:
+        rgba(255,255,255,.13);
+
+}
+
+
+/* ================= HERO VISUAL ================= */
+
+.hero-visual {
+
+    position: relative;
+
+    min-height: 570px;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.hero-image-wrapper {
+
+    position: relative;
+
+    width: min(
+        520px,
+        100%
+    );
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 50%;
+
+}
+
+
+.hero-image-glow {
+
+    position: absolute;
+
+    inset: -50px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(82,122,255,.22),
+            transparent 65%
+        );
+
+    filter: blur(12px);
+
+}
+
+
+.hero-image {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    box-shadow:
+        0 0 80px
+        rgba(82,122,255,.20),
+        var(--shadow);
+
+}
+
+
+.image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(68,93,255,.12),
+            transparent 45%,
+            rgba(0,0,0,.42)
+        );
+
+}
+
+
+/* ================= ORBITS ================= */
+
+.floating-orbit {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(120,169,255,.15);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+}
+
+
+.orbit-one {
+
+    width: 560px;
+    height: 230px;
+
+    transform:
+        rotate(-24deg);
+
+}
+
+
+.orbit-two {
+
+    width: 620px;
+    height: 280px;
+
+    transform:
+        rotate(48deg);
+
+    border-color:
+        rgba(85,230,255,.09);
+
+}
+
+
+/* ================= FLOATING CARDS ================= */
+
+.floating-card {
+
+    position: absolute;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 16px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 16px;
+
+    background:
+        rgba(10,15,35,.72);
+
+    backdrop-filter:
+        blur(16px);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.35);
+
+    animation:
+        floatingCard 5s ease-in-out infinite;
+
+}
+
+
+.floating-card-top {
+
+    top: 17%;
+
+    right: 1%;
+
+}
+
+
+.floating-card-bottom {
+
+    bottom: 17%;
+
+    left: 0%;
+
+    animation-delay:
+        -2s;
+
+}
+
+
+.floating-icon {
+
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 12px;
+
+    background:
+        rgba(120,169,255,.12);
+
+    color: var(--cyan);
+
+}
+
+
+.floating-card small {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.floating-card strong {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: white;
+
+    font-size: 12px;
+
+}
+
+
+@keyframes floatingCard {
+
+    0%, 100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+
+}
+
+
+/* ================= SCROLL ================= */
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 32px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--text-muted);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.scroll-line {
+
+    width: 35px;
+
+    height: 1px;
+
+    background:
+        var(--text-muted);
+
+}
+/* =========================================================
+   DIGITAL UNIVERSE
+   INDEX.CSS — PART B
+   INTRO + QUICK ACTION + TOPIC PREVIEW
+========================================================= */
+
+
+/* ================= CONTAINER ================= */
+
+.section-container {
+
+    width: min(
+        var(--container),
+        calc(100% - 40px)
+    );
+
+    margin: auto;
+
+}
+
+
+/* ================= EXPLORE INTRO ================= */
+
+.explore-intro-section {
+
+    position: relative;
+
+    padding:
+        120px 0
+        80px;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(8,13,34,.65)
+        );
+
+}
+
+
+.section-heading {
+
+    max-width: 780px;
+
+}
+
+
+.section-eyebrow {
+
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: var(--cyan);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size:
+        clamp(32px, 5vw, 58px);
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+
+}
+
+
+.section-heading h2 span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--accent),
+            var(--cyan)
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+}
+
+
+.section-heading p {
+
+    margin-top: 18px;
+
+    color: var(--text-soft);
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ================= JOURNEY LINE ================= */
+
+.journey-line {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 55px;
+
+}
+
+
+.journey-dot {
+
+    flex: 0 0 9px;
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background:
+        #28304d;
+
+    box-shadow:
+        0 0 0 5px
+        rgba(255,255,255,.02);
+
+}
+
+
+.journey-dot.active {
+
+    background:
+        var(--cyan);
+
+    box-shadow:
+        0 0 20px
+        rgba(85,230,255,.65);
+
+}
+
+
+.journey-connector {
+
+    flex: 1;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(85,230,255,.45),
+            rgba(255,255,255,.07)
+        );
+
+}
+
+
+/* ================= INTRO NOTE ================= */
+
+.intro-note {
+
+    max-width: 850px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 16px;
+
+    margin-top: 42px;
+
+    padding: 20px 22px;
+
+    border:
+        1px solid
+        rgba(120,169,255,.12);
+
+    border-radius: 18px;
+
+    background:
+        rgba(120,169,255,.035);
+
+}
+
+
+.intro-note-icon {
+
+    color: var(--cyan);
+
+    font-size: 24px;
+
+}
+
+
+.intro-note p {
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ================= QUICK ACTION ================= */
+
+.quick-action-section {
+
+    width: min(
+        var(--container),
+        calc(100% - 40px)
+    );
+
+    margin:
+        40px auto
+        120px;
+
+}
+
+
+.quick-action-card {
+
+    position: relative;
+
+    min-height: 330px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    padding:
+        55px 60px;
+
+    border:
+        1px solid
+        rgba(120,169,255,.16);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(19,28,64,.85),
+            rgba(8,13,31,.9)
+        );
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.28);
+
+}
+
+
+.quick-action-glow {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    right: -130px;
+    top: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(85,230,255,.16),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.quick-action-content {
+
+    position: relative;
+
+    z-index: 3;
+
+    max-width: 720px;
+
+}
+
+
+.quick-action-label {
+
+    color: var(--cyan);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+}
+
+
+.quick-action-content h2 {
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(28px, 4vw, 48px);
+
+    line-height: 1.25;
+
+}
+
+
+.quick-action-content h2 span {
+
+    display: block;
+
+    color: var(--accent);
+
+}
+
+
+.quick-action-content p {
+
+    max-width: 650px;
+
+    margin-top: 15px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+.quick-dashboard-button {
+
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin-top: 25px;
+
+    padding:
+        14px 19px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            110deg,
+            #607cff,
+            #936aff
+        );
+
+    box-shadow:
+        0 15px 35px
+        rgba(96,124,255,.25);
+
+    font-weight: 700;
+
+    transition:
+        .25s ease;
+
+}
+
+
+.quick-dashboard-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 20px 45px
+        rgba(96,124,255,.35);
+
+}
+
+
+.button-icon {
+
+    font-size: 18px;
+
+}
+
+
+.button-arrow {
+
+    margin-left: 5px;
+
+    font-size: 19px;
+
+}
+
+
+/* ================= MINI PLANET ================= */
+
+.quick-action-visual {
+
+    position: relative;
+
+    width: 300px;
+    height: 260px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    place-items: center;
+
+}
+
+
+.mini-planet {
+
+    position: relative;
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #b8f2ff,
+            #578cff 28%,
+            #27377e 62%,
+            #0a0f2c 100%
+        );
+
+    box-shadow:
+        0 0 60px
+        rgba(85,230,255,.25);
+
+}
+
+
+.mini-planet span {
+
+    position: absolute;
+
+    width: 30px;
+    height: 12px;
+
+    top: 30px;
+    left: 25px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.18);
+
+    transform:
+        rotate(-20deg);
+
+}
+
+
+.planet-ring {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(85,230,255,.25);
+
+    border-radius: 50%;
+
+}
+
+
+.ring-one {
+
+    width: 250px;
+    height: 90px;
+
+    transform:
+        rotate(-20deg);
+
+}
+
+
+.ring-two {
+
+    width: 280px;
+    height: 110px;
+
+    transform:
+        rotate(35deg);
+
+    border-color:
+        rgba(157,124,255,.18);
+
+}
+
+
+.mini-star {
+
+    position: absolute;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px
+        currentColor;
+
+}
+
+
+.star-a {
+
+    top: 15px;
+    right: 25px;
+
+    color: var(--cyan);
+
+}
+
+
+.star-b {
+
+    bottom: 20px;
+    left: 20px;
+
+    color: var(--accent);
+
+}
+
+
+.star-c {
+
+    top: 70px;
+    left: 5px;
+
+    color: white;
+
+}
+
+
+/* ================= TOPIC MAP ================= */
+
+.universe-map-section {
+
+    padding:
+        40px 0
+        130px;
+
+}
+
+
+.map-header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 45px;
+
+}
+
+
+.map-header h2 {
+
+    max-width: 800px;
+
+    margin-top: 5px;
+
+    font-size:
+        clamp(30px, 4vw, 52px);
+
+    line-height: 1.25;
+
+}
+
+
+.map-header h2 span {
+
+    display: block;
+
+    color: var(--accent);
+
+}
+
+
+.map-counter {
+
+    min-width: 110px;
+
+    padding: 15px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    background:
+        rgba(255,255,255,.025);
+
+}
+
+
+.map-counter span {
+
+    display: block;
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 30px;
+
+}
+
+
+.map-counter small {
+
+    color: var(--text-muted);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* ================= TOPIC GRID ================= */
+
+.topic-preview-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+}
+
+
+.topic-preview-card {
+
+    position: relative;
+
+    min-height: 260px;
+
+    padding: 25px;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(17,24,53,.72),
+            rgba(7,11,27,.82)
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+
+}
+
+
+.topic-preview-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(120,169,255,.28);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,35,76,.85),
+            rgba(7,11,27,.9)
+        );
+
+}
+
+
+.topic-number {
+
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    color:
+        rgba(255,255,255,.18);
+
+    font-family: Orbitron, sans-serif;
+
+    font-size: 11px;
+
+}
+
+
+.topic-preview-icon {
+
+    width: 52px;
+    height: 52px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 16px;
+
+    background:
+        rgba(120,169,255,.09);
+
+    font-size: 25px;
+
+}
+
+
+.topic-preview-card h3 {
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.topic-preview-card p {
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .hero-section {
+
+        grid-template-columns: 1fr;
+
+        padding-top: 130px;
+
+    }
+
+
+    .hero-content {
+
+        text-align: center;
+
+    }
+
+
+    .hero-badge,
+    .hero-actions {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+    .hero-description,
+    .hero-subtitle {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+    .hero-stats {
+
+        justify-content: center;
+
+    }
+
+
+    .hero-visual {
+
+        min-height: 500px;
+
+    }
+
+
+    .topic-preview-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .header-inner {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .main-nav {
+
+        display: none;
+
+    }
+
+
+    .mobile-menu-button {
+
+        display: block;
+
+    }
+
+
+    .hero-section {
+
+        width:
+            calc(100% - 28px);
+
+        padding-top: 115px;
+
+    }
+
+
+    .hero-title {
+
+        font-size:
+            clamp(48px, 15vw, 75px);
+
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 17px;
+
+    }
+
+
+    .hero-description {
+
+        font-size: 13px;
+
+    }
+
+
+    .hero-visual {
+
+        min-height: 380px;
+
+    }
+
+
+    .hero-image-wrapper {
+
+        width: 310px;
+
+    }
+
+
+    .floating-orbit {
+
+        display: none;
+
+    }
+
+
+    .floating-card {
+
+        transform:
+            scale(.82);
+
+    }
+
+
+    .floating-card-top {
+
+        right: -10px;
+
+    }
+
+
+    .floating-card-bottom {
+
+        left: -10px;
+
+    }
+
+
+    .hero-stats {
+
+        gap: 12px;
+
+    }
+
+
+    .stat-divider {
+
+        height: 28px;
+
+    }
+
+
+    .scroll-indicator {
+
+        display: none;
+
+    }
+
+
+    .quick-action-section,
+    .section-container {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .quick-action-card {
+
+        padding: 35px 25px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .quick-action-visual {
+
+        align-self: center;
+
+        width: 250px;
+
+        height: 210px;
+
+    }
+
+
+    .map-header {
+
+        align-items: flex-start;
+
+    }
+
+
+    .map-counter {
+
+        min-width: 75px;
+
+    }
+
+
+    .topic-preview-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .topic-preview-card {
+
+        min-height: 220px;
+
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .hero-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .primary-action,
+    .secondary-action {
+
+        justify-content: center;
+
+        width: 100%;
+
+    }
+
+
+    .hero-image-wrapper {
+
+        width: 270px;
+
+    }
+
+
+    .floating-card {
+
+        display: none;
+
+    }
+
+
+    .hero-stats {
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .map-header {
+
+        flex-direction: column;
+
+    }
+
+}
+/* =========================================================
+   DIGITAL UNIVERSE
+   INDEX.CSS — PART 2
+   SPACE SCIENCE
+========================================================= */
+
+
+/* ================= SCIENCE SECTION ================= */
+
+.science-section {
+
+    position: relative;
+
+    width: min(
+        var(--container),
+        calc(100% - 40px)
+    );
+
+    min-height: 760px;
+
+    margin: 0 auto;
+
+    padding:
+        110px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+.science-section-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items: center;
+
+    gap: 80px;
+
+}
+
+
+/* ================= IMAGE ================= */
+
+.science-image-side {
+
+    position: relative;
+
+}
+
+
+.science-image-frame {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1 / 1.05;
+
+    overflow: hidden;
+
+    border-radius:
+        28px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    background:
+        rgba(255,255,255,.03);
+
+    box-shadow:
+        0 35px 80px
+        rgba(0,0,0,.4);
+
+}
+
+
+.science-image {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform .8s ease;
+
+}
+
+
+.science-image-frame:hover
+.science-image {
+
+    transform:
+        scale(1.05);
+
+}
+
+
+.science-image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 45%,
+            rgba(3,5,15,.82)
+        );
+
+}
+
+
+.image-label {
+
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.image-label span {
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        1px solid
+        rgba(255,255,255,.14);
+
+    backdrop-filter:
+        blur(12px);
+
+    color: white;
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size: 12px;
+
+}
+
+
+.image-label strong {
+
+    color: white;
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 3px 20px
+        rgba(0,0,0,.7);
+
+}
+
+
+/* ================= CONTENT ================= */
+
+.science-content-side {
+
+    position: relative;
+
+}
+
+
+.science-title {
+
+    max-width: 650px;
+
+    margin-top: 8px;
+
+    font-size:
+        clamp(35px, 4.5vw, 62px);
+
+    line-height: 1.2;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.science-title span {
+
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            var(--accent),
+            var(--cyan)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    color: transparent;
+
+}
+
+
+.science-lead {
+
+    max-width: 620px;
+
+    margin-top: 25px;
+
+    color: #e2e8fa;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    font-weight: 600;
+
+}
+
+
+.science-description {
+
+    max-width: 620px;
+
+    margin-top: 15px;
+
+    color: var(--text-soft);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+
+/* ================= FACTS ================= */
+
+.science-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+.science-fact {
+
+    min-height: 145px;
+
+    padding: 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius: 17px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+
+}
+
+
+.science-fact:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(85,230,255,.22);
+
+    background:
+        rgba(85,230,255,.045);
+
+}
+
+
+.fact-icon {
+
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 14px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(85,230,255,.08);
+
+    color: var(--cyan);
+
+}
+
+
+.science-fact strong {
+
+    display: block;
+
+    color: white;
+
+    font-size: 13px;
+
+}
+
+
+.science-fact small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+}
+
+
+/* ================= ACTION ================= */
+
+.science-action {
+
+    width: fit-content;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 30px;
+
+    padding:
+        14px 18px;
+
+    border:
+        1px solid
+        rgba(120,169,255,.22);
+
+    border-radius: 13px;
+
+    background:
+        rgba(120,169,255,.055);
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        .25s ease;
+
+}
+
+
+.science-action span:last-child {
+
+    color: var(--cyan);
+
+    font-size: 20px;
+
+}
+
+
+.science-action:hover {
+
+    transform:
+        translateX(5px);
+
+    border-color:
+        rgba(85,230,255,.4);
+
+    background:
+        rgba(85,230,255,.08);
+
+}
+
+
+/* ================= BACKGROUND NUMBER ================= */
+
+.section-background-number {
+
+    position: absolute;
+
+    right: -40px;
+    bottom: -100px;
+
+    color:
+        rgba(255,255,255,.018);
+
+    font-family:
+        Orbitron,
+        sans-serif;
+
+    font-size:
+        clamp(180px, 30vw, 400px);
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    user-select: none;
+
+    pointer-events: none;
+
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 950px) {
+
+    .science-section {
+
+        padding:
+            90px 0;
+
+    }
+
+
+    .science-section-inner {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .science-image-frame {
+
+        max-width: 650px;
+
+        margin: auto;
+
+    }
+
+
+    .science-content-side {
+
+        max-width: 800px;
+
+        margin: auto;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .science-section {
+
+        width:
+            calc(100% - 28px);
+
+        padding:
+            75px 0;
+
+    }
+
+
+    .science-title {
+
+        font-size:
+            clamp(32px, 10vw, 48px);
+
+    }
+
+
+    .science-lead {
+
+        font-size: 16px;
+
+    }
+
+
+    .science-description {
+
+        font-size: 13px;
+
+    }
+
+
+    .science-facts {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .science-fact {
+
+        min-height: auto;
+
+    }
+
+
+    .science-action {
+
+        width: 100%;
+
+        justify-content: space-between;
+
+    }
+
+
+    .section-background-number {
+
+        right: -20px;
+
+        bottom: -40px;
+
+        font-size: 180px;
+
+    }
+
+}
+/* =========================================================
+   PART 3 / 9
+   OCEAN MYSTERIES — PART A
+   ========================================================= */
+
+.ocean-mysteries-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.ocean-mysteries-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+
+    height: 520px;
+
+    left: -260px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 190, 255, 0.16),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.ocean-mysteries-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 420px;
+
+    height: 420px;
+
+    right: -210px;
+
+    bottom: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 100, 255, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.ocean-mysteries-section
+.science-section-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.ocean-image-frame {
+
+    box-shadow:
+        0 30px 90px rgba(0, 80, 160, 0.28);
+
+}
+
+
+.ocean-image {
+
+    filter:
+        saturate(1.15)
+        contrast(1.08);
+
+}
+
+
+.ocean-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 15, 35, 0.05),
+            rgba(0, 15, 35, 0.65)
+        );
+
+}
+
+
+.ocean-image-label {
+
+    border-color:
+        rgba(70, 210, 255, 0.45);
+
+    background:
+        rgba(2, 22, 42, 0.72);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.ocean-image-label span {
+
+    color:
+        #63dfff;
+
+}
+
+
+.ocean-image-label strong {
+
+    color:
+        #e8faff;
+
+}
+
+
+.ocean-depth-indicator {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 14px;
+
+    border: 1px solid
+        rgba(120, 225, 255, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 18, 38, 0.58);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(220, 248, 255, 0.82);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.depth-line {
+
+    width: 22px;
+
+    height: 1px;
+
+    background:
+        currentColor;
+
+    opacity: 0.7;
+
+}
+/* =========================================================
+   OCEAN MYSTERIES — PART B
+   ========================================================= */
+
+.ocean-content-side {
+
+    position: relative;
+
+}
+
+
+.ocean-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #5ee7ff,
+            #5ca8ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.ocean-content-side
+.science-lead {
+
+    max-width: 720px;
+
+}
+
+
+.ocean-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 30px 0;
+
+    padding: 16px 20px;
+
+    border: 1px solid
+        rgba(72, 210, 255, 0.18);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(40, 180, 255, 0.09),
+            rgba(20, 80, 180, 0.04)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+.ocean-highlight-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(50, 190, 255, 0.12);
+
+    font-size: 23px;
+
+}
+
+
+.ocean-highlight-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.ocean-highlight-content strong {
+
+    color:
+        #e8faff;
+
+    font-size: 15px;
+
+}
+
+
+.ocean-highlight-content span {
+
+    color:
+        rgba(205, 235, 250, 0.62);
+
+    font-size: 12px;
+
+}
+
+
+.ocean-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+}
+
+
+.ocean-fact {
+
+    min-height: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(100, 210, 255, 0.14);
+
+    border-radius: 18px;
+
+    background:
+        rgba(10, 30, 55, 0.38);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.ocean-fact:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(90, 220, 255, 0.36);
+
+    background:
+        rgba(15, 48, 78, 0.48);
+
+}
+
+
+.ocean-fact .fact-number {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #55dfff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.ocean-fact strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #f1fbff;
+
+    font-size: 14px;
+
+}
+
+
+.ocean-fact p {
+
+    margin: 0;
+
+    color:
+        rgba(205, 230, 242, 0.62);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.ocean-action {
+
+    margin-top: 30px;
+
+    border-color:
+        rgba(80, 215, 255, 0.28);
+
+}
+
+
+.ocean-action:hover {
+
+    border-color:
+        rgba(80, 215, 255, 0.62);
+
+}
+
+
+.ocean-background-number {
+
+    color:
+        rgba(70, 190, 255, 0.035);
+
+}
+
+
+/* OCEAN RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .ocean-facts {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .ocean-mysteries-section {
+
+        padding: 90px 0;
+
+    }
+
+
+    .ocean-highlight {
+
+        align-items: flex-start;
+
+    }
+
+
+    .ocean-depth-indicator {
+
+        left: 18px;
+
+        bottom: 18px;
+
+    }
+
+
+    .ocean-fact {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .ocean-highlight {
+
+        padding: 14px;
+
+    }
+
+
+    .ocean-highlight-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .ocean-highlight-content strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .ocean-highlight-content span {
+
+        font-size: 11px;
+
+    }
+
+}
+/* =========================================================
+   PART 4 / 9
+   EARTH SCIENCE — PART A
+   ========================================================= */
+
+.earth-science-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.earth-science-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+
+    height: 560px;
+
+    right: -300px;
+
+    top: 15%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70, 190, 120, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.earth-science-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+
+    height: 430px;
+
+    left: -230px;
+
+    bottom: -170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(40, 130, 255, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.earth-image-frame {
+
+    box-shadow:
+        0 30px 90px rgba(25, 120, 100, 0.25);
+
+}
+
+
+.earth-image {
+
+    filter:
+        saturate(1.08)
+        contrast(1.05);
+
+}
+
+
+.earth-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 15, 30, 0.04),
+            rgba(0, 20, 30, 0.62)
+        );
+
+}
+
+
+.earth-image-label {
+
+    border-color:
+        rgba(100, 220, 170, 0.35);
+
+    background:
+        rgba(5, 30, 32, 0.70);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.earth-image-label span {
+
+    color:
+        #71e5ad;
+
+}
+
+
+.earth-image-label strong {
+
+    color:
+        #edfff7;
+
+}
+
+
+.earth-status {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(100, 220, 170, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(4, 25, 28, 0.62);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(220, 250, 238, 0.78);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #6ff0ae;
+
+    box-shadow:
+        0 0 12px rgba(80, 240, 160, 0.75);
+
+}
+/* =========================================================
+   EARTH SCIENCE — PART B
+   ========================================================= */
+
+.earth-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #6de5b0,
+            #65c8ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.earth-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 30px 0;
+
+    padding: 16px 20px;
+
+    border:
+        1px solid rgba(100, 220, 175, 0.17);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70, 210, 145, 0.08),
+            rgba(40, 150, 220, 0.04)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+.earth-highlight-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(80, 210, 150, 0.11);
+
+    font-size: 23px;
+
+}
+
+
+.earth-highlight-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.earth-highlight-content strong {
+
+    color:
+        #edfff7;
+
+    font-size: 15px;
+
+}
+
+
+.earth-highlight-content span {
+
+    color:
+        rgba(205, 238, 224, 0.62);
+
+    font-size: 12px;
+
+}
+
+
+.earth-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+}
+
+
+.earth-fact {
+
+    min-height: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(100, 220, 175, 0.13);
+
+    border-radius: 18px;
+
+    background:
+        rgba(10, 35, 40, 0.36);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.earth-fact:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(100, 225, 175, 0.36);
+
+    background:
+        rgba(18, 55, 55, 0.48);
+
+}
+
+
+.earth-fact .fact-number {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #70e5b0;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.earth-fact strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #f0fff8;
+
+    font-size: 14px;
+
+}
+
+
+.earth-fact p {
+
+    margin: 0;
+
+    color:
+        rgba(205, 230, 220, 0.62);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.earth-action {
+
+    margin-top: 30px;
+
+    border-color:
+        rgba(100, 220, 175, 0.27);
+
+}
+
+
+.earth-action:hover {
+
+    border-color:
+        rgba(100, 225, 175, 0.62);
+
+}
+
+
+.earth-background-number {
+
+    color:
+        rgba(80, 210, 150, 0.035);
+
+}
+
+
+/* EARTH RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .earth-facts {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .earth-science-section {
+
+        padding: 90px 0;
+
+    }
+
+
+    .earth-highlight {
+
+        align-items: flex-start;
+
+    }
+
+
+    .earth-status {
+
+        left: 18px;
+
+        bottom: 18px;
+
+    }
+
+
+    .earth-fact {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .earth-highlight {
+
+        padding: 14px;
+
+    }
+
+
+    .earth-highlight-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .earth-highlight-content strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .earth-highlight-content span {
+
+        font-size: 11px;
+
+    }
+
+}
+/* =========================================================
+   PART 5 / 9
+   HUMAN EVOLUTION — PART A
+   ========================================================= */
+
+.human-evolution-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.human-evolution-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 580px;
+
+    height: 580px;
+
+    left: -300px;
+
+    top: 10%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(185, 115, 255, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.human-evolution-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 460px;
+
+    height: 460px;
+
+    right: -230px;
+
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 130, 190, 0.09),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.evolution-image-frame {
+
+    box-shadow:
+        0 30px 90px rgba(145, 90, 210, 0.22);
+
+}
+
+
+.evolution-image {
+
+    filter:
+        saturate(1.05)
+        contrast(1.08);
+
+}
+
+
+.evolution-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(15, 5, 30, 0.04),
+            rgba(20, 5, 35, 0.68)
+        );
+
+}
+
+
+.evolution-image-label {
+
+    border-color:
+        rgba(205, 150, 255, 0.35);
+
+    background:
+        rgba(30, 12, 48, 0.70);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.evolution-image-label span {
+
+    color:
+        #d59aff;
+
+}
+
+
+.evolution-image-label strong {
+
+    color:
+        #fbf1ff;
+
+}
+
+
+.evolution-timeline-badge {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(210, 155, 255, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(27, 10, 42, 0.62);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(239, 220, 255, 0.78);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.timeline-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #d69cff;
+
+    box-shadow:
+        0 0 12px rgba(210, 140, 255, 0.8);
+
+}
+/* =========================================================
+   HUMAN EVOLUTION — PART B
+   ========================================================= */
+
+.evolution-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #d69cff,
+            #ff9dcb
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.evolution-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 30px 0;
+
+    padding: 16px 20px;
+
+    border:
+        1px solid rgba(205, 150, 255, 0.17);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(180, 100, 255, 0.08),
+            rgba(255, 120, 190, 0.04)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+.evolution-highlight-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(195, 130, 255, 0.11);
+
+    font-size: 23px;
+
+}
+
+
+.evolution-highlight-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.evolution-highlight-content strong {
+
+    color:
+        #fff3ff;
+
+    font-size: 15px;
+
+}
+
+
+.evolution-highlight-content span {
+
+    color:
+        rgba(229, 211, 240, 0.64);
+
+    font-size: 12px;
+
+}
+
+
+.evolution-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+}
+
+
+.evolution-fact {
+
+    min-height: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(205, 150, 255, 0.13);
+
+    border-radius: 18px;
+
+    background:
+        rgba(35, 15, 48, 0.36);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.evolution-fact:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(215, 160, 255, 0.38);
+
+    background:
+        rgba(52, 20, 66, 0.48);
+
+}
+
+
+.evolution-fact .fact-number {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #d69cff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.evolution-fact strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #fff4ff;
+
+    font-size: 14px;
+
+}
+
+
+.evolution-fact p {
+
+    margin: 0;
+
+    color:
+        rgba(225, 211, 232, 0.64);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.evolution-action {
+
+    margin-top: 30px;
+
+    border-color:
+        rgba(210, 155, 255, 0.28);
+
+}
+
+
+.evolution-action:hover {
+
+    border-color:
+        rgba(215, 160, 255, 0.65);
+
+}
+
+
+.evolution-background-number {
+
+    color:
+        rgba(190, 120, 255, 0.035);
+
+}
+
+
+/* EVOLUTION RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .evolution-facts {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .human-evolution-section {
+
+        padding: 90px 0;
+
+    }
+
+
+    .evolution-highlight {
+
+        align-items: flex-start;
+
+    }
+
+
+    .evolution-timeline-badge {
+
+        left: 18px;
+
+        bottom: 18px;
+
+    }
+
+
+    .evolution-fact {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .evolution-highlight {
+
+        padding: 14px;
+
+    }
+
+
+    .evolution-highlight-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .evolution-highlight-content strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .evolution-highlight-content span {
+
+        font-size: 11px;
+
+    }
+
+}
+/* =========================================================
+   PART 6 / 9
+   SCIENTIFIC DISCOVERIES — PART A
+   ========================================================= */
+
+.discoveries-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.discoveries-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+
+    height: 560px;
+
+    right: -280px;
+
+    top: 8%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 190, 80, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.discoveries-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    left: -225px;
+
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 105, 170, 0.09),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.discoveries-image-frame {
+
+    box-shadow:
+        0 30px 90px rgba(220, 150, 60, 0.20);
+
+}
+
+
+.discoveries-image {
+
+    filter:
+        saturate(1.08)
+        contrast(1.07);
+
+}
+
+
+.discoveries-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(30, 15, 0, 0.03),
+            rgba(35, 15, 0, 0.68)
+        );
+
+}
+
+
+.discoveries-image-label {
+
+    border-color:
+        rgba(255, 205, 110, 0.35);
+
+    background:
+        rgba(45, 25, 5, 0.72);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.discoveries-image-label span {
+
+    color:
+        #ffd06b;
+
+}
+
+
+.discoveries-image-label strong {
+
+    color:
+        #fff8e9;
+
+}
+
+
+.discovery-signal {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(255, 205, 110, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(35, 20, 5, 0.62);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(255, 240, 210, 0.78);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.signal-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #ffd06b;
+
+    box-shadow:
+        0 0 12px rgba(255, 195, 70, 0.82);
+
+}
+/* =========================================================
+   SCIENTIFIC DISCOVERIES — PART B
+   ========================================================= */
+
+.discoveries-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd16b,
+            #ff9d72
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.discoveries-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 30px 0;
+
+    padding: 16px 20px;
+
+    border:
+        1px solid rgba(255, 205, 110, 0.17);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 190, 70, 0.08),
+            rgba(255, 100, 130, 0.04)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+.discoveries-highlight-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255, 190, 70, 0.11);
+
+    font-size: 23px;
+
+}
+
+
+.discoveries-highlight-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.discoveries-highlight-content strong {
+
+    color:
+        #fff8e9;
+
+    font-size: 15px;
+
+}
+
+
+.discoveries-highlight-content span {
+
+    color:
+        rgba(239, 225, 202, 0.64);
+
+    font-size: 12px;
+
+}
+
+
+.discoveries-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+}
+
+
+.discovery-fact {
+
+    min-height: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(255, 205, 110, 0.13);
+
+    border-radius: 18px;
+
+    background:
+        rgba(45, 28, 10, 0.35);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.discovery-fact:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(255, 210, 115, 0.40);
+
+    background:
+        rgba(65, 38, 12, 0.48);
+
+}
+
+
+.discovery-fact .fact-number {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #ffd06b;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.discovery-fact strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #fff8eb;
+
+    font-size: 14px;
+
+}
+
+
+.discovery-fact p {
+
+    margin: 0;
+
+    color:
+        rgba(235, 220, 195, 0.64);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.discoveries-action {
+
+    margin-top: 30px;
+
+    border-color:
+        rgba(255, 205, 110, 0.28);
+
+}
+
+
+.discoveries-action:hover {
+
+    border-color:
+        rgba(255, 210, 115, 0.65);
+
+}
+
+
+.discoveries-background-number {
+
+    color:
+        rgba(255, 190, 70, 0.035);
+
+}
+
+
+/* DISCOVERIES RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .discoveries-facts {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .discoveries-section {
+
+        padding: 90px 0;
+
+    }
+
+
+    .discoveries-highlight {
+
+        align-items: flex-start;
+
+    }
+
+
+    .discovery-signal {
+
+        left: 18px;
+
+        bottom: 18px;
+
+    }
+
+
+    .discovery-fact {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .discoveries-highlight {
+
+        padding: 14px;
+
+    }
+
+
+    .discoveries-highlight-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .discoveries-highlight-content strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .discoveries-highlight-content span {
+
+        font-size: 11px;
+
+    }
+
+}
+/* =========================================================
+   PART 7 / 9
+   FUTURE SCIENCE & TECHNOLOGY — PART A
+   ========================================================= */
+
+.future-science-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.future-science-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    left: -300px;
+
+    top: 5%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(100, 130, 255, 0.14),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.future-science-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 480px;
+
+    height: 480px;
+
+    right: -240px;
+
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(180, 90, 255, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.future-image-frame {
+
+    box-shadow:
+        0 30px 90px rgba(100, 110, 230, 0.24);
+
+}
+
+
+.future-image {
+
+    filter:
+        saturate(1.12)
+        contrast(1.08);
+
+}
+
+
+.future-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5, 10, 35, 0.03),
+            rgba(12, 8, 45, 0.70)
+        );
+
+}
+
+
+.future-image-label {
+
+    border-color:
+        rgba(150, 165, 255, 0.38);
+
+    background:
+        rgba(15, 20, 55, 0.72);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.future-image-label span {
+
+    color:
+        #9eacff;
+
+}
+
+
+.future-image-label strong {
+
+    color:
+        #f1f3ff;
+
+}
+
+
+.future-signal {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(150, 165, 255, 0.24);
+
+    border-radius: 999px;
+
+    background:
+        rgba(12, 18, 48, 0.64);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(224, 229, 255, 0.80);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.future-pulse {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #a5b2ff;
+
+    box-shadow:
+        0 0 12px rgba(145, 160, 255, 0.85);
+
+    animation:
+        futurePulse 1.8s ease-in-out infinite;
+
+}
+
+
+@keyframes futurePulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: 0.65;
+
+    }
+
+    50% {
+
+        transform: scale(1.55);
+
+        opacity: 1;
+
+    }
+
+}
+/* =========================================================
+   FUTURE SCIENCE & TECHNOLOGY — PART B
+   ========================================================= */
+
+.future-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #9faaff,
+            #d29cff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.future-highlight {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 30px 0;
+
+    padding: 16px 20px;
+
+    border:
+        1px solid rgba(155, 165, 255, 0.18);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(100, 120, 255, 0.09),
+            rgba(180, 100, 255, 0.05)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+.future-highlight-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(130, 140, 255, 0.12);
+
+    font-size: 23px;
+
+}
+
+
+.future-highlight-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.future-highlight-content strong {
+
+    color:
+        #f2f3ff;
+
+    font-size: 15px;
+
+}
+
+
+.future-highlight-content span {
+
+    color:
+        rgba(216, 220, 241, 0.65);
+
+    font-size: 12px;
+
+}
+
+
+.future-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+}
+
+
+.future-fact {
+
+    min-height: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(150, 165, 255, 0.14);
+
+    border-radius: 18px;
+
+    background:
+        rgba(20, 23, 55, 0.38);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.future-fact:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(160, 175, 255, 0.42);
+
+    background:
+        rgba(30, 32, 72, 0.52);
+
+}
+
+
+.future-fact .fact-number {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #a5b0ff;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.future-fact strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #f3f4ff;
+
+    font-size: 14px;
+
+}
+
+
+.future-fact p {
+
+    margin: 0;
+
+    color:
+        rgba(215, 220, 240, 0.65);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.future-action {
+
+    margin-top: 30px;
+
+    border-color:
+        rgba(155, 165, 255, 0.30);
+
+}
+
+
+.future-action:hover {
+
+    border-color:
+        rgba(165, 175, 255, 0.68);
+
+}
+
+
+.future-background-number {
+
+    color:
+        rgba(130, 140, 255, 0.035);
+
+}
+
+
+/* FUTURE RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .future-facts {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .future-science-section {
+
+        padding: 90px 0;
+
+    }
+
+
+    .future-highlight {
+
+        align-items: flex-start;
+
+    }
+
+
+    .future-signal {
+
+        left: 18px;
+
+        bottom: 18px;
+
+    }
+
+
+    .future-fact {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .future-highlight {
+
+        padding: 14px;
+
+    }
+
+
+    .future-highlight-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .future-highlight-content strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .future-highlight-content span {
+
+        font-size: 11px;
+
+    }
+
+}
+/* =========================================================
+   PART 8 / 9
+   EARTH AT NIGHT — PART A
+   ========================================================= */
+
+.earth-night-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+}
+
+
+.earth-night-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+
+    height: 600px;
+
+    right: -300px;
+
+    top: 5%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 190, 70, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.earth-night-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    left: -250px;
+
+    bottom: -200px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(70, 120, 255, 0.13),
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.earth-night-image-frame {
+
+    box-shadow:
+        0 30px 100px rgba(70, 100, 210, 0.25);
+
+}
+
+
+.earth-night-image {
+
+    filter:
+        saturate(1.18)
+        contrast(1.10)
+        brightness(0.95);
+
+}
+
+
+.earth-night-overlay {
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0, 5, 25, 0.02),
+            rgba(5, 5, 35, 0.66)
+        );
+
+}
+
+
+.earth-night-image-label {
+
+    border-color:
+        rgba(255, 205, 100, 0.35);
+
+    background:
+        rgba(10, 12, 40, 0.72);
+
+    backdrop-filter:
+        blur(14px);
+
+}
+
+
+.earth-night-image-label span {
+
+    color:
+        #ffd36d;
+
+}
+
+
+.earth-night-image-label strong {
+
+    color:
+        #f7f5ff;
+
+}
+
+
+.planet-signal {
+
+    position: absolute;
+
+    left: 28px;
+
+    bottom: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border:
+        1px solid rgba(255, 205, 100, 0.22);
+
+    border-radius: 999px;
+
+    background:
+        rgba(8, 10, 35, 0.66);
+
+    backdrop-filter:
+        blur(12px);
+
+    color:
+        rgba(232, 232, 255, 0.80);
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 1.6px;
+
+}
+
+
+.planet-pulse {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #ffd36d;
+
+    box-shadow:
+        0 0 13px rgba(255, 205, 90, 0.85);
+
+    animation:
+        planetPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes planetPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        opacity: 0.65;
+
+    }
+
+    50% {
+
+        transform: scale(1.5);
+
+        opacity: 1;
+
+    }
+
+}
+/* =========================================================
+   EARTH AT NIGHT — PART B
+   ========================================================= */
+
+.earth-night-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffd36d,
+            #8eb7ff
+        );
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+.planet-message {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin: 30px 0;
+
+    padding: 16px 20px;
+
+    border:
+        1px solid rgba(150, 170, 255, 0.18);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(90, 110, 255, 0.08),
+            rgba(255, 190, 70, 0.04)
+        );
+
+    backdrop-filter:
+        blur(16px);
+
+}
+
+
+.planet-message-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        rgba(100, 130, 255, 0.12);
+
+    font-size: 23px;
+
+}
+
+
+.planet-message-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+
+.planet-message-content strong {
+
+    color:
+        #f5f4ff;
+
+    font-size: 15px;
+
+}
+
+
+.planet-message-content span {
+
+    color:
+        rgba(218, 220, 239, 0.65);
+
+    font-size: 12px;
+
+}
+
+
+.earth-night-facts {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+    margin-top: 28px;
+
+}
+
+
+.earth-night-fact {
+
+    min-height: 145px;
+
+    padding: 18px;
+
+    border:
+        1px solid rgba(145, 165, 255, 0.14);
+
+    border-radius: 18px;
+
+    background:
+        rgba(15, 18, 48, 0.38);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.earth-night-fact:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(255, 205, 105, 0.40);
+
+    background:
+        rgba(28, 30, 66, 0.50);
+
+}
+
+
+.earth-night-fact .fact-number {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    color:
+        #ffd36d;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.earth-night-fact strong {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        #f5f5ff;
+
+    font-size: 14px;
+
+}
+
+
+.earth-night-fact p {
+
+    margin: 0;
+
+    color:
+        rgba(215, 220, 238, 0.64);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.earth-night-action {
+
+    margin-top: 30px;
+
+    border-color:
+        rgba(160, 175, 255, 0.30);
+
+}
+
+
+.earth-night-action:hover {
+
+    border-color:
+        rgba(255, 210, 110, 0.65);
+
+}
+
+
+.earth-night-background-number {
+
+    color:
+        rgba(100, 130, 255, 0.04);
+
+}
+
+
+/* EARTH NIGHT RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .earth-night-facts {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .earth-night-section {
+
+        padding: 90px 0;
+
+    }
+
+
+    .planet-message {
+
+        align-items: flex-start;
+
+    }
+
+
+    .planet-signal {
+
+        left: 18px;
+
+        bottom: 18px;
+
+    }
+
+
+    .earth-night-fact {
+
+        min-height: auto;
+
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .planet-message {
+
+        padding: 14px;
+
+    }
+
+
+    .planet-message-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .planet-message-content strong {
+
+        font-size: 13px;
+
+    }
+
+
+    .planet-message-content span {
+
+        font-size: 11px;
+
+    }
+
+}
+/* ==========================================
+   PART 9 — FINAL DIGITAL UNIVERSE
+   ========================================== */
+
+.final-universe-section {
+    position: relative;
+    min-height: 900px;
+    padding: 150px 7%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(60, 80, 255, 0.14),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 210, 255, 0.10),
+            transparent 30%
+        ),
+        linear-gradient(
+            180deg,
+            #030614 0%,
+            #05091d 50%,
+            #02040e 100%
+        );
+}
+
+
+/* SPACE GRID */
+
+.final-space-grid {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 70px 70px;
+
+    mask-image:
+        radial-gradient(
+            circle,
+            black 20%,
+            transparent 75%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ORBITS */
+
+.final-orbit {
+    position: absolute;
+    border: 1px solid rgba(90, 150, 255, 0.15);
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+.final-orbit-one {
+    width: 700px;
+    height: 700px;
+
+    animation: finalOrbitRotate 28s linear infinite;
+}
+
+.final-orbit-two {
+    width: 1050px;
+    height: 520px;
+
+    transform: rotate(35deg);
+
+    animation:
+        finalOrbitRotateReverse
+        40s
+        linear
+        infinite;
+}
+
+.final-orbit-three {
+    width: 1250px;
+    height: 800px;
+
+    transform: rotate(-25deg);
+
+    border-color: rgba(150, 90, 255, 0.10);
+
+    animation:
+        finalOrbitRotate
+        55s
+        linear
+        infinite;
+}
+
+
+@keyframes finalOrbitRotate {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+@keyframes finalOrbitRotateReverse {
+
+    from {
+        transform: rotate(35deg);
+    }
+
+    to {
+        transform: rotate(-325deg);
+    }
+
+}
+
+
+/* FINAL CONTENT */
+
+.final-content {
+    position: relative;
+    z-index: 5;
+
+    width: min(850px, 100%);
+
+    text-align: center;
+}
+
+
+.final-eyebrow {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 18px;
+
+    border: 1px solid rgba(100, 180, 255, 0.25);
+    border-radius: 999px;
+
+    background: rgba(30, 70, 130, 0.12);
+
+    color: #83c9ff;
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+
+    box-shadow:
+        0 0 30px rgba(50, 130, 255, 0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+
+.final-title {
+    margin-top: 30px;
+    margin-bottom: 25px;
+
+    color: #ffffff;
+
+    font-size: clamp(2.4rem, 6vw, 5.5rem);
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.04em;
+
+    text-shadow:
+        0 0 40px rgba(100, 170, 255, 0.15);
+}
+
+
+.final-title span {
+    display: block;
+
+    margin-top: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #72c8ff,
+            #b48cff,
+            #ffffff
+        );
+
+    background-size: 250% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    animation:
+        finalGradientFlow
+        6s
+        linear
+        infinite;
+}
+
+
+@keyframes finalGradientFlow {
+
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+
+}
+
+
+.final-lead {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    color: rgba(235, 245, 255, 0.88);
+
+    font-size: 1.15rem;
+    line-height: 2;
+
+    font-weight: 500;
+}
+
+
+.final-description {
+    max-width: 700px;
+
+    margin: 22px auto 0;
+
+    color: rgba(190, 210, 235, 0.70);
+
+    font-size: 0.98rem;
+    line-height: 1.9;
+}
+
+
+/* FINAL STATS */
+
+.final-stats {
+    display: flex;
+
+    justify-content: center;
+    gap: 18px;
+
+    margin-top: 45px;
+
+    flex-wrap: wrap;
+}
+
+
+.final-stat-card {
+    min-width: 155px;
+
+    padding: 20px 25px;
+
+    border: 1px solid rgba(120, 170, 255, 0.16);
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.final-stat-card:hover {
+    transform: translateY(-7px);
+
+    border-color:
+        rgba(110, 190, 255, 0.45);
+
+    background:
+        rgba(80, 130, 255, 0.08);
+}
+
+
+.final-stat-card strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 1.8rem;
+
+    margin-bottom: 5px;
+}
+
+
+.final-stat-card span {
+    color: rgba(190, 215, 245, 0.65);
+
+    font-size: 0.78rem;
+
+    letter-spacing: 0.05em;
+}
+/* ==========================================
+   FINAL DASHBOARD BUTTON
+   ========================================== */
+
+.final-action-area {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 50px;
+}
+
+
+.final-dashboard-button {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    min-width: min(620px, 100%);
+
+    padding: 18px 22px;
+
+    border: 1px solid rgba(120, 200, 255, 0.35);
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(50, 110, 255, 0.18),
+            rgba(120, 70, 255, 0.10)
+        );
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.25),
+        0 0 35px rgba(70, 130, 255, 0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.final-dashboard-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.12),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.7s ease;
+}
+
+
+.final-dashboard-button:hover::before {
+    left: 140%;
+}
+
+
+.final-dashboard-button:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(120, 210, 255, 0.70);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.35),
+        0 0 50px rgba(70, 140, 255, 0.16);
+}
+
+
+.final-button-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 16px;
+
+    background:
+        rgba(100, 180, 255, 0.10);
+
+    font-size: 1.7rem;
+
+    box-shadow:
+        inset 0 0 20px rgba(100, 180, 255, 0.08);
+}
+
+
+.final-button-text {
+    flex: 1;
+
+    text-align: left;
+}
+
+
+.final-button-text small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #72c9ff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 0.58rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+}
+
+
+.final-button-text strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+}
+
+
+.final-button-arrow {
+    font-size: 1.7rem;
+
+    color: #8bd5ff;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.final-dashboard-button:hover
+.final-button-arrow {
+    transform: translateX(7px);
+}
+
+
+.final-home-link {
+    color: rgba(190, 215, 245, 0.65);
+
+    font-size: 0.85rem;
+
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.final-home-link:hover {
+    color: #8bd5ff;
+}
+
+
+/* ==========================================
+   FINAL PLANET
+   ========================================== */
+
+.final-planet {
+    position: absolute;
+
+    right: 8%;
+    bottom: 12%;
+
+    width: 260px;
+    height: 260px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+}
+
+
+.final-planet-core {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #d8f5ff,
+            #65b8ff 35%,
+            #3855bd 70%,
+            #111739
+        );
+
+    box-shadow:
+        0 0 35px rgba(70, 160, 255, 0.30),
+        0 0 100px rgba(70, 120, 255, 0.18);
+}
+
+
+.final-planet-core span {
+    color: rgba(255,255,255,0.85);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.1em;
+}
+
+
+.final-planet-ring {
+    position: absolute;
+
+    border: 1px solid rgba(120, 190, 255, 0.22);
+
+    border-radius: 50%;
+
+    transform: rotate(-25deg);
+}
+
+
+.ring-one {
+    width: 150px;
+    height: 55px;
+}
+
+
+.ring-two {
+    width: 200px;
+    height: 75px;
+
+    transform: rotate(35deg);
+}
+
+
+.ring-three {
+    width: 255px;
+    height: 95px;
+
+    border-color: rgba(170, 110, 255, 0.16);
+
+    transform: rotate(-55deg);
+}
+
+
+/* ==========================================
+   FLOATING WORDS
+   ========================================== */
+
+.final-floating-word {
+    position: absolute;
+
+    color: rgba(150, 195, 255, 0.20);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 0.65rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.25em;
+
+    pointer-events: none;
+
+    animation:
+        finalFloatingWord
+        5s
+        ease-in-out
+        infinite;
+}
+
+
+.word-one {
+    top: 25%;
+    left: 9%;
+}
+
+
+.word-two {
+    top: 65%;
+    left: 17%;
+
+    animation-delay: 1.5s;
+}
+
+
+.word-three {
+    top: 35%;
+    right: 11%;
+
+    animation-delay: 3s;
+}
+
+
+@keyframes finalFloatingWord {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: translateY(-12px);
+        opacity: 0.75;
+    }
+
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.universe-footer {
+    position: relative;
+
+    padding: 65px 7% 25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #02040e,
+            #010207
+        );
+
+    border-top:
+        1px solid rgba(120, 170, 255, 0.10);
+
+    overflow: hidden;
+}
+
+
+.footer-glow {
+    position: absolute;
+
+    top: -150px;
+    left: 50%;
+
+    width: 500px;
+    height: 300px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(60, 120, 255, 0.12),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+.footer-inner {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 2fr 1fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+
+.footer-brand {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+.footer-logo {
+    position: relative;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(120, 190, 255, 0.35);
+
+    color: #ffffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    background:
+        rgba(70, 120, 255, 0.08);
+
+    box-shadow:
+        0 0 30px rgba(70, 130, 255, 0.08);
+}
+
+
+.footer-logo-orbit {
+    position: absolute;
+
+    width: 76px;
+    height: 25px;
+
+    border:
+        1px solid rgba(120, 190, 255, 0.25);
+
+    border-radius: 50%;
+
+    transform: rotate(-25deg);
+}
+
+
+.footer-brand h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.08em;
+}
+
+
+.footer-brand p {
+    max-width: 310px;
+
+    margin-top: 8px;
+
+    color: rgba(185, 205, 230, 0.58);
+
+    font-size: 0.8rem;
+
+    line-height: 1.7;
+}
+
+
+/* FOOTER LINKS */
+
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px 20px;
+}
+
+
+.footer-links a {
+    color: rgba(190, 215, 245, 0.58);
+
+    font-size: 0.76rem;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease;
+}
+
+
+.footer-links a:hover {
+    color: #81d0ff;
+}
+
+
+/* FOOTER DASHBOARD */
+
+.footer-dashboard {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 10px;
+}
+
+
+.footer-dashboard span {
+    color: rgba(180, 205, 235, 0.45);
+
+    font-size: 0.7rem;
+}
+
+
+.footer-dashboard a {
+    color: #82ceff;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 0.68rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.footer-dashboard a:hover {
+    color: #ffffff;
+
+    transform: translateX(4px);
+}
+
+
+/* FOOTER BOTTOM */
+
+.footer-bottom {
+    position: relative;
+    z-index: 2;
+
+    max-width: 1400px;
+
+    margin: 45px auto 0;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(120, 170, 255, 0.08);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-bottom p,
+.footer-bottom span {
+    margin: 0;
+
+    color: rgba(170, 195, 225, 0.40);
+
+    font-size: 0.68rem;
+}
+
+
+.footer-bottom span {
+    font-family: "Orbitron", sans-serif;
+
+    letter-spacing: 0.08em;
+}
+
+
+/* ==========================================
+   FINAL RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1000px) {
+
+    .final-universe-section {
+        min-height: 850px;
+
+        padding:
+            120px 6%;
+    }
+
+    .final-planet {
+        right: -40px;
+        bottom: 8%;
+
+        transform: scale(0.75);
+
+        opacity: 0.30;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-dashboard {
+        align-items: flex-start;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .final-universe-section {
+        min-height: 820px;
+
+        padding:
+            100px 20px;
+    }
+
+    .final-title {
+        font-size: clamp(
+            2.2rem,
+            11vw,
+            3.5rem
+        );
+    }
+
+    .final-lead {
+        font-size: 0.98rem;
+
+        line-height: 1.8;
+    }
+
+    .final-description {
+        font-size: 0.85rem;
+    }
+
+    .final-stats {
+        gap: 10px;
+    }
+
+    .final-stat-card {
+        min-width: 120px;
+
+        padding: 15px 14px;
+    }
+
+    .final-stat-card strong {
+        font-size: 1.4rem;
+    }
+
+    .final-stat-card span {
+        font-size: 0.65rem;
+    }
+
+    .final-dashboard-button {
+        min-width: 100%;
+
+        padding: 15px;
+
+        gap: 12px;
+    }
+
+    .final-button-icon {
+        width: 45px;
+        height: 45px;
+
+        font-size: 1.3rem;
+    }
+
+    .final-button-text strong {
+        font-size: 0.82rem;
+    }
+
+    .final-button-text small {
+        font-size: 0.48rem;
+    }
+
+    .final-button-arrow {
+        font-size: 1.3rem;
+    }
+
+    .final-planet {
+        right: 50%;
+
+        bottom: 20px;
+
+        transform:
+            translateX(50%)
+            scale(0.55);
+
+        opacity: 0.20;
+    }
+
+    .final-floating-word {
+        display: none;
+    }
+
+    .footer-links {
+        justify-content: flex-start;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        margin-top: 35px;
+    }
+
+}
+
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .final-orbit,
+    .final-title span,
+    .final-floating-word {
+        animation: none;
+    }
+
+}
